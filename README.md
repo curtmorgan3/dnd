@@ -35,6 +35,14 @@ She can **create** a character that is stored in and retrieved from a database.
 
 A user can use the app as a character tracker, with automated services for in game calculations and random number generation.
 
+	1. Based on class, race and background, generate the following:
+		1. Six core attributes
+		2. Attribute modifiers
+		3. Armor class, initiative, speed
+		4. MaxHP
+		5. Saving throws 
+		6. Starting equipment
+
 He can **edit** a character, which will update the database.
 
 A character can be killed, which **deletes** it from the database.
@@ -60,7 +68,7 @@ The owner of a campaign can exchange equipment for a character's currency (barte
 
 A user can supply map images to her campaign, then share them with other users.
 
-Accompanying React Native app for easy tablet / mobile use. 
+Accompanying React Native app for easy tablet / mobile use.
 
 # Technologies
 Client
