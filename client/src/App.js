@@ -25,7 +25,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+			{this.state.token ? (
+				<h1>Logged In</h1>
+			) : (
 				<Login />
+			)}
+
       </div>
     );
   }
