@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
+import { getUserCharacters } from './api-helpers.js';
 import NavBar from './Components/NavBar';
 import Landing from './Components/Landing';
 import Register from './Components/Register';
@@ -12,7 +13,8 @@ class App extends Component {
 		super(props);
 		this.state = {
 			token: '',
-			redirect: false
+			redirect: false,
+			characters: [],
 		}
 		this.signOut = this.signOut.bind(this);
 		this.logIn = this.logIn.bind(this);
@@ -21,9 +23,11 @@ class App extends Component {
 	async componentDidMount(){
 		const token = await localStorage.getItem('dnd_token');
 		if (token){
+			const characters = await getUserCharacters();
 			this.setState({
-				token: token,
-			})
+				token,
+				characters
+			});
 		}
 	}
 	logIn(token){
@@ -60,7 +64,9 @@ class App extends Component {
 						<Login logIn={this.logIn}/>
 					)}/>
 					<Route path='/register' component={Register} />
-					<Route path='/characters' component={Characters} />
+					<Route path='/characters' render={props => (
+						<Characters characters={this.state.characters} />
+					)}/>
 
 				</div>
 			</Router>
