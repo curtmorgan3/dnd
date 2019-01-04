@@ -4,6 +4,7 @@ import NavBar from './Components/NavBar';
 import Landing from './Components/Landing';
 import Register from './Components/Register';
 import Login from './Components/Login';
+import Characters from './Components/Characters';
 import './App.css';
 
 class App extends Component {
@@ -59,6 +60,8 @@ class App extends Component {
 						<Login logIn={this.logIn}/>
 					)}/>
 					<Route path='/register' component={Register} />
+					<Route path='/characters' component={Characters} />
+
 				</div>
 			</Router>
     );
