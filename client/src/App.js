@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Register from './Components/Register';
 import Login from './Components/Login';
+import NavBar from './Components/NavBar'
 import './App.css';
 
 class App extends Component {
@@ -17,21 +19,21 @@ class App extends Component {
 			this.setState({
 				token: token
 			})
-			console.log(this.state.token);
 		}else {
 			console.log('no token');
 		}
 	}
   render() {
     return (
-      <div className="App">
-			{this.state.token ? (
-				<h1>Logged In</h1>
-			) : (
-				<Login />
-			)}
+			<Router>
+      	<div className="App">
+				{this.state.token ? (
+					<Route exact path='/' component={NavBar} />
+				) : (<Route exact path='/' component={Login} />
+				)}
 
-      </div>
+      	</div>
+			</Router>
     );
   }
 }
