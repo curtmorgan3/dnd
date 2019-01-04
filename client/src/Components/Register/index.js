@@ -35,7 +35,6 @@ export default class Register extends React.Component{
 				password: this.state.password
 			}}
 			const token = await axios.post('user_token', userData);
-			console.log(token.data.jwt);
 			localStorage.setItem('dnd_token', token.data.jwt)
 		}catch (e){
 			console.error(e);
