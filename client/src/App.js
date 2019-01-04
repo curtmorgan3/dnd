@@ -1,38 +1,65 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
+import NavBar from './Components/NavBar';
 import Landing from './Components/Landing';
 import Register from './Components/Register';
 import Login from './Components/Login';
-import NavBar from './Components/NavBar'
 import './App.css';
 
 class App extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			token: ''
+			token: '',
+			redirect: false
 		}
+		this.signOut = this.signOut.bind(this);
+		this.logIn = this.logIn.bind(this);
 	}
 
 	async componentDidMount(){
 		const token = await localStorage.getItem('dnd_token');
 		if (token){
 			this.setState({
-				token: token
+				token: token,
 			})
-		}else {
-			console.log('no token');
 		}
 	}
+	logIn(token){
+		this.setState({
+			token: token,
+			redirect: true
+		})
+		this.setState({
+			redirect: false
+		})
+	}
+
+	signOut(){
+		localStorage.removeItem('dnd_token');
+		this.setState({
+			token: '',
+			redirect: true
+		})
+		this.setState({
+			redirect: false
+		})
+	}
+
   render() {
     return (
 			<Router>
       	<div className="App">
-				<NavBar />
-				<Route exact path='/' component={Landing} />
-				<Route path='/login' component={Login} />
-				<Route path='/register' component={Register} />
-      	</div>
+					{this.state.redirect ? (
+						<Redirect to='/' />
+					) : null }
+					<NavBar signOut={this.signOut} />
+					<Route exact path='/' component={Landing} />
+					<Route path='/login' render={props => (
+						<Login logIn={this.logIn}/>
+					)}/>
+					<Route path='/register' component={Register} />
+				</div>
 			</Router>
     );
   }

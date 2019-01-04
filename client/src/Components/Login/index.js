@@ -27,7 +27,12 @@ export default class Login extends React.Component {
 		}};
 		try {
 			const token = await axios.post('/user_token', data);
-			localStorage.setItem('dnd_token', token.data.jwt)
+			localStorage.setItem('dnd_token', token.data.jwt);
+			this.setState({
+				password: '',
+				email: ''
+			})
+			this.props.logIn(token.data.jwt);
 		} catch (e) {
 			console.error(e);
 		}
