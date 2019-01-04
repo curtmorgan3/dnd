@@ -67,7 +67,7 @@ Custom API / Server
 
 # Database Associations
 
-![ERD]("https://github.com/curtmorgan3/dnd/blob/master/images/ERD.png?raw=true" "ERD")
+![ERD](./images/ERD.png 'ERD')
 
 # Data Structures
 ```JSON
