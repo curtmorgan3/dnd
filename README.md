@@ -1,4 +1,7 @@
 # Table Top Companion
+
+![Cones of Dunshire](https://media.giphy.com/media/11fiAsa3QmtCQo/giphy.gif)
+
 For too long, the pen and paper aspect of pen and paper games has been a hinderance and a burden.
 It's 2019, let's finally use computers for something useful.
 
