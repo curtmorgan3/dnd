@@ -15,9 +15,9 @@ D&D character. No need to look up the rules or have dice handy, it will take car
 
 Want to start a game? Create a new campaign and invite your friends to play through invite links sent directly from the TTC. Once they've joined, you'll be able to view their characters.
 
-When it's time to host a session, bring your tablets and laptops along. Check into a campaign through the TTC and everyone will have access to each other. The DM can randomly generate NPCs, attack players, add buffs or debuffs, handle transaction, or quickly refer to notes and stats from the player's handbook.
+When it's time to host a session, bring your tablets and laptops along. Check into a campaign through the TTC and everyone will have access to each other. The DM can randomly generate NPCs, attack players, add buffs or debuffs, handle transactions, or quickly refer to the game's rules.
 
-Players can attack other players or NPCs, removing the need to roll and do math, buy items from shops and check references or character details.
+Players can attack other players or NPCs, removing the need to roll dice and do math, buy items from shops and check references or character details.
 
 # Wireframes
 Landing / Register : https://wireframe.cc/N87blU
@@ -33,7 +33,7 @@ A user can register for an account, then log in to that account.
 
 She can **create** a character that is stored in and retrieved from a database.
 
-A user can use the app as a character tracker, with automated services for in game calculations and random number generation
+A user can use the app as a character tracker, with automated services for in game calculations and random number generation.
 
 He can **edit** a character, which will update the database.
 
@@ -46,6 +46,8 @@ The app can make AJAX calls to the D&D 3rd Party API, which provides game rules 
 A user can quickly view game rules through these AJAX calls.
 
 # Post MVP
+Use web sockets to connect users in the same campaign.
+
 A user can create campaigns and invite other users to join it.
 
 The owner of a campaign can view all characters associated with it.
@@ -54,7 +56,7 @@ The owner of a campaign can make Non-Playable Characters (simpler versions of ch
 
 Users can attack characters, with automated services to determine hits/misses, damage, speed etc.
 
-The owner of a campaign can exchange equipment for a character's currency (barter system)
+The owner of a campaign can exchange equipment for a character's currency (barter system).
 
 A user can supply map images to her campaign, then share them with other users.
 
@@ -74,6 +76,7 @@ Custom API / Server
 	Rails
 	Bcrypt
 	JSON Web Tokens
+	Action Cable
 	Active Record
 	PostgreSQL
 
