@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Landing from './Components/Landing';
 import Register from './Components/Register';
 import Login from './Components/Login';
 import NavBar from './Components/NavBar'
@@ -27,11 +28,10 @@ class App extends Component {
     return (
 			<Router>
       	<div className="App">
-				{this.state.token ? (
-					<Route exact path='/' component={NavBar} />
-				) : (<Route exact path='/' component={Login} />
-				)}
-
+				<NavBar />
+				<Route exact path='/' component={Landing} />
+				<Route path='/login' component={Login} />
+				<Route path='/register' component={Register} />
       	</div>
 			</Router>
     );
