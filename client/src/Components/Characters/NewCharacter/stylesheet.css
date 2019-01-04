@@ -1,0 +1,9 @@
+.new-character-wrapper{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.new-character-form{
+	width: 40%;
+}
