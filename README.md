@@ -48,14 +48,17 @@ A user can supply map images to her campaign, then share them with other users.
 
 # Technologies
 Client
+
 	React
 	Redux
 	React Router
 	Axios
 	React Bootstrap
 3rd Party API
+
 	http://www.dnd5eapi.co/
 Custom API / Server
+
 	Rails
 	Bcrypt
 	JSON Web Tokens
@@ -64,7 +67,7 @@ Custom API / Server
 
 # Database Associations
 
-![alt text]("./images/ERD.png" "ERD")
+![ERD]("https://github.com/curtmorgan3/dnd/blob/master/images/ERD.png?raw=true" "ERD")
 
 # Data Structures
 ```JSON
