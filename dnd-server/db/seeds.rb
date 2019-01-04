@@ -9,5 +9,5 @@
 User.create({
 	username: 'curt112',
 	email: 'curtmorgan3@gmail.com',
-	password_digest: 'password'
+	password: 'password',
 })
