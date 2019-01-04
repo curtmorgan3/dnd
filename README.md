@@ -19,18 +19,27 @@ When it's time to host a session, bring your tablets and laptops along. Check in
 
 Players can attack other players or NPCs, removing the need to roll and do math, buy items from shops and check references or character details.
 
+# Wireframes
+Landing / Register : https://wireframe.cc/N87blU
+
+Log In : https://wireframe.cc/1wgXkT
+
+Landing / Logged In: https://wireframe.cc/ovziBx
+
+In Game : https://wireframe.cc/9dhDs5
+
 # Minimum Viable Product
 A user can register for an account, then log in to that account.
 
-She can create a character that is stored in and retrieved from a database.
+She can **create** a character that is stored in and retrieved from a database.
 
 A user can use the app as a character tracker, with automated services for in game calculations and random number generation
 
-He can edit a character, which will update the database.
+He can **edit** a character, which will update the database.
 
-A character can be killed, which deletes it from the database.
+A character can be killed, which **deletes** it from the database.
 
-A user can view all his characters.
+A user can **view** all his characters.
 
 The app can make AJAX calls to the D&D 3rd Party API, which provides game rules and stats.
 
