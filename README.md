@@ -60,6 +60,8 @@ The owner of a campaign can exchange equipment for a character's currency (barte
 
 A user can supply map images to her campaign, then share them with other users.
 
+Accompanying React Native app for easy tablet / mobile use. 
+
 # Technologies
 Client
 
