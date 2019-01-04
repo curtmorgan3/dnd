@@ -1,6 +1,7 @@
 import React from 'react';
 import './stylesheet.css';
 import { FormControl } from 'react-bootstrap';
+import axios from 'axios';
 
 export default class Register extends React.Component{
 	constructor(props){
@@ -12,6 +13,7 @@ export default class Register extends React.Component{
 			email: ''
 		}
 		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	handleChange(e){
@@ -19,10 +21,30 @@ export default class Register extends React.Component{
 			[e.target.name]: e.target.value
 		})
 	}
+	async handleSubmit(e){
+		e.preventDefault();
+		const data = {user: {
+			email: this.state.email,
+			password: this.state.password,
+			username: this.state.username
+		}}
+		try{
+			const userPromise = await axios.post('/users', data);
+			const userData = {auth: {
+				email: userPromise.data.email,
+				password: this.state.password
+			}}
+			const token = await axios.post('user_token', userData);
+			console.log(token.data.jwt);
+			localStorage.setItem('dnd_token', token.data.jwt)
+		}catch (e){
+			console.error(e);
+		}
+	}
 	render(){
 		return(
 			<div className='register-form-wrapper'>
-				<form className='register-form'>
+				<form className='register-form' onSubmit={this.handleSubmit}>
 					<FormControl
 						type='text'
 						name='username'
