@@ -51,7 +51,7 @@ export default class NewCharacter extends React.Component{
 						/>
 					</StepWizard>
 				) : (
-					<h1>Finished</h1>
+					<FinishedCharacter data={this.state}/>
 				)}
 
 			</div>

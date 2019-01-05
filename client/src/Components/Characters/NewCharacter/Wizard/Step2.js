@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormControl, Checkbox, Radio, FormGroup, DropdownButton, MenuItem} from 'react-bootstrap';
+import {FormGroup, DropdownButton, MenuItem} from 'react-bootstrap';
 import {rollAbilities} from '../../../../dnd-helpers.js';
 
 export default class Step2 extends React.Component{
@@ -30,9 +30,9 @@ export default class Step2 extends React.Component{
 			this.setState({
 				finished: true
 			})
-			console.log('finished');
+			// console.log('finished');
 		}else{
-			console.log('not finished');
+			// console.log('not finished');
 		}
 	}
 	rollForAbilities(){
@@ -43,7 +43,7 @@ export default class Step2 extends React.Component{
 	}
 	selectStr(e){
 		const length = this.state.abilityScores.length;
-		const newScores = this.state.abilityScores.filter(score => score != e)
+		const newScores = this.state.abilityScores.filter(score => score !== e)
 		if (newScores.length !== length - 1){
 			for (let i = 0; i< length - newScores.length; i++){
 				newScores.push(e);
@@ -57,7 +57,7 @@ export default class Step2 extends React.Component{
 	}
 	selectDex(e){
 		const length = this.state.abilityScores.length;
-		const newScores = this.state.abilityScores.filter(score => score != e)
+		const newScores = this.state.abilityScores.filter(score => score !== e)
 		if (newScores.length !== length - 1){
 			for (let i = 0; i< length - newScores.length; i++){
 				newScores.push(e);
@@ -71,7 +71,7 @@ export default class Step2 extends React.Component{
 	}
 	selectCon(e){
 		const length = this.state.abilityScores.length;
-		const newScores = this.state.abilityScores.filter(score => score != e)
+		const newScores = this.state.abilityScores.filter(score => score !== e)
 		if (newScores.length !== length - 1){
 			for (let i = 0; i< length - newScores.length; i++){
 				newScores.push(e);
@@ -85,7 +85,7 @@ export default class Step2 extends React.Component{
 	}
 	selectInt(e){
 		const length = this.state.abilityScores.length;
-		const newScores = this.state.abilityScores.filter(score => score != e)
+		const newScores = this.state.abilityScores.filter(score => score !== e)
 		if (newScores.length !== length - 1){
 			for (let i = 0; i< length - newScores.length; i++){
 				newScores.push(e);
@@ -99,7 +99,7 @@ export default class Step2 extends React.Component{
 	}
 	selectWis(e){
 		const length = this.state.abilityScores.length;
-		const newScores = this.state.abilityScores.filter(score => score != e)
+		const newScores = this.state.abilityScores.filter(score => score !== e)
 		if (newScores.length !== length - 1){
 			for (let i = 0; i< length - newScores.length; i++){
 				newScores.push(e);
@@ -113,7 +113,7 @@ export default class Step2 extends React.Component{
 	}
 	selectCha(e){
 		const length = this.state.abilityScores.length;
-		const newScores = this.state.abilityScores.filter(score => score != e)
+		const newScores = this.state.abilityScores.filter(score => score !== e)
 		if (newScores.length !== length - 1){
 			for (let i = 0; i< length - newScores.length; i++){
 				newScores.push(e);

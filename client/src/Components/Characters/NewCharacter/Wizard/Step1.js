@@ -48,6 +48,7 @@ export default class Step1 extends React.Component{
 		const data = {
 			name: this.state.name,
 			clas: this.state.clas,
+			race: this.state.race,
 			alignment: this.state.subAlignment.concat('_', this.state.alignment)
 		}
 		this.props.handleStepChange('step1', data);

@@ -24,7 +24,19 @@ function rollAbilities(){
 	return abilityScores;
 }
 
+//Given ability scores, returns modifiers
+function getAbilityModifiers(abilities){
+	const modifiers = {};
+	Object.keys(abilities).forEach((key, i) => {
+		let ability = abilities[key];
+		const mod = Math.floor((ability - 10) / 2 );
+		modifiers[key] = mod;
+	})
+	return modifiers;
+}
+
 module.exports = {
 	rollDice,
-	rollAbilities
+	rollAbilities,
+	getAbilityModifiers
 }
