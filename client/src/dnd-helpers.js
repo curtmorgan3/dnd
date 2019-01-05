@@ -17,11 +17,14 @@ function rollDice(sides, n){
 function rollAbilities(){
 	const abilityScores = [];
 	for (let i = 0; i < 6; i++){
-		rawAbility = rollDice(6,4);
+		const rawAbility = rollDice(6,4);
 		const ability = rawAbility[1] + rawAbility[2] + rawAbility[3];
 		abilityScores.push(ability);
 	}
-	console.log(abilityScores);
+	return abilityScores;
 }
 
-rollAbilities()
+module.exports = {
+	rollDice,
+	rollAbilities
+}

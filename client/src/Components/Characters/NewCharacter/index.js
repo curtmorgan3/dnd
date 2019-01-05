@@ -20,8 +20,6 @@ export default class NewCharacter extends React.Component{
 		e.preventDefault();
 	}
 	handleStepChange(step, data){
-		console.log('handle step change');
-		console.log(step, data);
 		this.setState({
 			[step]: data
 		})
