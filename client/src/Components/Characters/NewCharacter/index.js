@@ -1,5 +1,4 @@
 import React from 'react';
-import { FormControl } from 'react-bootstrap';
 import StepWizard  from 'react-step-wizard';
 import Step1 from './Wizard/Step1.js';
 import Step2 from './Wizard/Step2.js';

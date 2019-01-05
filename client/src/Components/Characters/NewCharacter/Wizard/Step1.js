@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormControl, FormGroup, ControlLabel, Checkbox, Radio, DropdownButton, MenuItem} from 'react-bootstrap';
+import {FormControl, FormGroup, ControlLabel, DropdownButton, MenuItem} from 'react-bootstrap';
 
 export default class Step1 extends React.Component{
 	constructor(props){
@@ -67,14 +67,14 @@ export default class Step1 extends React.Component{
 					<FormGroup>
 						<DropdownButton onSelect={this.chooseRace} title={this.state.race.charAt(0).toUpperCase() + this.state.race.slice(1)}>
 							{races.map(race => (
-								<MenuItem eventKey={race.toLowerCase()}>{race}</MenuItem>
+								<MenuItem key={race} eventKey={race.toLowerCase()}>{race}</MenuItem>
 							))}
 						</DropdownButton>
     			</FormGroup>
 					<FormGroup>
 						<DropdownButton onSelect={this.chooseClass} title={this.state.clas.charAt(0).toUpperCase() + this.state.clas.slice(1)}>
 							{classes.map(clas => (
-								<MenuItem eventKey={clas.toLowerCase()}>{clas}</MenuItem>
+								<MenuItem key={clas} eventKey={clas.toLowerCase()}>{clas}</MenuItem>
 							))}
 						</DropdownButton>
     			</FormGroup>

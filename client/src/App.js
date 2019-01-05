@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { getUserCharacters } from './api-helpers.js';
 import NavBar from './Components/NavBar';
 import Landing from './Components/Landing';

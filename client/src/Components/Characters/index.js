@@ -7,7 +7,7 @@ export default function Characters(props){
 		<div>
 			<h1>Characters</h1>
 			{characters.map(character => (
-				<div>
+				<div key={character.name}>
 					<p>{character.name}</p>
 				</div>
 			))}
