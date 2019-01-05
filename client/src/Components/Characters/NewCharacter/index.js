@@ -1,37 +1,30 @@
 import React from 'react';
 import { FormControl } from 'react-bootstrap';
+import StepWizard  from 'react-step-wizard';
+import Step1 from './Wizard/Step1.js';
+import Step2 from './Wizard/Step2.js';
 import './stylesheet.css';
 
 export default class NewCharacter extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-
+			step1: {},
 		}
 		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleChange = this.handleChange.bind(this);
 	}
 
 	handleSubmit(e){
 		e.preventDefault();
 	}
 
-	handleChange(e){
-		this.setState({
-			[e.target.name]: e.target.value
-		})
-	}
-
 	render(){
 		return(
 			<div className='new-character-wrapper'>
-				<form className='new-character-form' onSubmit={this.handleSubmit}>
-					<FormControl
-					/>
-					<FormControl
-					/>
-					<FormControl type='submit' value='Submit' />
-						</form>
+				<StepWizard>
+					<Step1 />
+					<Step2 />
+				</StepWizard>
 			</div>
 		)
 	}
