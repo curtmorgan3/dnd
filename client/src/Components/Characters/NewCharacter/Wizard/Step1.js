@@ -12,7 +12,7 @@ export default class Step1 extends React.Component{
 			subAlignment: 'lawful'
 		}
 		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
+		this.nextStep = this.nextStep.bind(this);
 		this.chooseRace = this.chooseRace.bind(this);
 		this.chooseClass = this.chooseClass.bind(this);
 		this.chooseAlignment = this.chooseAlignment.bind(this);
@@ -44,10 +44,15 @@ export default class Step1 extends React.Component{
 			[e.target.name]: e.target.value
 		})
 	};
-	handleSubmit(e){
-		e.preventDefault();
-
-	};
+	nextStep(){
+		const data = {
+			name: this.state.name,
+			clas: this.state.clas,
+			alignment: this.state.subAlignment.concat('_', this.state.alignment)
+		}
+		this.props.handleStepChange('step1', data);
+		this.props.nextStep();
+	}
 
 	render(){
 		const races = ['Human', 'Dwarf', 'Elf', 'Halfling', 'Dragonborn', 'Gnome', 'Half-Elf', 'Half-Orc', 'Tiefling']
@@ -87,7 +92,7 @@ export default class Step1 extends React.Component{
 					</FormGroup>
 				</form>
 				<button onClick={()=> this.props.previousStep()}>Back</button>
-				<button onClick={()=> this.props.nextStep()}>Next</button>
+				<button onClick={()=> this.nextStep()}>Save and Next Step</button>
 			</div>
 		)
 	}

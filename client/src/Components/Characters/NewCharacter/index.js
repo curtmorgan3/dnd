@@ -10,20 +10,33 @@ export default class NewCharacter extends React.Component{
 		super(props);
 		this.state = {
 			step1: {},
+			step2: {},
 		}
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleStepChange = this.handleStepChange.bind(this);
 	}
 
 	handleSubmit(e){
 		e.preventDefault();
+	}
+	handleStepChange(step, data){
+		console.log('handle step change');
+		console.log(step, data);
+		this.setState({
+			[step]: data
+		})
 	}
 
 	render(){
 		return(
 			<div className='new-character-wrapper'>
 				<StepWizard>
-					<Step1 />
-					<Step2 />
+					<Step1 handleStepChange={this.handleStepChange}
+								 state={this.state}
+					/>
+					<Step2 handleStepChange={this.handleStepChange}
+								 state={this.state}
+					/>
 				</StepWizard>
 			</div>
 		)
