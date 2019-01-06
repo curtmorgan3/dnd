@@ -42,7 +42,9 @@ export default class FinishedCharacter extends React.Component{
 			hitDie: 0,
 			armorProfs: [],
 			weaponProfs: [],
-
+			skillProfs: [],
+			maxHP: 0,
+			hp: 0,
 		}
 		//Bindings
 	}
@@ -52,6 +54,7 @@ export default class FinishedCharacter extends React.Component{
 		const ac = getAC(mods.dex);
 		const speed = getSpeed(this.state.race);
 		const classStats = getClassStats(this.state.clas);
+		const maxHP = classStats.hitDie + mods.con;
 		this.setState({
 			abilityMods: {
 				str: mods.str,
@@ -69,6 +72,8 @@ export default class FinishedCharacter extends React.Component{
 			savingThrows: classStats.savingThrows,
 			armorProfs: classStats.armorProfs,
 			weaponProfs: classStats.weaponProfs,
+			maxHP ,
+			hp: maxHP
 		})
 	}
 
@@ -89,6 +94,7 @@ export default class FinishedCharacter extends React.Component{
 					</div>
 				</div>
 				<div className='abilities'>
+					<h4>Abilities</h4>
 					<div id='abil-str'>
 						<p>Strength: {this.state.abilities.str}</p>
 						<p>Modifier: {this.state.abilityMods.str}</p>
@@ -114,29 +120,55 @@ export default class FinishedCharacter extends React.Component{
 						<p>Modifier: {this.state.abilityMods.cha}</p>
 					</div>
 				</div>
-				<div className='prof-insp'>
+				<div className='saving-throws'>
 					<p>Inspiration: {this.state.inspiration}</p>
 					<p>Proficiency Bonus: {this.state.proficiencyBonus}</p>
+					<h4>Saving Throws</h4>
+					<div>
+						{this.state.savingThrows.includes('str') ? <p>Yes</p> : <p>No</p>}
+						<p>Strength: {this.state.abilityMods.str}</p>
+					</div>
+					<div>
+						{this.state.savingThrows.includes('dex') ? <p>Yes</p> : <p>No</p>}
+						<p>Dexterity: {this.state.abilityMods.dex}</p>
+					</div>
+					<div>
+						{this.state.savingThrows.includes('con') ? <p>Yes</p> : <p>No</p>}
+						<p>Constituion: {this.state.abilityMods.con}</p>
+					</div>
+					<div>
+						{this.state.savingThrows.includes('int') ? <p>Yes</p> : <p>No</p>}
+						<p>Intelligence: {this.state.abilityMods.int}</p>
+					</div>
+					<div>
+						{this.state.savingThrows.includes('wis') ? <p>Yes</p> : <p>No</p>}
+						<p>Wisdom: {this.state.abilityMods.wis}</p>
+					</div>
+					<div>
+						{this.state.savingThrows.includes('cha') ? <p>Yes</p> : <p>No</p>}
+						<p>Charisma: {this.state.abilityMods.cha}</p>
+					</div>
 				</div>
 				<div className='character-traits'>
 					<div>
-						<p>Personality Traits</p>
+						<h4>Personality Traits</h4>
 						<p>{this.state.personalityTraits}</p>
 					</div>
 					<div>
-						<p>Ideals</p>
+						<h4>Ideals</h4>
 						<p>{this.state.ideals}</p>
 					</div>
 					<div>
-						<p>Bonds</p>
+						<h4>Bonds</h4>
 						<p>{this.state.bonds}</p>
 					</div>
 					<div>
-						<p>Flaws</p>
+						<h4>Flaws</h4>
 						<p>{this.state.flaws}</p>
 					</div>
 				</div>
 				<div className='defense-stats'>
+					<h4>Defensive Stats</h4>
 					<div className='ac-speed'>
 						<div>
 							<p>Armor Class</p>
@@ -152,8 +184,94 @@ export default class FinishedCharacter extends React.Component{
 						</div>
 					</div>
 					<div className='hit-points'>
+						<p>Max Hit Points: {this.state.maxHP}</p>
+						<p>Current Hit Points: {this.state.hp}</p>
 					</div>
 					<div className='hitDie-throws'>
+						<div>
+							<p>Hit Die</p>
+							<p>d{this.state.hitDie}</p>
+						</div>
+						<div>
+							<p>Death Saves</p>
+							<p>Success: </p>
+							<p>Failure: </p>
+						</div>
+					</div>
+				</div>
+				<div className='skills'>
+					<h4>Skills</h4>
+					<div>
+						{this.state.skillProfs.includes('acrobatics') ? <p>Yes</p> : <p>No</p>}
+						<p>Acrobatics: {this.state.abilityMods.dex} (dex)</p>
+					</div>
+					<div>
+						{this.state.skillProfs.includes('animal_handling') ? <p>Yes</p> : <p>No</p>}
+						<p>Animal Handling: {this.state.abilityMods.wis} (wis)</p>
+					</div>
+					<div>
+						{this.state.skillProfs.includes('arcana') ? <p>Yes</p> : <p>No</p>}
+						<p>Arcana: {this.state.abilityMods.int} (int)</p>
+					</div>
+					<div>
+						{this.state.skillProfs.includes('athletics') ? <p>Yes</p> : <p>No</p>}
+						<p>Athletics: {this.state.abilityMods.str} (str)</p>
+					</div>
+					<div>
+						{this.state.skillProfs.includes('deception') ? <p>Yes</p> : <p>No</p>}
+						<p>Deception: {this.state.abilityMods.cha} (cha)</p>
+					</div>
+					<div>
+						{this.state.skillProfs.includes('history') ? <p>Yes</p> : <p>No</p>}
+						<p>History: {this.state.abilityMods.int} (int)</p>
+					</div>
+					<div>
+						{this.state.skillProfs.includes('insight') ? <p>Yes</p> : <p>No</p>}
+						<p>Insight: {this.state.abilityMods.wis} (wis)</p>
+					</div>
+					<div>
+						{this.state.skillProfs.includes('intimidation') ? <p>Yes</p> : <p>No</p>}
+						<p>Intimidation: {this.state.abilityMods.cha} (cha)</p>
+					</div>
+					<div>
+						{this.state.skillProfs.includes('investigation') ? <p>Yes</p> : <p>No</p>}
+						<p>Investigation: {this.state.abilityMods.int} (int)</p>
+					</div>
+					<div>
+						{this.state.skillProfs.includes('medicine') ? <p>Yes</p> : <p>No</p>}
+						<p>Medicine: {this.state.abilityMods.wis} (wis)</p>
+					</div>
+					<div>
+						{this.state.skillProfs.includes('nature') ? <p>Yes</p> : <p>No</p>}
+						<p>Nature: {this.state.abilityMods.int} (int)</p>
+					</div>
+					<div>
+						{this.state.skillProfs.includes('perception') ? <p>Yes</p> : <p>No</p>}
+						<p>Perception: {this.state.abilityMods.wis} (wis)</p>
+					</div>
+					<div>
+						{this.state.skillProfs.includes('performance') ? <p>Yes</p> : <p>No</p>}
+						<p>Performance: {this.state.abilityMods.cha} (cha)</p>
+					</div>
+					<div>
+						{this.state.skillProfs.includes('persuasion') ? <p>Yes</p> : <p>No</p>}
+						<p>Persuasion: {this.state.abilityMods.cha} (cha)</p>
+					</div>
+					<div>
+						{this.state.skillProfs.includes('religion') ? <p>Yes</p> : <p>No</p>}
+						<p>Relgion: {this.state.abilityMods.int} (int)</p>
+					</div>
+					<div>
+						{this.state.skillProfs.includes('sleight_of_hand') ? <p>Yes</p> : <p>No</p>}
+						<p>Sleight of Hand: {this.state.abilityMods.dex} (dex)</p>
+					</div>
+					<div>
+						{this.state.skillProfs.includes('stealth') ? <p>Yes</p> : <p>No</p>}
+						<p>Stealth: {this.state.abilityMods.dex} (dex)</p>
+					</div>
+					<div>
+						{this.state.skillProfs.includes('survival') ? <p>Yes</p> : <p>No</p>}
+						<p>Survival: {this.state.abilityMods.wis} (wis)</p>
 					</div>
 				</div>
 			</div>

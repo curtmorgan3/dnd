@@ -4,7 +4,7 @@ import {FormControl, FormGroup, ControlLabel} from 'react-bootstrap';
 export default class Step3 extends React.Component{
 	constructor(props){
 		super(props);
-		this.state = { //Remove 
+		this.state = { //Remove
 			personality: 'Hailing from the Dragonlance setting, Tika Waylan was a brash teenager who had a rough childhood. The daughter of a thief, she ran away from home and practiced her father’s trade on the streets of Solace. When she tried to rob the proprietor of the Inn of the Last Home, he caught her and took her under his wing, giving her a job as a barmaid. But when the dragonarmies laid waste to the town of Solace and destroyed the inn, necessity forced Tika into adventure alongside the friends she’d known from her childhood. Her skill as a fighter (a frying pan remains one of her favorite weapons) combined with her history on the streets gave her skills invaluable in her adventuring career.',
 			ideals: 'Tika is nineteen years old at the start of her adventuring career and has auburn hair, green eyes, fair skin with freckles, and a mole on her right hip. Artemis is a small man, compact and all wiry muscle. He has angular features and high cheekbones, and he always seems in need of a shave. His raven-black hair is thick and full, but his eyes are gray and lifeless—betraying the emptiness of his life and soul.',
 			bonds: 'Give your character two personality traits. Personality traits are small, simple ways to help you set your character apart from every other character. Your personality traits should tell you something interesting and fun about your character. They should be self-descriptions that are specific about what makes your character stand out. “I’m smart” is not a good trait, because it describes a lot of characters. “I’ve read every book in Candlekeep” tells you something specific about your character’s interests and disposition.',
@@ -24,10 +24,10 @@ export default class Step3 extends React.Component{
 			personality: this.state.personality,
 			ideals: this.state.ideals,
 			bonds: this.state.bonds,
-			flaws: this.state.flaws
+			flaws: this.state.flaws,
 		}
 		this.props.handleStepChange('step3', data);
-		this.props.finishCharacter();
+		this.props.nextStep();
 	}
 
 	render(){

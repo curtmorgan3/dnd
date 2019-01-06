@@ -56,6 +56,7 @@
 	grid-column: 1;
 	grid-row: 2 / span 5;
 }
+
 .defense-stats{
 	grid-column: 3;
 	grid-row: 2 / span 2;
@@ -63,4 +64,34 @@
 .ac-speed {
 	display: flex;
 	justify-content: space-around;
+}
+
+.hitDie-throws {
+	display: flex;
+	justify-content: space-around;
+}
+
+.saving-throws {
+	grid-column: 2;
+	grid-row: 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.saving-throws > *{
+	display: flex;
+	margin: 5px;
+	justify-content: space-around;
+}
+.saving-throws > div > *{
+	margin: 0 5px 0 5px;
+}
+
+.skills {
+	grid-column: 2;
+	grid-row: 3;
+}
+.skills > *{
+	display: flex;
 }

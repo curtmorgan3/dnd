@@ -64,7 +64,8 @@ function getClassStats(clas){
 				primaryAbility: 'str',
 				savingThrows: ['str', 'con'],
 				armorProfs: ['light', 'medium', 'shield'],
-				weaponProfs: ['simple', 'martial']
+				weaponProfs: ['simple', 'martial'],
+				possibleSkills: {num: 2, skills:['animal_handling', 'athletics', 'intimidation', 'nature', 'perception', 'survival']}
 			};
 			return stats;
 		break;
@@ -74,7 +75,8 @@ function getClassStats(clas){
 				primaryAbility: 'cha',
 				savingThrows: ['dex', 'cha'],
 				armorProfs: ['light'],
-				weaponProfs: ['simple', 'hand_crossbow', 'longsword', 'rapier', 'shortsword']
+				weaponProfs: ['simple', 'hand_crossbow', 'longsword', 'rapier', 'shortsword'],
+				possibleSkills: {num: 3, skills: ['acrobatics','animal_handling','arcana','athletics','deception','history','insight','intimidation','investigation','medicine','nature','perception','performance','persuassion','religion','sleight_of_hand','stealth','survival']}
 			};
 		return stats;
 		break;
@@ -84,7 +86,8 @@ function getClassStats(clas){
 				primaryAbility: 'wis',
 				savingThrows: ['wis', 'cha'],
 				armorProfs: ['light', 'medium', 'shield'],
-				weaponProfs: ['simple']
+				weaponProfs: ['simple'],
+				possibleSkills: {num: 2, skills: ['history', 'insight', 'medicine', 'persuasion', 'religion']}
 			};
 			return stats;
 		break;
@@ -94,7 +97,8 @@ function getClassStats(clas){
 				primaryAbility: 'wis',
 				savingThrows: ['int', 'wis'],
 				armorProfs: ['light', 'medium', 'shield'],
-				weaponProfs: ['club', 'dagger', 'dart', 'javelins', 'mace', 'quarterstaff', 'scimitar', 'sickle', 'sling', 'spear']
+				weaponProfs: ['club', 'dagger', 'dart', 'javelins', 'mace', 'quarterstaff', 'scimitar', 'sickle', 'sling', 'spear'],
+				possibleSkills: {num: 2, skills: ['arcana', 'animal_handling', 'insight', 'medicine', 'nature', 'perception', 'religion', 'survival']}
 			};
 			return stats;
 		break;
@@ -104,7 +108,8 @@ function getClassStats(clas){
 				primaryAbility: ['str','dex'],
 				savingThrows: ['str', 'con'],
 				armorProfs: ['light', 'medium', 'heavy', 'sheild'],
-				weaponProfs: ['simple', 'martial']
+				weaponProfs: ['simple', 'martial'],
+				possibleSkills: {num: 2, skills: ['acrobatics', 'animal_handling','athletics','history','insight','intimidation','perception','survial']}
 			};
 			return stats;
 		break;
@@ -114,7 +119,8 @@ function getClassStats(clas){
 				primaryAbility: ['dex','wis'],
 				savingThrows: ['str', 'dex'],
 				armorProfs: [],
-				weaponProfs: ['simple', 'shortsword']
+				weaponProfs: ['simple', 'shortsword'],
+				possibleSkills: {num: 2, skills: ['acrobatics','athletics','history','insight','religion','stealth']}
 			};
 			return stats;
 		break;
@@ -124,7 +130,8 @@ function getClassStats(clas){
 				primaryAbility: ['dex','wis'],
 				savingThrows: ['wis', 'cha'],
 				armorProfs: ['light', 'medium', 'heavy', 'sheild'],
-				weaponProfs: ['simple', 'martial']
+				weaponProfs: ['simple', 'martial'],
+				possibleSkills: {num: 2, skills: ['athletics','insight','intimidation','medicine','persuasion','religion']}
 			};
 			return stats;
 		break;
@@ -134,7 +141,8 @@ function getClassStats(clas){
 				primaryAbility: ['dex','wis'],
 				savingThrows: ['str', 'dex'],
 				armorProfs: ['light', 'medium'],
-				weaponProfs: ['simple', 'martial']
+				weaponProfs: ['simple', 'martial'],
+				possibleSkills: {num: 3, skills: ['animal_handling','athletics','insight','investigation','nature','perception','stealth','survival']}
 			};
 			return stats;
 		break;
@@ -144,7 +152,8 @@ function getClassStats(clas){
 				primaryAbility: 'dex',
 				savingThrows: ['dex', 'int'],
 				armorProfs: ['light'],
-				weaponProfs: ['simple', 'hand_crossbow', 'longsword', 'rapier', 'shortsword']
+				weaponProfs: ['simple', 'hand_crossbow', 'longsword', 'rapier', 'shortsword'],
+				possibleSkills: {num: 4, skills: ['acrobatics','athletics','deception','insight','intimidation','investigation','perception','performance','persuasion','sleight_of_hand','stealth']}
 			};
 			return stats;
 		break;
@@ -154,7 +163,8 @@ function getClassStats(clas){
 				primaryAbility: 'cha',
 				savingThrows: ['con', 'cha'],
 				armorProfs: [],
-				weaponProfs: ['dagger', 'dart', 'sling', 'quarterstaff', 'light_crossbow']
+				weaponProfs: ['dagger', 'dart', 'sling', 'quarterstaff', 'light_crossbow'],
+				possibleSkills: {num: 2, skills: ['arcana', 'deception', 'insight','intimidation','persuasion','religion']}
 			};
 			return stats;
 		break;
@@ -164,7 +174,8 @@ function getClassStats(clas){
 				primaryAbility: 'cha',
 				savingThrows: ['con', 'cha'],
 				armorProfs: ['light'],
-				weaponProfs: ['simple']
+				weaponProfs: ['simple'],
+				possibleSkills: {num: 2, skills: ['arcana','deception','history','intimidation','investigation','nature','religion']}
 			};
 			return stats;
 		break;
@@ -174,7 +185,8 @@ function getClassStats(clas){
 				primaryAbility: 'str',
 				savingThrows: ['int', 'wis'],
 				armorProfs: [],
-				weaponProfs: ['dagger', 'dart', 'sling', 'quarterstaff', 'light_crossbow']
+				weaponProfs: ['dagger', 'dart', 'sling', 'quarterstaff', 'light_crossbow'],
+				possibleSkills: {num: 2, skills: ['arcana','history','insight','investigation','medicine','religion']}
 			};
 			return stats;
 		break;
