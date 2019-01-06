@@ -41,12 +41,10 @@
 	grid-column: 4;
 	grid-row: 2 / span 2;
 	display: flex;
-	/* width: 70%; */
 	text-align: center;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	/* overflow: scroll; */
 }
 .character-traits > *{
 	width: 70%;
@@ -57,4 +55,12 @@
 .abilities {
 	grid-column: 1;
 	grid-row: 2 / span 5;
+}
+.defense-stats{
+	grid-column: 3;
+	grid-row: 2 / span 2;
+}
+.ac-speed {
+	display: flex;
+	justify-content: space-around;
 }

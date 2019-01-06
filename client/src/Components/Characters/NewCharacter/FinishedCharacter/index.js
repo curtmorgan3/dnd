@@ -1,6 +1,6 @@
 import React from 'react';
 import './stylesheet.css';
-import { getAbilityModifiers } from '../../../../dnd-helpers.js';
+import { getAbilityModifiers, getAC, getSpeed, getClassStats } from '../../../../dnd-helpers.js';
 
 export default class FinishedCharacter extends React.Component{
 	constructor(props){
@@ -12,6 +12,8 @@ export default class FinishedCharacter extends React.Component{
 			background: '',
 			race: this.props.data.step1.race,
 			clas: this.props.data.step1.clas,
+			primaryAbility: '',
+			savingThrows: [],
 			alignment: this.props.data.step1.alignment,
 			personalityTraits: this.props.data.step3.personality,
 			ideals: this.props.data.step3.ideals,
@@ -35,8 +37,11 @@ export default class FinishedCharacter extends React.Component{
 			},
 			inspiration: 0,
 			proficiencyBonus: 2,
-
-
+			ac: 0,
+			initiative: 0,
+			hitDie: 0,
+			armorProfs: [],
+			weaponProfs: [],
 
 		}
 		//Bindings
@@ -44,6 +49,9 @@ export default class FinishedCharacter extends React.Component{
 
 	componentDidMount(){
 		const mods = getAbilityModifiers(this.state.abilities);
+		const ac = getAC(mods.dex);
+		const speed = getSpeed(this.state.race);
+		const classStats = getClassStats(this.state.clas);
 		this.setState({
 			abilityMods: {
 				str: mods.str,
@@ -52,7 +60,15 @@ export default class FinishedCharacter extends React.Component{
 				int: mods.int,
 				wis: mods.wis,
 				cha: mods.cha
-			}
+			},
+			ac,
+			initiative: mods.dex,
+			speed,
+			hitDie: classStats.hitDie,
+			primaryAbility: classStats.primaryAbility,
+			savingThrows: classStats.savingThrows,
+			armorProfs: classStats.armorProfs,
+			weaponProfs: classStats.weaponProfs,
 		})
 	}
 
@@ -118,6 +134,26 @@ export default class FinishedCharacter extends React.Component{
 					<div>
 						<p>Flaws</p>
 						<p>{this.state.flaws}</p>
+					</div>
+				</div>
+				<div className='defense-stats'>
+					<div className='ac-speed'>
+						<div>
+							<p>Armor Class</p>
+							<p>{this.state.ac}</p>
+						</div>
+						<div>
+							<p>Initiative</p>
+							<p>+{this.state.initiative}</p>
+						</div>
+						<div>
+							<p>Speed</p>
+							<p>{this.state.speed}</p>
+						</div>
+					</div>
+					<div className='hit-points'>
+					</div>
+					<div className='hitDie-throws'>
 					</div>
 				</div>
 			</div>
