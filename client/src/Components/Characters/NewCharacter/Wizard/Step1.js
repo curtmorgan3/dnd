@@ -5,7 +5,7 @@ export default class Step1 extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			name: '',
+			name: 'Blerf', //Remove 
 			clas: 'barbarian',
 			race: 'human',
 			alignment: 'good',

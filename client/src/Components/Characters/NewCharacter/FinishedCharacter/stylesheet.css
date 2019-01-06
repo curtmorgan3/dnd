@@ -37,7 +37,23 @@
 	justify-content: space-around;
 	align-items: center;
 }
-
+.character-traits{
+	grid-column: 4;
+	grid-row: 2 / span 2;
+	display: flex;
+	/* width: 70%; */
+	text-align: center;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* overflow: scroll; */
+}
+.character-traits > *{
+	width: 70%;
+	height: 125px;
+	overflow: scroll;
+	margin-bottom: 10px;
+}
 .abilities {
 	grid-column: 1;
 	grid-row: 2 / span 5;

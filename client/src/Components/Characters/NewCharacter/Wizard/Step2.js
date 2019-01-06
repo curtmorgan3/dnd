@@ -1,18 +1,19 @@
 import React from 'react';
 import {FormGroup, DropdownButton, MenuItem} from 'react-bootstrap';
 import {rollAbilities} from '../../../../dnd-helpers.js';
+import '../stylesheet.css';
 
 export default class Step2 extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
 			abilityScores: [],
-			str: 0,
-			dex: 0,
-			con: 0,
-			int: 0,
-			wis: 0,
-			cha: 0,
+			str: 15, //Remove all scores 
+			dex: 12,
+			con: 14,
+			int: 12,
+			wis: 10,
+			cha: 8,
 			finished: false,
 			started: false
 
@@ -144,13 +145,15 @@ export default class Step2 extends React.Component{
 	render(){
 		return(
 			<div>
-				<h1>Abilities</h1>
-				<h4>{this.props.state.step1.name}</h4>
-				<h4>{this.props.state.step1.clas}</h4>
-				{this.state.abilityScores.length < 1 && !this.state.finished ?
-					<button onClick={()=> this.rollForAbilities()}>Roll Abilities</button>
-					: null }
-				<div>
+				<div className='step2-ability-header'>
+					<h1>Abilities</h1>
+					<h4>{this.props.state.step1.name}</h4>
+					<h4>{this.props.state.step1.clas}</h4>
+					{this.state.abilityScores.length < 1 && !this.state.finished ?
+						<button onClick={()=> this.rollForAbilities()}>Roll Abilities</button>
+						: null }
+				</div>
+				<div className='step2-ability-scores'>
 					{this.state.abilityScores.map((score, i) => (
 						<p key={i}>{score}</p>
 					))}

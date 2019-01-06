@@ -13,6 +13,10 @@ export default class FinishedCharacter extends React.Component{
 			race: this.props.data.step1.race,
 			clas: this.props.data.step1.clas,
 			alignment: this.props.data.step1.alignment,
+			personalityTraits: this.props.data.step3.personality,
+			ideals: this.props.data.step3.ideals,
+			bonds: this.props.data.step3.bonds,
+			flaws: this.props.data.step3.flaws,
 			abilities: {
 				str: this.props.data.step2.str,
 				dex: this.props.data.step2.dex,
@@ -28,8 +32,14 @@ export default class FinishedCharacter extends React.Component{
 				int: 0,
 				wis: 0,
 				cha: 0,
-			}
+			},
+			inspiration: 0,
+			proficiencyBonus: 2,
+
+
+
 		}
+		//Bindings
 	}
 
 	componentDidMount(){
@@ -87,7 +97,28 @@ export default class FinishedCharacter extends React.Component{
 						<p>Charisma: {this.state.abilities.cha}</p>
 						<p>Modifier: {this.state.abilityMods.cha}</p>
 					</div>
-
+				</div>
+				<div className='prof-insp'>
+					<p>Inspiration: {this.state.inspiration}</p>
+					<p>Proficiency Bonus: {this.state.proficiencyBonus}</p>
+				</div>
+				<div className='character-traits'>
+					<div>
+						<p>Personality Traits</p>
+						<p>{this.state.personalityTraits}</p>
+					</div>
+					<div>
+						<p>Ideals</p>
+						<p>{this.state.ideals}</p>
+					</div>
+					<div>
+						<p>Bonds</p>
+						<p>{this.state.bonds}</p>
+					</div>
+					<div>
+						<p>Flaws</p>
+						<p>{this.state.flaws}</p>
+					</div>
 				</div>
 			</div>
 		)

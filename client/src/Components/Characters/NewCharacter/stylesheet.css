@@ -7,3 +7,18 @@
 .new-character-form{
 	width: 40%;
 }
+
+.step2-ability-header {
+	height: 150px;
+}
+
+.step2-ability-scores {
+	height: 100px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.step2-ability-scores > * {
+	font-size: 24px;
+}
