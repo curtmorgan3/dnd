@@ -15,7 +15,7 @@ class CharactersController < ApplicationController
 
   # POST /characters
   def create
-    @character = Character.new(character_params)
+    @character = current_user.characters.new(character_params)
 
     if @character.save
       render json: @character, status: :created, location: @character
@@ -46,6 +46,6 @@ class CharactersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def character_params
-      params.require(:character).permit(:name)
+      params.require(:character).permit(:name, :level, :clas, :data)
     end
 end

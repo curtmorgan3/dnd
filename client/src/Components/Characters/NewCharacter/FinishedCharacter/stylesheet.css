@@ -1,3 +1,8 @@
+
+button{
+	grid-row: 1;
+	grid-column: 1;
+}
 .new-character-confirm{
 	display: grid;
 	grid-template-columns: 10vw 25vw 30vw 30vw;
