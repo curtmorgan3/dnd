@@ -1,5 +1,6 @@
 import React from 'react';
-import { getCharacterData } from '../../../api-helpers.js';
+import { getCharacterData, updateCharacter } from '../../../api-helpers.js';
+import {FormGroup, Checkbox} from 'react-bootstrap';
 import './stylesheet.css';
 
 export default class CharacterSheet extends React.Component {
@@ -8,10 +9,10 @@ export default class CharacterSheet extends React.Component {
 		this.state = {
 			name: '',
 			level: 1,
+			clas: '',
 			xp: 0,
 			background: '',
 			race: '',
-			clas: '',
 			primaryAbility: '',
 			savingThrows: [],
 			alignment: '',
@@ -47,7 +48,7 @@ export default class CharacterSheet extends React.Component {
 			maxHP: 0,
 			hp: 0,
 		}
-		this.handleChage = this.handleChange.bind(this);
+		this.saveCharacter = this.saveCharacter.bind(this);
 	}
 
 	async componentDidMount(){
@@ -97,11 +98,6 @@ export default class CharacterSheet extends React.Component {
 		})
 	}
 
-	handleChange(e){
-		this.setState({
-			[e.target.name]: e.target.value
-		})
-	}
 	increment(stat, num){
 		const key = Object.keys(this.state).filter(prop => prop === stat);
 		const prop = key[0];
@@ -131,9 +127,62 @@ export default class CharacterSheet extends React.Component {
 		})
 	};
 
+	async saveCharacter(){
+		//PUT character
+		const id = this.props.match.params.id;
+		const data = {
+			name: this.state.name,
+			level: this.state.level,
+			clas: this.state.clas,
+			data: JSON.stringify({
+				xp: this.state.xp,
+				background: this.state.background,
+				race: this.state.race,
+				primaryAbility: this.state.primaryAbility,
+				savingThrows: this.state.savingThrows,
+				alignment: this.state.alignment,
+				personalityTraits: this.state.personalityTraits,
+				ideals: this.state.ideals,
+				bonds: this.state.bonds,
+				flaws: this.state.flaws,
+				abilities: {
+					str: this.state.abilities.str,
+					dex: this.state.abilities.dex,
+					con: this.state.abilities.con,
+					int: this.state.abilities.int,
+					wis: this.state.abilities.wis,
+					cha: this.state.abilitiescha,
+				},
+				abilityMods: {
+					str: this.state.abilityMods.str,
+					dex: this.state.abilityMods.dex,
+					con: this.state.abilityMods.con,
+					int: this.state.abilityMods.int,
+					wis: this.state.abilityMods.wis,
+					cha: this.state.abilityMods.cha,
+				},
+				inspiration: this.state.inspiration,
+				proficiencyBonus: this.state.proficiencyBonus,
+				ac: this.state.ac,
+				initiative: this.state.initiative,
+				hitDie: this.state.hitDie,
+				armorProfs: this.state.armorProfs,
+				weaponProfs: this.state.weaponProfs,
+				skillProfs: this.state.skillProfs,
+				skills: this.state.skills,
+				maxHP: this.state.maxHP,
+				hp: this.state.hp,
+			})
+		}
+		const characterData = await updateCharacter(id, data);
+	}
+
 	render(){
 		return(
 			<div className='character-sheet'>
+				<div className='sheet-buttons'>
+					<button onClick={this.saveCharacter}>Save Character</button>
+				</div>
 				<div className='sheet-pedigree'>
 					<p id='sheet-pedigree-name'>Character Name: {this.state.name}</p>
 					<div id='sheet-pedigree-other1'>
@@ -252,10 +301,16 @@ export default class CharacterSheet extends React.Component {
 							<p>Hit Die</p>
 							<p>d{this.state.hitDie}</p>
 						</div>
-						<div>
+						<div className='sheet-death-throws'>
 							<p>Death Saves</p>
 							<p>Success: </p>
+							<FormGroup>
+								<Checkbox inline></Checkbox><Checkbox inline></Checkbox><Checkbox inline></Checkbox>
+							</FormGroup>
 							<p>Failure: </p>
+							<FormGroup>
+								<Checkbox inline></Checkbox><Checkbox inline></Checkbox><Checkbox inline></Checkbox>
+							</FormGroup>
 						</div>
 					</div>
 				</div>
