@@ -1,10 +1,15 @@
 import axios from 'axios';
 
 
-export async function getUserCharacters(){
-	const characterData = await axios.get('/characters');
+export async function getUserCharacters(token){
+	const characterData = await axios({
+		method: 'get',
+		url: '/characters',
+		headers: {
+			'Authorization': `Bearer ${token}`
+		}
+	});
 	return characterData.data;
-
 }
 
 export async function postNewCharacter(data){

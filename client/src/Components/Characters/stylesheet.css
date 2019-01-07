@@ -1,0 +1,15 @@
+.user-character-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.user-character-unique {
+	display: flex;
+	background-color: lightBlue;
+	margin: 0 10px 0 10px;
+	align-items: center;
+}
+.user-character-unique > *{
+	margin: 0 10px 0 10px;
+}

@@ -23,7 +23,7 @@ class App extends Component {
 	async componentDidMount(){
 		const token = await localStorage.getItem('dnd_token');
 		if (token){
-			const characters = await getUserCharacters();
+			const characters = await getUserCharacters(token);
 			this.setState({
 				token,
 				characters
