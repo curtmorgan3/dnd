@@ -48,6 +48,7 @@ export default class FinishedCharacter extends React.Component{
 			hp: 0,
 		}
 		//Bindings
+		this.saveCharacter = this.saveCharacter.bind(this);
 	}
 
 	componentDidMount(){
@@ -81,9 +82,14 @@ export default class FinishedCharacter extends React.Component{
 		})
 	}
 
+	saveCharacter(){
+		//post to characters 
+	}
+
 	render(){
 		return(
 			<div className='new-character-confirm'>
+				<button onClick={this.saveCharacter}>Save Character</button>
 				<div className='pedigree'>
 					<p id='pedigree-name'>Character Name: {this.state.name}</p>
 					<div id='pedigree-other1'>
