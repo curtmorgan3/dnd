@@ -1,5 +1,6 @@
 import React from 'react';
 import { getCharacterData, updateCharacter } from '../../../api-helpers.js';
+import { rollDice } from '../../../dnd-helpers.js';
 import {FormGroup, Checkbox} from 'react-bootstrap';
 import './stylesheet.css';
 
@@ -97,7 +98,7 @@ export default class CharacterSheet extends React.Component {
 			maxHP: characterStats.maxHP,
 			hp: characterStats.hp,
 		})
-	}
+	};
 
 	increment(stat, num){
 		const key = Object.keys(this.state).filter(prop => prop === stat);
@@ -112,7 +113,8 @@ export default class CharacterSheet extends React.Component {
 		this.setState({
 			[prop]: newValue
 		})
-	}
+	};
+
 	decrement(stat, num){
 		const key = Object.keys(this.state).filter(prop => prop === stat);
 		const prop = key[0];
@@ -176,6 +178,13 @@ export default class CharacterSheet extends React.Component {
 			})
 		}
 		const characterData = await updateCharacter(id, data);
+	};
+
+	rollSave(mod, dice){
+		const result = rollDice(dice, 1);
+		const sumOfResult = result.reduce((sum, i) => sum+=i );
+		const total = sumOfResult + mod;
+		window.alert(`Mod: ${mod}, dice: ${result}, total: ${total}`)
 	}
 
 	render(){
@@ -205,27 +214,27 @@ export default class CharacterSheet extends React.Component {
 					<h4>Abilities</h4>
 					<div id='sheet-abil-str'>
 						<p>Strength: {this.state.abilities.str}</p>
-						<p>Modifier: {this.state.abilityMods.str}</p>
+						<p onClick={()=>this.rollSave(this.state.abilityMods.str, 20)}>Modifier: {this.state.abilityMods.str}</p>
 					</div>
 					<div id='sheet-abil-dex'>
 						<p>Dexterity: {this.state.abilities.dex}</p>
-						<p>Modifier: {this.state.abilityMods.dex}</p>
+						<p onClick={()=>this.rollSave(this.state.abilitymods.dex, 20)}>Modifier: {this.state.abilityMods.dex}</p>
 					</div>
 					<div id='sheet-abil-con'>
 						<p>Constitution: {this.state.abilities.con}</p>
-						<p>Modifier: {this.state.abilityMods.con}</p>
+						<p onClick={()=>this.rollSave(this.state.abilityMods.con, 20)}>Modifier: {this.state.abilityMods.con}</p>
 					</div>
 					<div id='sheet-abil-int'>
 						<p>Intelligence: {this.state.abilities.int}</p>
-						<p>Modifier: {this.state.abilityMods.int}</p>
+						<p onClick={()=>this.rollSave(this.state.abilityMods.int, 20)}>Modifier: {this.state.abilityMods.int}</p>
 					</div>
 					<div id='sheet-abil-wis'>
 						<p>Wisdom: {this.state.abilities.wis}</p>
-						<p>Modifier: {this.state.abilityMods.wis}</p>
+						<p onClick={()=>this.rollSave(this.state.abilityMods.wis, 20)}>Modifier: {this.state.abilityMods.wis}</p>
 					</div>
 					<div id='sheet-abil-cha'>
 						<p>Charisma: {this.state.abilities.cha}</p>
-						<p>Modifier: {this.state.abilityMods.cha}</p>
+						<p onClick={()=>this.rollSave(this.state.abilityMods.cha, 20)}>Modifier: {this.state.abilityMods.cha}</p>
 					</div>
 				</div>
 				<div className='sheet-saving-throws'>
@@ -234,27 +243,39 @@ export default class CharacterSheet extends React.Component {
 					<h4>Saving Throws</h4>
 					<div>
 						{this.state.savingThrows.includes('str') ? <p>Yes</p> : <p>No</p>}
-						<p>Strength: {this.state.abilityMods.str}</p>
+						{this.state.savingThrows.includes('str') ?
+						<p onClick={()=>this.rollSave(this.state.abilityMods.str + this.state.proficiencyBonus, 20)}>Strength</p> :
+						<p onClick={()=>this.rollSave(this.state.abilityMods.str, 20)}>Strength</p>}
 					</div>
 					<div>
 						{this.state.savingThrows.includes('dex') ? <p>Yes</p> : <p>No</p>}
-						<p>Dexterity: {this.state.abilityMods.dex}</p>
+						{this.state.savingThrows.includes('dex') ?
+						<p onClick={()=>this.rollSave(this.state.abilityMods.dex + this.state.proficiencyBonus, 20)}>Dexterity</p> :
+						<p onClick={()=>this.rollSave(this.state.abilityMods.dex, 20)}>Dexterity</p>}
 					</div>
 					<div>
 						{this.state.savingThrows.includes('con') ? <p>Yes</p> : <p>No</p>}
-						<p>Constituion: {this.state.abilityMods.con}</p>
+						{this.state.savingThrows.includes('con') ?
+						<p onClick={()=>this.rollSave(this.state.abilityMods.con + this.state.proficiencyBonus, 20)}>Constitution</p> :
+						<p onClick={()=>this.rollSave(this.state.abilityMods.con, 20)}>Constitution</p> }
 					</div>
 					<div>
 						{this.state.savingThrows.includes('int') ? <p>Yes</p> : <p>No</p>}
-						<p>Intelligence: {this.state.abilityMods.int}</p>
+						{this.state.savingThrows.includes('int') ?
+						<p onClick={()=>this.rollSave(this.state.abilityMods.int + this.state.proficiencyBonus, 20)}>Intelligence</p> :
+						<p onClick={()=>this.rollSave(this.state.abilityMods.int, 20)}>Intelligence</p> }
 					</div>
 					<div>
 						{this.state.savingThrows.includes('wis') ? <p>Yes</p> : <p>No</p>}
-						<p>Wisdom: {this.state.abilityMods.wis}</p>
+						{this.state.savingThrows.includes('wis') ?
+						<p onClick={()=>this.rollSave(this.state.abilityMods.wis + this.state.proficiencyBonus, 20)}>Wisdom</p> :
+						<p onClick={()=>this.rollSave(this.state.abilityMods.wis, 20)}>Wisdom</p> }
 					</div>
 					<div>
 						{this.state.savingThrows.includes('cha') ? <p>Yes</p> : <p>No</p>}
-						<p>Charisma: {this.state.abilityMods.cha}</p>
+						{this.state.savingThrows.includes('cha') ?
+						<p onClick={()=>this.rollSave(this.state.abilityMods.cha + this.state.proficiencyBonus, 20)}>Charisma</p> :
+						<p onClick={()=>this.rollSave(this.state.abilityMods.cha, 20)}>Charisma</p> }
 					</div>
 				</div>
 				<div className='sheet-character-traits'>
@@ -321,7 +342,7 @@ export default class CharacterSheet extends React.Component {
 						{Object.keys(this.state.skills).map((skill, i) => {
 							let mod = this.state.skills[skill];
 							return (
-								<div key={skill} className='sheet-skill-box'>
+								<div key={skill} className='sheet-skill-box' onClick={()=>this.rollSave(mod, 20)}>
 									{this.state.skillProfs.includes(skill) ? <p>Yes</p> : <p>No</p>}
 									<p>{skill}</p>
 									<p>{mod}</p>
