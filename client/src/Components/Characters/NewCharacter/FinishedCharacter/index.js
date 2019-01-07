@@ -102,6 +102,7 @@ export default class FinishedCharacter extends React.Component{
 				abilities: this.state.abilities,
 				abilityMods: this.state.abilityMods,
 				inspiration: this.state.inspiration,
+				initiative: this.state.initiative,
 				proficiencyBonus: this.state.proficiencyBonus,
 				ac: this.state.ac,
 				hp: this.state.hp,

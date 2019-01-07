@@ -69,8 +69,8 @@ class App extends Component {
 					<Route exact path='/characters' render={props => (
 						<Characters characters={this.state.characters} />
 					)}/>
-					<Route path='/characters/new' component={NewCharacter} />
-					<Route path='/characters/:id' component={CharacterSheet} />
+					<Route exact path='/characters/new' component={NewCharacter} />
+					<Route exact path='/characters/:id' component={CharacterSheet} />
 				</div>
 			</Router>
     );
