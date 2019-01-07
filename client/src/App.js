@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import { getUserCharacters } from './api-helpers.js';
 import NavBar from './Components/NavBar';
 import Landing from './Components/Landing';
@@ -66,11 +66,13 @@ class App extends Component {
 						<Login logIn={this.logIn}/>
 					)}/>
 					<Route path='/register' component={Register} />
-					<Route exact path='/characters' render={props => (
-						<Characters characters={this.state.characters} />
-					)}/>
-					<Route exact path='/characters/new' component={NewCharacter} />
-					<Route exact path='/characters/:id' component={CharacterSheet} />
+					<Switch>
+						<Route exact path='/characters' render={props => (
+							<Characters characters={this.state.characters} />
+						)}/>
+						<Route path='/characters/new' component={NewCharacter} />
+						<Route path='/characters/:id' component={CharacterSheet} />
+					</Switch>
 				</div>
 			</Router>
     );

@@ -40,6 +40,7 @@ export default class CharacterSheet extends React.Component {
 			proficiencyBonus: 0,
 			ac: 0,
 			initiative: 0,
+			speed: 0,
 			hitDie: 0,
 			armorProfs: [],
 			weaponProfs: [],
