@@ -1,5 +1,6 @@
 import React from 'react';
 import NewCharacter from './NewCharacter';
+import { Link } from 'react-router-dom';
 import './stylesheet.css';
 
 export default function Characters(props){
@@ -12,10 +13,12 @@ export default function Characters(props){
 					<h6>{character.name}</h6>
 					<p>Level {character.level}</p>
 					<p>{character.clas}</p>
+					<Link to={`/characters/${character.id}`}>View Character Sheet</Link>
 				</div>
 			))}
 			</div>
-			<NewCharacter />
+			<Link to='/characters/new'>New Character</Link>
+
 		</div>
 	)
 }

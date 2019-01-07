@@ -5,7 +5,7 @@ export default class Step1 extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			name: 'Blerf', //Remove 
+			name: 'Blerf', //Remove
 			clas: 'barbarian',
 			race: 'human',
 			alignment: 'good',
@@ -92,7 +92,6 @@ export default class Step1 extends React.Component{
 						</DropdownButton>
 					</FormGroup>
 				</form>
-				<button onClick={()=> this.props.previousStep()}>Back</button>
 				<button onClick={()=> this.nextStep()}>Save and Next Step</button>
 			</div>
 		)

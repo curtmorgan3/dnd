@@ -6,6 +6,8 @@ import Landing from './Components/Landing';
 import Register from './Components/Register';
 import Login from './Components/Login';
 import Characters from './Components/Characters';
+import NewCharacter from './Components/Characters/NewCharacter';
+import CharacterSheet from './Components/Characters/CharacterSheet';
 import './App.css';
 
 class App extends Component {
@@ -64,10 +66,11 @@ class App extends Component {
 						<Login logIn={this.logIn}/>
 					)}/>
 					<Route path='/register' component={Register} />
-					<Route path='/characters' render={props => (
+					<Route exact path='/characters' render={props => (
 						<Characters characters={this.state.characters} />
 					)}/>
-
+					<Route path='/characters/new' component={NewCharacter} />
+					<Route path='/characters/:id' component={CharacterSheet} />
 				</div>
 			</Router>
     );
