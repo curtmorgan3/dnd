@@ -92,6 +92,13 @@
 	grid-column: 2;
 	grid-row: 3;
 }
+.skill-list {
+	display: flex;
+	flex-direction: column;
+}
+.skill-box {
+	display: flex;
+}
 .skills > *{
 	display: flex;
 }

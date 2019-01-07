@@ -7,7 +7,7 @@ export default class Step4 extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			skills: [],
+			skills: ['acrobatics', 'nature'], //Remove
 			possibleSkills: [],
 			num: 0
 		}

@@ -195,11 +195,42 @@ function getClassStats(clas){
 	};
 };
 
+//Get Skill Modifiers
+function getSkillModifiers(skills, abilityMods, proficiencyBonus){
+	const skillMods = {
+		'acrobatics': abilityMods.dex,
+		'animal_handling': abilityMods.wis,
+		'arcana': abilityMods.int,
+		'athletics': abilityMods.str,
+		'deception': abilityMods.cha,
+		'history': abilityMods.int,
+		'insight': abilityMods.wis,
+		'intimidation': abilityMods.cha,
+		'investigation': abilityMods.int,
+		'medicine': abilityMods.wis,
+		'nature': abilityMods.int,
+		'perception': abilityMods.wis,
+		'performance': abilityMods.cha,
+		'persuasion': abilityMods.cha,
+		'religion': abilityMods.int,
+		'sleight_of_hand': abilityMods.dex,
+		'stealth': abilityMods.dex,
+		'survival': abilityMods.wis
+	};
+	skills.map(skill => {
+		if(skillMods[skill]){
+			skillMods[skill] += proficiencyBonus
+		}
+	});
+	return skillMods;
+}
+
 module.exports = {
 	rollDice,
 	rollAbilities,
 	getAbilityModifiers,
 	getAC,
 	getSpeed,
-	getClassStats
+	getClassStats,
+	getSkillModifiers
 }
