@@ -1,5 +1,6 @@
 import React from 'react';
 import { getCharacterData } from '../../../api-helpers.js';
+import './stylesheet.css';
 
 export default class CharacterSheet extends React.Component {
 	constructor(props){
@@ -104,58 +105,80 @@ export default class CharacterSheet extends React.Component {
 	increment(stat, num){
 		const key = Object.keys(this.state).filter(prop => prop === stat);
 		const prop = key[0];
-		console.log(prop);
 		let currentValue = this.state[prop];
 		let newValue = currentValue += (1 * num)
+		if (prop === 'hp'){
+			if (newValue >= this.state.maxHP - 1){
+				newValue = this.state.maxHP;
+			}
+		}
 		this.setState({
 			[prop]: newValue
 		})
 	}
+	decrement(stat, num){
+		const key = Object.keys(this.state).filter(prop => prop === stat);
+		const prop = key[0];
+		let currentValue = this.state[prop];
+		let newValue = currentValue -= (1 * num)
+		if (prop === 'hp'){
+			if (newValue <= 0){
+				newValue = 0;
+			}
+		}
+		this.setState({
+			[prop]: newValue
+		})
+	};
+
 	render(){
 		return(
-			<div className='new-character-confirm'>
-				<div className='pedigree'>
-					<p id='pedigree-name'>Character Name: {this.state.name}</p>
-					<div id='pedigree-other1'>
+			<div className='character-sheet'>
+				<div className='sheet-pedigree'>
+					<p id='sheet-pedigree-name'>Character Name: {this.state.name}</p>
+					<div id='sheet-pedigree-other1'>
 						<p>Class: {this.state.clas}</p>
 						<p>Level: {this.state.level}</p>
 						<p>Background: {this.state.background}</p>
 					</div>
-					<div id='pedigree-other2'>
+					<div id='sheet-pedigree-other2'>
 						<p>Race: {this.state.race}</p>
 						<p>Alignment: {this.state.alignment}</p>
-						<p>Experience Points: {this.state.xp}</p>
-						<button onClick={()=> this.increment('xp', 50)}>+</button>
+						<div id='sheet-xp'>
+							<button onClick={()=> this.decrement('xp', 50)}>-</button>
+							<p>Experience Points: {this.state.xp}</p>
+							<button onClick={()=> this.increment('xp', 50)}>+</button>
+						</div>
 					</div>
 				</div>
-				<div className='abilities'>
+				<div className='sheet-abilities'>
 					<h4>Abilities</h4>
-					<div id='abil-str'>
+					<div id='sheet-abil-str'>
 						<p>Strength: {this.state.abilities.str}</p>
 						<p>Modifier: {this.state.abilityMods.str}</p>
 					</div>
-					<div id='abil-dex'>
+					<div id='sheet-abil-dex'>
 						<p>Dexterity: {this.state.abilities.dex}</p>
 						<p>Modifier: {this.state.abilityMods.dex}</p>
 					</div>
-					<div id='abil-con'>
+					<div id='sheet-abil-con'>
 						<p>Constitution: {this.state.abilities.con}</p>
 						<p>Modifier: {this.state.abilityMods.con}</p>
 					</div>
-					<div id='abil-int'>
+					<div id='sheet-abil-int'>
 						<p>Intelligence: {this.state.abilities.int}</p>
 						<p>Modifier: {this.state.abilityMods.int}</p>
 					</div>
-					<div id='abil-wis'>
+					<div id='sheet-abil-wis'>
 						<p>Wisdom: {this.state.abilities.wis}</p>
 						<p>Modifier: {this.state.abilityMods.wis}</p>
 					</div>
-					<div id='abil-cha'>
+					<div id='sheet-abil-cha'>
 						<p>Charisma: {this.state.abilities.cha}</p>
 						<p>Modifier: {this.state.abilityMods.cha}</p>
 					</div>
 				</div>
-				<div className='saving-throws'>
+				<div className='sheet-saving-throws'>
 					<p>Inspiration: {this.state.inspiration}</p>
 					<p>Proficiency Bonus: {this.state.proficiencyBonus}</p>
 					<h4>Saving Throws</h4>
@@ -184,7 +207,7 @@ export default class CharacterSheet extends React.Component {
 						<p>Charisma: {this.state.abilityMods.cha}</p>
 					</div>
 				</div>
-				<div className='character-traits'>
+				<div className='sheet-character-traits'>
 					<div>
 						<h4>Personality Traits</h4>
 						<p>{this.state.personalityTraits}</p>
@@ -202,9 +225,9 @@ export default class CharacterSheet extends React.Component {
 						<p>{this.state.flaws}</p>
 					</div>
 				</div>
-				<div className='defense-stats'>
+				<div className='sheet-defense-stats'>
 					<h4>Defensive Stats</h4>
-					<div className='ac-speed'>
+					<div className='sheet-ac-speed'>
 						<div>
 							<p>Armor Class</p>
 							<p>{this.state.ac}</p>
@@ -218,11 +241,13 @@ export default class CharacterSheet extends React.Component {
 							<p>{this.state.speed}</p>
 						</div>
 					</div>
-					<div className='hit-points'>
+					<div className='sheet-hit-points'>
 						<p>Max Hit Points: {this.state.maxHP}</p>
+						<button onClick={()=> this.decrement('hp', 1)}>-</button>
 						<p>Current Hit Points: {this.state.hp}</p>
+						<button onClick={()=> this.increment('hp', 1)}>+</button>
 					</div>
-					<div className='hitDie-throws'>
+					<div className='sheet-hitDie-throws'>
 						<div>
 							<p>Hit Die</p>
 							<p>d{this.state.hitDie}</p>
@@ -234,13 +259,13 @@ export default class CharacterSheet extends React.Component {
 						</div>
 					</div>
 				</div>
-				<div className='skills'>
+				<div className='sheet-skills'>
 					<h4>Skills</h4>
-					<div className='skill-list'>
+					<div className='sheet-skill-list'>
 						{Object.keys(this.state.skills).map((skill, i) => {
 							let mod = this.state.skills[skill];
 							return (
-								<div key={skill} className='skill-box'>
+								<div key={skill} className='sheet-skill-box'>
 									{this.state.skillProfs.includes(skill) ? <p>Yes</p> : <p>No</p>}
 									<p>{skill}</p>
 									<p>{mod}</p>

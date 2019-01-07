@@ -1,15 +1,11 @@
 
-.new-character-confirm-buttons{
-	grid-row: 1;
-	grid-column: 1;
-}
-.new-character-confirm{
+.character-sheet{
 	display: grid;
 	grid-template-columns: 10vw 25vw 30vw 30vw;
 	grid-template-rows: 100px 200px 200px 200px 200px;
 }
 
-.pedigree{
+.sheet-pedigree{
 	border: 1px solid black;
 	box-sizing: border-box;
 	grid-row: 1;
@@ -20,7 +16,7 @@
 	justify-content: center;
 }
 
-#pedigree-name {
+#sheet-pedigree-name {
 	grid-column: 1;
 	grid-row: 1 / span 2;
 	display: flex;
@@ -28,24 +24,24 @@
 	align-items: center;
 }
 
-#pedigree-other1 {
+#sheet-pedigree-other1 {
 	grid-column: 2;
 	grid-row: 1;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 }
-#pedigree-other2 {
+#sheet-pedigree-other2 {
 	grid-column: 2;
 	grid-row: 2;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 }
-#xp {
+#sheet-xp {
 	display: flex;
 }
-.character-traits{
+.sheet-character-traits{
 	grid-column: 4;
 	grid-row: 2 / span 2;
 	display: flex;
@@ -54,34 +50,34 @@
 	justify-content: center;
 	align-items: center;
 }
-.character-traits > *{
+.sheet-character-traits > *{
 	width: 70%;
 	height: 125px;
 	overflow: scroll;
 	margin-bottom: 10px;
 }
-.abilities {
+.sheet-abilities {
 	grid-column: 1;
 	grid-row: 2 / span 5;
 	flex-direction: column;
 }
 
-.defense-stats{
+.sheet-defense-stats{
 	grid-column: 3;
 	grid-row: 2 / span 2;
 	display: block;
 }
-.ac-speed {
+.sheet-ac-speed {
 	display: flex;
 	justify-content: space-around;
 }
 
-.hitDie-throws {
+.sheet-hitDie-throws {
 	display: flex;
 	justify-content: space-around;
 }
 
-.saving-throws {
+.sheet-saving-throws {
 	grid-column: 2;
 	grid-row: 2;
 	display: flex;
@@ -89,16 +85,16 @@
 	justify-content: center;
 	align-items: center;
 }
-.saving-throws > *{
+.sheet-saving-throws > *{
 	display: flex;
 	margin: 5px;
 	justify-content: space-around;
 }
-.saving-throws > div > *{
+.sheet-saving-throws > div > *{
 	margin: 0 5px 0 5px;
 }
 
-.skills {
+.sheet-skills {
 	grid-column: 2;
 	grid-row: 3;
 	display: flex;
@@ -106,9 +102,12 @@
 	align-items: center;
 }
 
-.skill-box {
+.sheet-skill-box {
 	display: flex;
 }
-.skill-box > *{
+.sheet-skill-box > *{
 	margin: 5px;
+}
+.sheet-hit-points{
+	display: flex;
 }
