@@ -26,7 +26,7 @@ export async function getCharacterData(id){
 
 export async function postNewCharacter(data){
 	const token = localStorage.getItem('dnd_token');
-	const newCharacter = await axios({
+	await axios({
 		method: 'post',
 		url: '/characters',
 		data: data,
@@ -38,7 +38,7 @@ export async function postNewCharacter(data){
 
 export async function updateCharacter(id, data){
 	const token = localStorage.getItem('dnd_token');
-	const updatedCharacter = await axios({
+	await axios({
 		method: 'put',
 		url: `/characters/${id}`,
 		data: data,

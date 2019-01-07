@@ -47,7 +47,7 @@ export default class Step4 extends React.Component {
 			skills: this.state.skills,
 		}
 		this.props.handleStepChange('step4', data);
-		this.props.finishCharacter();
+		this.props.nextStep();
 	};
 
 	render(){

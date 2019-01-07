@@ -117,7 +117,7 @@ export default class FinishedCharacter extends React.Component{
 			})
 		};
 		try {
-			const newCharacter = await postNewCharacter(stats);
+			await postNewCharacter(stats);
 		} catch (e) {
 			console.error(e);
 		}

@@ -8,7 +8,7 @@ export default function NavBar(props){
 	return(
 		<div>
 		{loggedIn ? (
-			<Navbar inverse='true'>
+			<Navbar inverse={true}>
 				<Nav>
 					<NavItem>
 						<Link to='/'>Home</Link>
@@ -22,7 +22,7 @@ export default function NavBar(props){
 				</Nav>
 			</Navbar>
 		) : (
-			<Navbar inverse='true'>
+			<Navbar inverse={true}>
 				<Nav>
 					<NavItem>
 						<Link to='/'>Home</Link>

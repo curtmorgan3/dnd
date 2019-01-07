@@ -177,7 +177,7 @@ export default class CharacterSheet extends React.Component {
 				hp: this.state.hp,
 			})
 		}
-		const characterData = await updateCharacter(id, data);
+		await updateCharacter(id, data);
 	};
 
 	rollSave(mod, dice){

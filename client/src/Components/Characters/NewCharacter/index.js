@@ -5,6 +5,7 @@ import Step1 from './Wizard/Step1.js';
 import Step2 from './Wizard/Step2.js';
 import Step3 from './Wizard/Step3.js';
 import Step4 from './Wizard/Step4.js';
+import Step5 from './Wizard/Step5.js';
 import './stylesheet.css';
 
 export default class NewCharacter extends React.Component{
@@ -51,6 +52,9 @@ export default class NewCharacter extends React.Component{
 									 state={this.state}
 						/>
 						<Step4 handleStepChange={this.handleStepChange}
+									 state={this.state}
+						/>
+						<Step5 handleStepChange={this.handleStepChange}
 									 state={this.state}
 									 finishCharacter={this.finishCharacter}
 						/>

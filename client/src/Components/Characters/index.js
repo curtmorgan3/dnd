@@ -1,5 +1,4 @@
 import React from 'react';
-import NewCharacter from './NewCharacter';
 import { Link } from 'react-router-dom';
 import './stylesheet.css';
 

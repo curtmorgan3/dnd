@@ -8,7 +8,7 @@ export default class Step2 extends React.Component{
 		super(props);
 		this.state = {
 			abilityScores: [],
-			str: 15, //Remove all scores 
+			str: 15, //Remove all scores
 			dex: 12,
 			con: 14,
 			int: 12,

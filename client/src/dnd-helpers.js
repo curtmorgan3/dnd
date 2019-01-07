@@ -45,10 +45,10 @@ function getSpeed(race){
 	switch(race){
 		case 'dwarf' || 'halfling' || 'gnome':
 			return 25;
-		break;
+		// break;
 		case 'elf' || 'human' || 'dragonborn' || 'half_elf' || 'half_orc' || 'tiefling':
 			return 30;
-		break;
+		// break;
 		default:
 		return 30;
 	}
@@ -65,10 +65,18 @@ function getClassStats(clas){
 				savingThrows: ['str', 'con'],
 				armorProfs: ['light', 'medium', 'shield'],
 				weaponProfs: ['simple', 'martial'],
-				possibleSkills: {num: 2, skills:['animal_handling', 'athletics', 'intimidation', 'nature', 'perception', 'survival']}
+				possibleSkills: {num: 2, skills:['animal_handling', 'athletics', 'intimidation', 'nature', 'perception', 'survival']},
+				startingEquipment: [
+					{name: 'greataxe', num: 1, option: 'a'},
+					{name: 'other_martial_melee', num: 1, option: 'a'},
+					{name: 'handaxe', num: 2, option: 'b'},
+					{name: 'other_simple_weapon', num: 1, option: 'b'},
+					{name: 'explorer_pack', num: 1},
+					{name: 'javelin', num: 4}
+				]
 			};
 			return stats;
-		break;
+		// break;
 		case 'bard':
 			stats = {
 				hitDie: 8,
@@ -76,10 +84,21 @@ function getClassStats(clas){
 				savingThrows: ['dex', 'cha'],
 				armorProfs: ['light'],
 				weaponProfs: ['simple', 'hand_crossbow', 'longsword', 'rapier', 'shortsword'],
-				possibleSkills: {num: 3, skills: ['acrobatics','animal_handling','arcana','athletics','deception','history','insight','intimidation','investigation','medicine','nature','perception','performance','persuassion','religion','sleight_of_hand','stealth','survival']}
+				possibleSkills: {num: 3, skills: ['acrobatics','animal_handling','arcana','athletics','deception','history','insight','intimidation','investigation','medicine','nature','perception','performance','persuassion','religion','sleight_of_hand','stealth','survival']},
+				startingEquipment: [
+					{name: 'rapier', num: 1, option: 'a'},
+					{name: 'longsword', num: 1, option: 'a'},
+					{name: 'other_simple_weapon', num: 1, option: 'a'},
+					{name: 'diplomat_pack', num: 2, option: 'b'},
+					{name: 'entertainer_pack', num: 2, option: 'b'},
+					{name: 'lute', num: 1, option: 'c'},
+					{name: 'other_instrument', num: 2, option: 'c'},
+					{name: 'dagger', num: 1},
+					{name: 'leather_armor', num: 1},
+				]
 			};
 		return stats;
-		break;
+		// break;
 		case 'cleric':
 			stats = {
 				hitDie: 8,
@@ -87,10 +106,24 @@ function getClassStats(clas){
 				savingThrows: ['wis', 'cha'],
 				armorProfs: ['light', 'medium', 'shield'],
 				weaponProfs: ['simple'],
-				possibleSkills: {num: 2, skills: ['history', 'insight', 'medicine', 'persuasion', 'religion']}
+				possibleSkills: {num: 2, skills: ['history', 'insight', 'medicine', 'persuasion', 'religion']},
+				startingEquipment: [
+					{name: 'mace', num: 1, option: 'a'},
+					{name: 'warhammer', num: 1, option: 'a', proficiency: true},
+					{name: 'scale_mail', num: 1, option: 'b'},
+					{name: 'leather_armor', num: 2, option: 'b'},
+					{name: 'chain_mail', num: 2, option: 'b', proficiency: true},
+					{name: 'light_crossbow', num: 1, option: 'c'},
+					{name: 'crossbow_bolts', num: 20},
+					{name: 'other_simple_weapon', num: 1, option: 'c'},
+					{name: 'priest_pack', num: 1, option: 'd'},
+					{name: 'explorer_pack', num: 1, option: 'd'},
+					{name: 'shield', num: 1},
+					{name: 'holy_symbol', num: 1}
+				]
 			};
 			return stats;
-		break;
+		// break;
 		case 'druid':
 			stats = {
 				hitDie: 8,
@@ -98,10 +131,16 @@ function getClassStats(clas){
 				savingThrows: ['int', 'wis'],
 				armorProfs: ['light', 'medium', 'shield'],
 				weaponProfs: ['club', 'dagger', 'dart', 'javelins', 'mace', 'quarterstaff', 'scimitar', 'sickle', 'sling', 'spear'],
-				possibleSkills: {num: 2, skills: ['arcana', 'animal_handling', 'insight', 'medicine', 'nature', 'perception', 'religion', 'survival']}
+				possibleSkills: {num: 2, skills: ['arcana', 'animal_handling', 'insight', 'medicine', 'nature', 'perception', 'religion', 'survival']},
+				startingEquipment: [
+					{name: 'wooden_shild', num: 1, option: 'a'},
+					{name: 'other_simple_weapon', num: 1, option: 'a'},
+					{name: 'explorer_pack', num: 2, option: 'b'},
+					{name: 'leather_armor', num: 1},
+				]
 			};
 			return stats;
-		break;
+		// break;
 		case 'fighter':
 			stats = {
 				hitDie: 10,
@@ -109,10 +148,21 @@ function getClassStats(clas){
 				savingThrows: ['str', 'con'],
 				armorProfs: ['light', 'medium', 'heavy', 'sheild'],
 				weaponProfs: ['simple', 'martial'],
-				possibleSkills: {num: 2, skills: ['acrobatics', 'animal_handling','athletics','history','insight','intimidation','perception','survial']}
+				possibleSkills: {num: 2, skills: ['acrobatics', 'animal_handling','athletics','history','insight','intimidation','perception','survial']},
+				startingEquipment: [
+					{name: 'chain_mail', num: 1, option: 'a', suboption: '1'},
+					{name: 'leather_armor', num: 1, option: 'a', suboption: '2'},
+					{name: 'longbow', num: 1, option: 'a', suboption: '2'},
+					{name: 'arrow', num: 20, option: 'a', suboption: '2'},
+					{name: 'other_martial_weapon', num: 1, option: 'b', suboption: '1'},
+					{name: 'sheild', num: 1, option: 'b', suboption: '1'},
+					{name: 'other_martial_weapon', num: 2, option: 'b', suboption: '2'},
+					{name: 'dungeoneer_pack', num: 1, option: 'c', suboption: '1'},
+					{name: 'explorer_pack', num: 1, option: 'c', suboption: '2'}
+				]
 			};
 			return stats;
-		break;
+		// break;
 		case 'monk':
 			stats = {
 				hitDie: 8,
@@ -120,10 +170,17 @@ function getClassStats(clas){
 				savingThrows: ['str', 'dex'],
 				armorProfs: [],
 				weaponProfs: ['simple', 'shortsword'],
-				possibleSkills: {num: 2, skills: ['acrobatics','athletics','history','insight','religion','stealth']}
+				possibleSkills: {num: 2, skills: ['acrobatics','athletics','history','insight','religion','stealth']},
+				startingEquipment: [
+					{name: 'shortsword', num: 1, option: 'a'},
+					{name: 'other_simple_weapon', num: 1, option: 'a'},
+					{name: 'dungeoneer_pack', num: 1, option: 'b'},
+					{name: 'explorer_pack', num: 1, option: 'b'},
+					{name: 'dart', num: 10}
+				]
 			};
 			return stats;
-		break;
+		// break;
 		case 'paladin':
 			stats = {
 				hitDie: 10,
@@ -131,10 +188,21 @@ function getClassStats(clas){
 				savingThrows: ['wis', 'cha'],
 				armorProfs: ['light', 'medium', 'heavy', 'sheild'],
 				weaponProfs: ['simple', 'martial'],
-				possibleSkills: {num: 2, skills: ['athletics','insight','intimidation','medicine','persuasion','religion']}
+				possibleSkills: {num: 2, skills: ['athletics','insight','intimidation','medicine','persuasion','religion']},
+				startingEquipment: [
+					{name: 'other_martial_weapon', num: 1, option: 'a'},
+					{name: 'shield', num: 1},
+					{name: 'other_martial_weapon', num: 2, option: 'a'},
+					{name: 'javelin', num: 5, option: 'b'},
+					{name: 'other_simple_weapon', num: 2, option: 'b'},
+					{name: 'priest_pack', num: 1, option: 'c'},
+					{name: 'explorer_pack', num: 1, option: 'c'},
+					{name: 'chain_mail', num: 1},
+					{name: 'holy_symbol', num: 1}
+				]
 			};
 			return stats;
-		break;
+		// break;
 		case 'ranger':
 			stats = {
 				hitDie: 10,
@@ -142,10 +210,20 @@ function getClassStats(clas){
 				savingThrows: ['str', 'dex'],
 				armorProfs: ['light', 'medium'],
 				weaponProfs: ['simple', 'martial'],
-				possibleSkills: {num: 3, skills: ['animal_handling','athletics','insight','investigation','nature','perception','stealth','survival']}
+				possibleSkills: {num: 3, skills: ['animal_handling','athletics','insight','investigation','nature','perception','stealth','survival']},
+				startingEquipment: [
+					{name: 'scale_mail', num: 1, option: 'a'},
+					{name: 'leather_armor', num: 1, option: 'a'},
+					{name: 'shortsword', num: 2, option: 'b'},
+					{name: 'other_simple_weapon', num: 2, option: 'b'},
+					{name: 'dungeoneer_pack', num: 1, option: 'c'},
+					{name: 'explorer_pack', num: 1, option: 'c'},
+					{name: 'longbow', num: 1},
+					{name: 'arrow', num: 20}
+				]
 			};
 			return stats;
-		break;
+		// break;
 		case 'rogue':
 			stats = {
 				hitDie: 8,
@@ -153,10 +231,23 @@ function getClassStats(clas){
 				savingThrows: ['dex', 'int'],
 				armorProfs: ['light'],
 				weaponProfs: ['simple', 'hand_crossbow', 'longsword', 'rapier', 'shortsword'],
-				possibleSkills: {num: 4, skills: ['acrobatics','athletics','deception','insight','intimidation','investigation','perception','performance','persuasion','sleight_of_hand','stealth']}
+				possibleSkills: {num: 4, skills: ['acrobatics','athletics','deception','insight','intimidation','investigation','perception','performance','persuasion','sleight_of_hand','stealth']},
+				startingEquipment: [
+					{name: 'rapier', num: 1, option: 'a'},
+					{name: 'shortsword', num: 1, option: 'a'},
+					{name: 'shortsword', num: 1, option: 'b'},
+					{name: 'shortbow', num: 1, option: 'b'},
+					{name: 'arrow', num: 20},
+					{name: 'burglar_pack', num: 1, option: 'c'},
+					{name: 'dungeoneer_pack', num: 1, option: 'c'},
+					{name: 'explorer_pack', num: 1, option: 'c'},
+					{name: 'leather_armor', num: 1},
+					{name: 'dagger', num: 2},
+					{name: 'thieves_tools', num: 1}
+				]
 			};
 			return stats;
-		break;
+		// break;
 		case 'sorcerer':
 			stats = {
 				hitDie: 6,
@@ -164,10 +255,20 @@ function getClassStats(clas){
 				savingThrows: ['con', 'cha'],
 				armorProfs: [],
 				weaponProfs: ['dagger', 'dart', 'sling', 'quarterstaff', 'light_crossbow'],
-				possibleSkills: {num: 2, skills: ['arcana', 'deception', 'insight','intimidation','persuasion','religion']}
+				possibleSkills: {num: 2, skills: ['arcana', 'deception', 'insight','intimidation','persuasion','religion']},
+				startingEquipment: [
+					{name: 'light_crossbow', num: 1, option: 'a'},
+					{name: 'arrow', num: 20},
+					{name: 'other_simple_weapon', num: 1, option: 'a'},
+					{name: 'component_pouch', num: 1, option: 'b'},
+					{name: 'arcane_focus', num: 1, option: 'b'},
+					{name: 'dungeoneer_pack', num: 1, option: 'c'},
+					{name: 'explorer_pack', num: 1, option: 'c'},
+					{name: 'dagger', num: 2},
+				]
 			};
 			return stats;
-		break;
+		// break;
 		case 'warlock':
 			stats = {
 				hitDie: 8,
@@ -175,10 +276,22 @@ function getClassStats(clas){
 				savingThrows: ['con', 'cha'],
 				armorProfs: ['light'],
 				weaponProfs: ['simple'],
-				possibleSkills: {num: 2, skills: ['arcana','deception','history','intimidation','investigation','nature','religion']}
+				possibleSkills: {num: 2, skills: ['arcana','deception','history','intimidation','investigation','nature','religion']},
+				startingEquipment: [
+					{name: 'light_crossbow', num: 1, option: 'a'},
+					{name: 'arrow', num: 20},
+					{name: 'other_simple_weapon', num: 1, option: 'a'},
+					{name: 'component_pouch', num: 1, option: 'b'},
+					{name: 'arcane_focus', num: 1, option: 'b'},
+					{name: 'dungeoneer_pack', num: 1, option: 'c'},
+					{name: 'scholar_pack', num: 1, option: 'c'},
+					{name: 'leather_armor', num: 1},
+					{name: 'other_simple_weapon', num: 1},
+					{name: 'dagger', num: 2},
+				]
 			};
 			return stats;
-		break;
+		// break;
 		case 'wizard':
 			stats = {
 				hitDie: 6,
@@ -186,12 +299,21 @@ function getClassStats(clas){
 				savingThrows: ['int', 'wis'],
 				armorProfs: [],
 				weaponProfs: ['dagger', 'dart', 'sling', 'quarterstaff', 'light_crossbow'],
-				possibleSkills: {num: 2, skills: ['arcana','history','insight','investigation','medicine','religion']}
+				possibleSkills: {num: 2, skills: ['arcana','history','insight','investigation','medicine','religion']},
+				startingEquipment: [
+					{name: 'dagger', num: 1, option: 'a'},
+					{name: 'quarterstaff', num: 1, option: 'a'},
+					{name: 'component_pouch', num: 1, option: 'b'},
+					{name: 'arcane_focus', num: 1, option: 'b'},
+					{name: 'explorer_pack', num: 1, option: 'c'},
+					{name: 'scholar_pack', num: 1, option: 'c'},
+					{name: 'spellbook', num: 1}
+				]
 			};
 			return stats;
-		break;
+		// break;
 		default :
-		return stats;
+		console.log(stats);
 	};
 };
 
@@ -217,7 +339,7 @@ function getSkillModifiers(skills, abilityMods, proficiencyBonus){
 		'stealth': abilityMods.dex,
 		'survival': abilityMods.wis
 	};
-	skills.map(skill => {
+	skills.forEach(skill => {
 		if(skillMods[skill]){
 			skillMods[skill] += proficiencyBonus
 		}
