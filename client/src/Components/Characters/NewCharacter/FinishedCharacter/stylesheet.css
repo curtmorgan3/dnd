@@ -1,5 +1,5 @@
 
-button{
+.new-character-confirm-buttons{
 	grid-row: 1;
 	grid-column: 1;
 }

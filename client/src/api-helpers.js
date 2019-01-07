@@ -1,5 +1,5 @@
 import axios from 'axios';
-const token = localStorage.getItem('dnd_token');
+
 
 export async function getUserCharacters(){
 	const characterData = await axios.get('/characters');
@@ -8,8 +8,7 @@ export async function getUserCharacters(){
 }
 
 export async function postNewCharacter(data){
-	console.log(data);
-	// const newCharacter = await axios.post('/characters', data, {'Authorization': `Bearer ${token}`} );
+	const token = localStorage.getItem('dnd_token');
 	const newCharacter = await axios({
 		method: 'post',
 		url: '/characters',

@@ -1,5 +1,6 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: [:show, :update, :destroy]
+	before_action :authenticate_user
 
   # GET /characters
   def index
@@ -37,6 +38,13 @@ class CharactersController < ApplicationController
   def destroy
     @character.destroy
   end
+
+	# GET /characters/mine
+	def mine
+		@characters = current_user.characters
+
+		render json: @characters
+	end
 
   private
     # Use callbacks to share common setup or constraints between actions.

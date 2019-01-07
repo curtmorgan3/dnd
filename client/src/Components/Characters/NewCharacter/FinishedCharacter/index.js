@@ -8,7 +8,7 @@ export default class FinishedCharacter extends React.Component{
 		super(props);
 		this.state = {
 			name: this.props.data.step1.name,
-			level: 0,
+			level: 1,
 			xp: 0,
 			background: '',
 			race: this.props.data.step1.race,
@@ -123,7 +123,9 @@ export default class FinishedCharacter extends React.Component{
 	render(){
 		return(
 			<div className='new-character-confirm'>
-				<button onClick={this.saveCharacter}>Save Character</button>
+				<div className='new-character-confirm-buttons'>
+					<button onClick={this.saveCharacter}>Save Character</button>
+				</div>
 				<div className='pedigree'>
 					<p id='pedigree-name'>Character Name: {this.state.name}</p>
 					<div id='pedigree-other1'>
