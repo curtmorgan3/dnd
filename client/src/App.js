@@ -8,6 +8,9 @@ import Login from './Components/Login';
 import Characters from './Components/Characters';
 import NewCharacter from './Components/Characters/NewCharacter';
 import CharacterSheet from './Components/Characters/CharacterSheet';
+import Campaigns from './Components/Campaigns';
+import NewCampaign from './Components/Campaigns/NewCampaign';
+
 import './App.css';
 
 class App extends Component {
@@ -66,6 +69,10 @@ class App extends Component {
 						<Login logIn={this.logIn}/>
 					)}/>
 					<Route path='/register' component={Register} />
+					<Switch>
+						<Route exact path='/campaigns' component={Campaigns} />
+						<Route path='/campaigns/new' component={NewCampaign} />
+					</Switch>
 					<Switch>
 						<Route exact path='/characters' render={props => (
 							<Characters characters={this.state.characters} />

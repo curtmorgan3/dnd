@@ -46,3 +46,15 @@ export async function updateCharacter(id, data){
 		}
 	});
 };
+
+export async function postNewCampaign(data){
+	const token = localStorage.getItem('dnd_token');
+	await axios({
+		method: 'post',
+		url: '/campaigns',
+		data: data,
+		headers: {
+			'Authorization': `Bearer ${token}`
+		}
+	})
+};

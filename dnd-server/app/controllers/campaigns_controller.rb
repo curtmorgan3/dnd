@@ -1,5 +1,6 @@
 class CampaignsController < ApplicationController
   before_action :set_campaign, only: [:show, :update, :destroy]
+	before_action :authenticate_user
 
   # GET /campaigns
   def index
@@ -15,7 +16,7 @@ class CampaignsController < ApplicationController
 
   # POST /campaigns
   def create
-    @campaign = Campaign.new(campaign_params)
+    @campaign = current_user.campaigns.create(campaign_params)
 
     if @campaign.save
       render json: @campaign, status: :created, location: @campaign

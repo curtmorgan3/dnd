@@ -16,6 +16,9 @@ export default function NavBar(props){
 					<NavItem>
 						<Link to='/characters'>My Characters</Link>
 					</NavItem>
+					<NavItem>
+						<Link to='/campaigns'>My Campaigns</Link>
+					</NavItem>
 					<NavItem onClick={() => props.signOut()}>
 						Sign Out
 					</NavItem>
