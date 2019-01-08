@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
-import { getUserCharacters } from './api-helpers.js';
+import { getUserCharacters, getUserCampaigns } from './api-helpers.js';
 import NavBar from './Components/NavBar';
 import Landing from './Components/Landing';
 import Register from './Components/Register';
@@ -10,6 +10,7 @@ import NewCharacter from './Components/Characters/NewCharacter';
 import CharacterSheet from './Components/Characters/CharacterSheet';
 import Campaigns from './Components/Campaigns';
 import NewCampaign from './Components/Campaigns/NewCampaign';
+import CampaignCharacters from './Components/Campaigns/CampaignCharacters';
 
 import './App.css';
 
@@ -27,12 +28,21 @@ class App extends Component {
 
 	async componentDidMount(){
 		const token = await localStorage.getItem('dnd_token');
+		let characters = [];
+		let campaigns = [];
 		if (token){
-			const characters = await getUserCharacters(token);
-			this.setState({
-				token,
-				characters
-			});
+			try{
+				characters = await getUserCharacters(token);
+				campaigns = await getUserCampaigns(token);
+			} catch(e){
+				console.error(e)
+			} finally {
+				this.setState({
+					token,
+					characters,
+					campaigns
+				});
+			}
 		}
 	}
 	logIn(token){
@@ -70,8 +80,12 @@ class App extends Component {
 					)}/>
 					<Route path='/register' component={Register} />
 					<Switch>
-						<Route exact path='/campaigns' component={Campaigns} />
+						<Route exact path='/campaigns' render={props => (
+							<Campaigns campaigns={this.state.campaigns} />
+						)} />
 						<Route path='/campaigns/new' component={NewCampaign} />
+						<Route path='/campaigns/:id/characters' component={CampaignCharacters} />
+						)} />
 					</Switch>
 					<Switch>
 						<Route exact path='/characters' render={props => (

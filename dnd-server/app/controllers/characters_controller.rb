@@ -14,6 +14,13 @@ class CharactersController < ApplicationController
     render json: @character
   end
 
+	#GET /characters/mine
+	def mine
+		@characters = current_user.characters
+
+		render json: @characters
+	end
+	
   # POST /characters
   def create
     @character = current_user.characters.new(character_params)
