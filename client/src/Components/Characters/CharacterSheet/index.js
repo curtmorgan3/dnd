@@ -364,6 +364,7 @@ export default class CharacterSheet extends React.Component {
 					</div>
 				</div>
 				<div className='sheet-weapons'>
+					<h4>Weapons</h4>
 				</div>
 				<div className='sheet-items'>
 					<div className='sheet-currency'>
@@ -408,11 +409,20 @@ export default class CharacterSheet extends React.Component {
 						})}
 					</div>
 				</div>
-				<div className='sheet-languages'>
-					<h4>Languages</h4>
-					{this.state.languages.map(language => (
-						<p>{language}</p>
-					))}
+				<div className='sheet-passive'>
+				<div className='sheet-passive-wisdom'>
+					<h4>Passive Wisdom:</h4>
+					<p>{this.state.abilityMods.wis+10}</p>
+				</div>
+					<div className='sheet-languages'>
+						<h4>Languages</h4>
+						{this.state.languages.map(language => (
+							<p>{language}</p>
+						))}
+					</div>
+				</div>
+				<div className='sheet-feats-traits'>
+					<h4>Features and Traits</h4>
 				</div>
 			</div>
 		)
