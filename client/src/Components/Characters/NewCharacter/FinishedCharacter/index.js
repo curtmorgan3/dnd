@@ -1,6 +1,6 @@
 import React from 'react';
 import './stylesheet.css';
-import { getAbilityModifiers, getAC, getSpeed, getClassStats, getSkillModifiers } from '../../../../dnd-helpers.js';
+import { getAbilityModifiers, getAC, getSpeed, getClassStats, getSkillModifiers, getStartingGold } from '../../../../dnd-helpers.js';
 import { postNewCharacter } from '../../../../api-helpers.js';
 
 export default class FinishedCharacter extends React.Component{
@@ -49,6 +49,8 @@ export default class FinishedCharacter extends React.Component{
 			maxHP: 0,
 			hp: 0,
 			equipment: this.props.data.step5.equipment,
+			languages: this.props.data.step3.languages,
+			gold: 0,
 		}
 		//Bindings
 		this.saveCharacter = this.saveCharacter.bind(this);
@@ -68,6 +70,8 @@ export default class FinishedCharacter extends React.Component{
 		const ac = getAC(mods.dex);
 		const speed = getSpeed(this.state.race);
 		const classStats = getClassStats(this.state.clas);
+		const {dice, num, multi}= classStats.startingCoin;
+		const gold = getStartingGold(dice, num, multi);
 		const maxHP = classStats.hitDie + mods.con;
 		this.setState({
 			abilityMods,
@@ -81,7 +85,8 @@ export default class FinishedCharacter extends React.Component{
 			weaponProfs: classStats.weaponProfs,
 			maxHP ,
 			hp: maxHP,
-			skills
+			skills,
+			gold
 		})
 	}
 
@@ -115,7 +120,15 @@ export default class FinishedCharacter extends React.Component{
 				weaponProfs: this.state.weaponProfs,
 				skillProfs: this.state.skillProfs,
 				skills: this.state.skills,
-				equipement: this.state.equipment
+				equipment: this.state.equipment,
+				languages: this.state.languages,
+				currency: {
+					cp: 0,
+					sp: 0,
+					ep: 0,
+					gp: this.state.gold,
+					pp: 0
+				}
 			})
 		};
 		try {

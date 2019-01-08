@@ -49,6 +49,15 @@ export default class CharacterSheet extends React.Component {
 			skills: {},
 			maxHP: 0,
 			hp: 0,
+			equipment: [],
+			languages: [],
+			currency: {
+				cp: 0,
+				sp: 0,
+				ep: 0,
+				gp: 0,
+				pp: 0
+			}
 		}
 		this.saveCharacter = this.saveCharacter.bind(this);
 	}
@@ -66,6 +75,7 @@ export default class CharacterSheet extends React.Component {
 			primaryAbility: characterStats.primaryAbility,
 			savingThrows: characterStats.savingThrows,
 			alignment: characterStats.alignment,
+			speed: characterStats.speed,
 			personalityTraits: characterStats.personalityTraits,
 			ideals: characterStats.ideals,
 			bonds: characterStats.bonds,
@@ -97,6 +107,15 @@ export default class CharacterSheet extends React.Component {
 			skills: characterStats.skills,
 			maxHP: characterStats.maxHP,
 			hp: characterStats.hp,
+			equipment: characterStats.equipment,
+			languages: characterStats.languages,
+			currency:{
+				cp: characterStats.currency.cp,
+				sp: characterStats.currency.sp,
+				ep: characterStats.currency.ep,
+				gp: characterStats.currency.gp,
+				pp: characterStats.currency.pp
+			}
 		})
 	};
 
@@ -131,7 +150,6 @@ export default class CharacterSheet extends React.Component {
 	};
 
 	async saveCharacter(){
-		//PUT character
 		const id = this.props.match.params.id;
 		const data = {
 			name: this.state.name,
@@ -175,6 +193,15 @@ export default class CharacterSheet extends React.Component {
 				skills: this.state.skills,
 				maxHP: this.state.maxHP,
 				hp: this.state.hp,
+				equipment: this.state.equipment,
+				languages: this.state.languages,
+				currency:{
+					cp: this.state.currency.cp,
+					sp: this.state.currency.sp,
+					ep: this.state.currency.ep,
+					gp: this.state.currency.gp,
+					pp: this.state.currency.pp
+				}
 			})
 		}
 		await updateCharacter(id, data);
@@ -336,6 +363,36 @@ export default class CharacterSheet extends React.Component {
 						</div>
 					</div>
 				</div>
+				<div className='sheet-weapons'>
+				</div>
+				<div className='sheet-items'>
+					<div className='sheet-currency'>
+						<div>
+							<p>Copper: {this.state.currency.cp}</p>
+						</div>
+						<div>
+							<p>Silver: {this.state.currency.sp}</p>
+						</div>
+						<div>
+							<p>Electrum: {this.state.currency.e}</p>
+						</div>
+						<div>
+							<p>Gold: {this.state.currency.gp}</p>
+						</div>
+						<div>
+							<p>Platinum: {this.state.currency.pp}</p>
+						</div>
+					</div>
+					<div className='sheet-equipment'>
+						<h4>Equipment</h4>
+						{this.state.equipment.map(piece => (
+							<div className='sheet-equipment-piece'>
+								<h6>{piece.name}</h6>
+								<p>#{piece.num}</p>
+							</div>
+						))}
+					</div>
+				</div>
 				<div className='sheet-skills'>
 					<h4>Skills</h4>
 					<div className='sheet-skill-list'>
@@ -350,6 +407,12 @@ export default class CharacterSheet extends React.Component {
 							)
 						})}
 					</div>
+				</div>
+				<div className='sheet-languages'>
+					<h4>Languages</h4>
+					{this.state.languages.map(language => (
+						<p>{language}</p>
+					))}
 				</div>
 			</div>
 		)

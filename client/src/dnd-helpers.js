@@ -54,6 +54,14 @@ function getSpeed(race){
 	}
 };
 
+//Gold
+function getStartingGold(dice, num, multi){
+	let arr = rollDice(dice, num)
+	let sum = arr.reduce((acc,cur) => acc + cur);
+	let total = sum * multi
+	return total
+}
+
 //Class Stats
 function getClassStats(clas){
 	let stats = {}
@@ -73,7 +81,8 @@ function getClassStats(clas){
 					{name: 'other_simple_weapon', num: 1, option: 'b', suboption: '2', unique: 3},
 					{name: 'explorer_pack', num: 1, option: 'c', suboption: '1', unique: 4},
 					{name: 'javelin', num: 4, option: 'd', suboption: '1', unique: 5}
-				]
+				],
+				startingCoin: {dice: 4, num: 2, multi: 10}
 			};
 			return stats;
 		// break;
@@ -95,7 +104,8 @@ function getClassStats(clas){
 					{name: 'other_instrument', num: 2, option: 'c', suboption: '2', unique: 6},
 					{name: 'dagger', num: 1, option: 'd', suboption: '1', unique: 7},
 					{name: 'leather_armor', num: 1, option: 'e', suboption: '1', unique: 8},
-				]
+				],
+				startingCoin: {dice: 4, num: 5, multi: 10}
 			};
 		return stats;
 		// break;
@@ -120,7 +130,8 @@ function getClassStats(clas){
 					{name: 'explorer_pack', num: 1, option: 'd', suboption: '2', unique: 9},
 					{name: 'shield', num: 1, option: 'e', suboption: '1', unique: 10},
 					{name: 'holy_symbol', num: 1, option: 'f', suboption: '1', unique: 11}
-				]
+				],
+				startingCoin: {dice: 4, num: 5, multi: 10}
 			};
 			return stats;
 		// break;
@@ -140,7 +151,8 @@ function getClassStats(clas){
 					{name: 'druidic_focus', num: 1, option: 'd', suboption: '1', unique: 4},
 					{name: 'scimitar', num: 1, option: 'e', suboption: '1', unique: 5},
 					{name: 'other_simple_melee_weapon', num: 1, option: 'e', suboption: '2', unique: 6}
-				]
+				],
+				startingCoin: {dice: 4, num: 2, multi: 10}
 			};
 			return stats;
 		// break;
@@ -162,7 +174,8 @@ function getClassStats(clas){
 					{name: 'other_martial_weapon', num: 2, option: 'b', suboption: '2', unique: 6},
 					{name: 'dungeoneer_pack', num: 1, option: 'c', suboption: '1', unique: 7 },
 					{name: 'explorer_pack', num: 1, option: 'c', suboption: '2', unique: 8 }
-				]
+				],
+				startingCoin: {dice: 4, num: 5, multi: 10}
 			};
 			return stats;
 		// break;
@@ -180,7 +193,8 @@ function getClassStats(clas){
 					{name: 'dungeoneer_pack', num: 1, option: 'b', suboption: '1', unique: 2},
 					{name: 'explorer_pack', num: 1, option: 'b', suboption: '2', unique: 3},
 					{name: 'dart', num: 10, option: 'c', suboption: '1', unique: 4}
-				]
+				],
+				startingCoin: {dice: 4, num: 5, multi: 1}
 			};
 			return stats;
 		// break;
@@ -202,7 +216,8 @@ function getClassStats(clas){
 					{name: 'explorer_pack', num: 1, option: 'c', suboption: '2', unique: 6},
 					{name: 'chain_mail', num: 1, option: 'd', suboption: '1', unique: 7},
 					{name: 'holy_symbol', num: 1, option: 'e', suboption: '1', unique: 8}
-				]
+				],
+				startingCoin: {dice: 4, num: 5, multi: 10}
 			};
 			return stats;
 		// break;
@@ -223,7 +238,8 @@ function getClassStats(clas){
 					{name: 'explorer_pack', num: 1, option: 'c', suboption: '2', unique: 5},
 					{name: 'longbow', num: 1, option: 'd', suboption: '1', unique: 6},
 					{name: 'arrow', num: 20, option: 'e', suboption: '1', unique: 7}
-				]
+				],
+				startingCoin: {dice: 4, num: 5, multi: 10}
 			};
 			return stats;
 		// break;
@@ -247,7 +263,8 @@ function getClassStats(clas){
 					{name: 'leather_armor', num: 1, option: 'd', suboption: '1', unique: 8},
 					{name: 'dagger', num: 2, option: 'e', suboption: '1', unique: 9},
 					{name: 'thieves_tools', num: 1, option: 'f', suboption: '1', unique: 10}
-				]
+				],
+				startingCoin: {dice: 4, num: 4, multi: 10}
 			};
 			return stats;
 		// break;
@@ -268,7 +285,8 @@ function getClassStats(clas){
 					{name: 'dungeoneer_pack', num: 1, option: 'c', suboption: '1', unique: 5},
 					{name: 'explorer_pack', num: 1, option: 'c', suboption: '2', unique: 6},
 					{name: 'dagger', num: 2, option: 'e', suboption: '1', unique: 7},
-				]
+				],
+				startingCoin: {dice: 4, num: 3, multi: 10}
 			};
 			return stats;
 		// break;
@@ -291,7 +309,8 @@ function getClassStats(clas){
 					{name: 'leather_armor', num: 1, option: 'd', suboption: '1', unique: 7},
 					{name: 'other_simple_weapon', num: 1, option: 'e', suboption: '1', unique: 8},
 					{name: 'dagger', num: 2, option: 'f', suboption: '1', unique: 9},
-				]
+				],
+				startingCoin: {dice: 4, num: 4, multi: 10}
 			};
 			return stats;
 		// break;
@@ -311,7 +330,8 @@ function getClassStats(clas){
 					{name: 'explorer_pack', num: 1, option: 'c', suboption: '1', unique: 4},
 					{name: 'scholar_pack', num: 1, option: 'c', suboption: '2', unique: 5},
 					{name: 'spellbook', num: 1, option: 'd', suboption: '1', unique: 6}
-				]
+				],
+				startingCoin: {dice: 4, num: 4, multi: 10}
 			};
 			return stats;
 		// break;
@@ -357,5 +377,6 @@ module.exports = {
 	getAC,
 	getSpeed,
 	getClassStats,
-	getSkillModifiers
+	getSkillModifiers,
+	getStartingGold
 }
