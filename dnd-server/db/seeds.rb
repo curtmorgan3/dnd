@@ -11,3 +11,7 @@ User.create({
 	email: 'curtmorgan3@gmail.com',
 	password: 'password',
 })
+
+User.first.campaigns.create({
+	name: 'A General Assembly'
+})
