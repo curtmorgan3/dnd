@@ -73,7 +73,8 @@ export default class CharacterSheet extends React.Component {
 			}]
 		}
 		this.saveCharacter = this.saveCharacter.bind(this);
-		this.handleUnquip = this.handleUnquip.bind(this);
+		this.handleUnequip = this.handleUnequip.bind(this);
+		this.handleEquip = this.handleEquip.bind(this);
 		this.handleAttack = this.handleAttack.bind(this);
 	}
 
@@ -290,7 +291,7 @@ export default class CharacterSheet extends React.Component {
 		window.alert(`Mod: ${mod}, dice: ${result}, total: ${total}`)
 	};
 
-	handleUnquip(e){
+	handleUnequip(e){
 		let weapons = this.state.weapons;
 		let equipment = this.state.equipment;
 		let weaponToRemove = {};
@@ -300,14 +301,29 @@ export default class CharacterSheet extends React.Component {
 			};
 		});
 		weapons = weapons.filter(weapon => weapon.id !== weaponToRemove.id);
-		console.log(weapons);
 		equipment.push(weaponToRemove);
-		console.log(equipment);
 		this.setState({
 			weapons,
 			equipment
 		})
 	};
+
+	handleEquip(e){
+		let weapons = this.state.weapons;
+		let equipment = this.state.equipment;
+		let equipmentToRemove = {};
+		this.state.equipment.forEach(piece => {
+			if (piece.id === parseInt(e.target.value)){
+				equipmentToRemove = piece;
+			};
+		});
+		equipment = equipment.filter(piece => piece.id !== equipmentToRemove.id);
+		weapons.push(equipmentToRemove);
+		this.setState({
+			weapons,
+			equipment
+		})
+	}
 
 	getAttackMod(type){
 		switch(type){
@@ -508,7 +524,7 @@ export default class CharacterSheet extends React.Component {
 										<p>{weapon.damageType}</p>
 										<p>{weapon.worth}</p>
 										<button value={weapon.id} onClick={this.handleAttack}>Attack</button>
-										<button value={weapon.id} onClick={this.handleUnquip}>Unequip</button>
+										<button value={weapon.id} onClick={this.handleUnequip}>Unequip</button>
 									</div>
 								)) : null}
 				</div>
@@ -568,7 +584,7 @@ export default class CharacterSheet extends React.Component {
 								<h6>{piece.name}</h6>
 								<p>#{piece.num}</p>
 								<button>Discard</button>
-								<button>Equip</button>
+								<button value={piece.id} onClick={this.handleEquip}>Equip</button>
 								<button>-</button>
 								<button>+</button>
 							</div>

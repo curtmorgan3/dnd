@@ -24,17 +24,17 @@ export default class Step5 extends React.Component {
 		let { equipmentPackage } = this.state;
 
 		chosenEquipment.push(equipment);
-		equipmentPackage = equipmentPackage.filter(equip => equip.unique !== equipment.unique)
+		equipmentPackage = equipmentPackage.filter(equip => equip.id !== equipment.id)
 
 		equipmentPackage.forEach((equip,i) => {
 			if(equip.suboption === equipment.suboption){
 				if(equip.option === equipment.option){
 					chosenEquipment.push(equip);
-					equipmentPackage = equipmentPackage.filter(piece => piece.unique !== equip.unique)
+					equipmentPackage = equipmentPackage.filter(piece => piece.id !== equip.id)
 				};
 			}else if(equip.suboption !== equipment.suboption){
 				if(equip.option === equipment.option){
-					equipmentPackage = equipmentPackage.filter(piece => piece.unique !== equip.unique)
+					equipmentPackage = equipmentPackage.filter(piece => piece.id !== equip.id)
 				}
 			}
 		});
