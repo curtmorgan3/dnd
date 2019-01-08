@@ -37,6 +37,7 @@ export default class CharacterSheet extends React.Component {
 				wis: 0,
 				cha: 0,
 			},
+			features: [],
 			inspiration: 0,
 			proficiencyBonus: 0,
 			ac: 0,
@@ -96,6 +97,7 @@ export default class CharacterSheet extends React.Component {
 				wis: characterStats.abilityMods.wis,
 				cha: characterStats.abilityMods.cha,
 			},
+			features: characterStats.features,
 			inspiration: characterStats.inspiration,
 			proficiencyBonus: characterStats.proficiencyBonus,
 			ac: characterStats.ac,
@@ -182,6 +184,7 @@ export default class CharacterSheet extends React.Component {
 					wis: this.state.abilityMods.wis,
 					cha: this.state.abilityMods.cha,
 				},
+				features: this.state.features,
 				inspiration: this.state.inspiration,
 				proficiencyBonus: this.state.proficiencyBonus,
 				ac: this.state.ac,
@@ -423,6 +426,9 @@ export default class CharacterSheet extends React.Component {
 				</div>
 				<div className='sheet-feats-traits'>
 					<h4>Features and Traits</h4>
+						{this.state.features.map(feat => (
+						<p key={feat.id}>{feat.name}</p>
+					))}
 				</div>
 			</div>
 		)

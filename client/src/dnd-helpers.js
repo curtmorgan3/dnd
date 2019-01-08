@@ -1,3 +1,4 @@
+import axios from 'axios';
 
 // Roll any number of any sided die, returns array sorted lowest to highest
 function rollDice(sides, n){
@@ -60,6 +61,216 @@ function getStartingGold(dice, num, multi){
 	let sum = arr.reduce((acc,cur) => acc + cur);
 	let total = sum * multi
 	return total
+}
+
+//Feats
+async function getFeat(index){
+	try{
+		let feat = await axios.get(`http://www.dnd5eapi.co/api/features/${index}`);
+		return feat.data;
+	} catch(e){
+		console.error(e)
+	}
+};
+
+async function getCharacterFeatures(clas, level){
+	let feats = [];
+	let currentFeats = [];
+	switch(clas){
+		case 'barbarian':
+			for (let i = 1; i<25; i++){
+				try{
+					const feat = await getFeat(i);
+					feats.push(feat);
+				}catch (e){
+					console.error(e);
+				}
+			};
+			feats.map(feat => {
+				if(feat.level <= level){
+					currentFeats.push(feat);
+				}
+			})
+			return currentFeats;
+		break;
+		case 'bard':
+			for (let i = 25; i<71; i++){
+				try{
+					const feat = await getFeat(i);
+					feats.push(feat);
+				}catch (e){
+					console.error(e);
+				};
+				feats.map(feat => {
+					if(feat.level <= level){
+						currentFeats.push(feat);
+					}
+				})
+			};
+			return currentFeats;
+		break;
+		case 'cleric':
+			for (let i = 71; i<100; i++){
+				try{
+					const feat = await getFeat(i);
+					feats.push(feat);
+				}catch (e){
+					console.error(e);
+				}
+			};
+			feats.map(feat => {
+				if(feat.level <= level){
+					currentFeats.push(feat);
+				}
+			})
+			return currentFeats;
+		break;
+		case 'druid':
+			for (let i = 100; i<131; i++){
+				try{
+					const feat = await getFeat(i);
+					feats.push(feat);
+				}catch (e){
+					console.error(e);
+				}
+			};
+			feats.map(feat => {
+				if(feat.level <= level){
+					currentFeats.push(feat);
+				}
+			})
+			return currentFeats;
+		break;
+		case 'fighter':
+			for (let i = 131; i<160; i++){
+				try{
+					const feat = await getFeat(i);
+					feats.push(feat);
+				}catch (e){
+					console.error(e);
+				}
+			};
+			feats.map(feat => {
+				if(feat.level <= level){
+					currentFeats.push(feat);
+				}
+			})
+			return currentFeats;
+			break;
+		case 'monk':
+			for (let i = 160; i<191; i++){
+				try{
+					const feat = await getFeat(i);
+					feats.push(feat);
+				}catch (e){
+					console.error(e);
+				}
+			};
+			feats.map(feat => {
+				if(feat.level <= level){
+					currentFeats.push(feat);
+				}
+			})
+			return currentFeats;
+		break;
+		case 'paladin':
+			for (let i = 191; i<220; i++){
+				try{
+					const feat = await getFeat(i);
+					feats.push(feat);
+				}catch (e){
+					console.error(e);
+				}
+			};
+			feats.map(feat => {
+				if(feat.level <= level){
+					currentFeats.push(feat);
+				}
+			})
+			return currentFeats;
+		break;
+		case 'ranger':
+			for (let i = 220; i<260; i++){
+				try{
+					const feat = await getFeat(i);
+					feats.push(feat);
+				}catch (e){
+					console.error(e);
+				}
+			};
+			feats.map(feat => {
+				if(feat.level <= level){
+					currentFeats.push(feat);
+				}
+			})
+			return currentFeats;
+		break;
+		case 'rogue':
+			for (let i = 260; i<303; i++){
+				try{
+					const feat = await getFeat(i);
+					feats.push(feat);
+				}catch (e){
+					console.error(e);
+				}
+			};
+			feats.map(feat => {
+				if(feat.level <= level){
+					currentFeats.push(feat);
+				}
+			})
+			return currentFeats;
+		break;
+		case 'sorcerer':
+			for (let i = 303; i<340; i++){
+				try{
+					const feat = await getFeat(i);
+					feats.push(feat);
+				}catch (e){
+					console.error(e);
+				}
+			};
+			feats.map(feat => {
+				if(feat.level <= level){
+					currentFeats.push(feat);
+				}
+			})
+			return currentFeats;
+		break;
+		case 'warlock':
+			for (let i = 340; i<400; i++){
+				try{
+					const feat = await getFeat(i);
+					feats.push(feat);
+				}catch (e){
+					console.error(e);
+				}
+			};
+			feats.map(feat => {
+				if(feat.level <= level){
+					currentFeats.push(feat);
+				}
+			})
+			return currentFeats;
+		break;
+		case 'wizard':
+			for (let i = 400; i<415; i++){
+				try{
+					const feat = await getFeat(i);
+					feats.push(feat);
+				}catch (e){
+					console.error(e);
+				}
+			};
+			feats.map(feat => {
+				if(feat.level <= level){
+					currentFeats.push(feat);
+				}
+			})
+			return currentFeats;
+		break;
+
+	}
 }
 
 //Class Stats
@@ -370,7 +581,7 @@ function getSkillModifiers(skills, abilityMods, proficiencyBonus){
 	return skillMods;
 }
 
-module.exports = {
+export {
 	rollDice,
 	rollAbilities,
 	getAbilityModifiers,
@@ -378,5 +589,6 @@ module.exports = {
 	getSpeed,
 	getClassStats,
 	getSkillModifiers,
-	getStartingGold
+	getStartingGold,
+	getCharacterFeatures
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import './stylesheet.css';
-import { getAbilityModifiers, getAC, getSpeed, getClassStats, getSkillModifiers, getStartingGold } from '../../../../dnd-helpers.js';
+import { getAbilityModifiers, getAC, getSpeed, getClassStats, getSkillModifiers, getStartingGold, getCharacterFeatures } from '../../../../dnd-helpers.js';
 import { postNewCharacter } from '../../../../api-helpers.js';
 
 export default class FinishedCharacter extends React.Component{
@@ -36,6 +36,7 @@ export default class FinishedCharacter extends React.Component{
 				wis: 0,
 				cha: 0,
 			},
+			features: [],
 			inspiration: 0,
 			proficiencyBonus: 2,
 			ac: 0,
@@ -91,50 +92,52 @@ export default class FinishedCharacter extends React.Component{
 	}
 
 	async saveCharacter(){
-		const stats = {
-			name: this.state.name,
-			clas: this.state.clas,
-			level: this.state.level,
-			data: JSON.stringify({
-				xp: this.state.xp,
-				background: this.state.background,
-				race: this.state.race,
-				primaryAbility: this.state.primaryAbility,
-				savingThrows: this.state.savingThrows,
-				alignment: this.state.alignment,
-				personalityTraits: this.state.personalityTraits,
-				ideals: this.state.ideals,
-				bonds: this.state.bonds,
-				flaws: this.state.flaws,
-				abilities: this.state.abilities,
-				abilityMods: this.state.abilityMods,
-				inspiration: this.state.inspiration,
-				initiative: this.state.initiative,
-				speed: this.state.speed,
-				proficiencyBonus: this.state.proficiencyBonus,
-				ac: this.state.ac,
-				hp: this.state.hp,
-				maxHP: this.state.maxHP,
-				hitDie: this.state.hitDie,
-				armorProfs: this.state.armorProfs,
-				weaponProfs: this.state.weaponProfs,
-				skillProfs: this.state.skillProfs,
-				skills: this.state.skills,
-				equipment: this.state.equipment,
-				languages: this.state.languages,
-				currency: {
-					cp: 0,
-					sp: 0,
-					ep: 0,
-					gp: this.state.gold,
-					pp: 0
-				}
-			})
-		};
-		try {
+		let features = [];
+		try{
+			features = await getCharacterFeatures(this.state.clas, this.state.level);
+		}finally{
+			const stats = {
+				name: this.state.name,
+				clas: this.state.clas,
+				level: this.state.level,
+				data: JSON.stringify({
+					xp: this.state.xp,
+					background: this.state.background,
+					race: this.state.race,
+					primaryAbility: this.state.primaryAbility,
+					savingThrows: this.state.savingThrows,
+					alignment: this.state.alignment,
+					personalityTraits: this.state.personalityTraits,
+					ideals: this.state.ideals,
+					bonds: this.state.bonds,
+					flaws: this.state.flaws,
+					abilities: this.state.abilities,
+					abilityMods: this.state.abilityMods,
+					features: features,
+					inspiration: this.state.inspiration,
+					initiative: this.state.initiative,
+					speed: this.state.speed,
+					proficiencyBonus: this.state.proficiencyBonus,
+					ac: this.state.ac,
+					hp: this.state.hp,
+					maxHP: this.state.maxHP,
+					hitDie: this.state.hitDie,
+					armorProfs: this.state.armorProfs,
+					weaponProfs: this.state.weaponProfs,
+					skillProfs: this.state.skillProfs,
+					skills: this.state.skills,
+					equipment: this.state.equipment,
+					languages: this.state.languages,
+					currency: {
+						cp: 0,
+						sp: 0,
+						ep: 0,
+						gp: this.state.gold,
+						pp: 0
+					}
+				})
+			}
 			await postNewCharacter(stats);
-		} catch (e) {
-			console.error(e);
 		}
 	}
 

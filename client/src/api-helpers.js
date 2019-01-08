@@ -1,5 +1,4 @@
-import axios from 'axios';
-
+const axios = require('axios');
 
 export async function getUserCharacters(token){
 	const characterData = await axios({

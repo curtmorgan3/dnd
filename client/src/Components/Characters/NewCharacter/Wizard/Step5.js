@@ -55,7 +55,7 @@ export default class Step5 extends React.Component {
 	render(){
 		return(
 			<div>
-				<h1>Step 5</h1>
+				<h1>Equipment</h1>
 				<div className='step5-chosen-equipment'>
 				{this.state.chosenEquipment.map(equipment => {
 						return(
