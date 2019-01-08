@@ -85,7 +85,22 @@ export async function getCampaignCharacters(id){
 			'Authorization': `Bearer ${token}`
 		}
 	});
-	return campaignCharacterData.data;
+	const data = campaignCharacterData.data;
+	let characters = [];
+	data.map(character => {
+		console.log(character);
+		const stats = JSON.parse(character.data)
+		console.log('stats', stats);
+		const char = {
+			name: character.name,
+			level: character.level,
+			clas: character.clas,
+			stats: stats
+		};
+		characters.push(char);
+	})
+	console.log(characters);
+	return characters
 }
 
 // Get characters associated with a user

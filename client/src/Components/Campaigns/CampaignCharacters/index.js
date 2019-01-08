@@ -41,6 +41,8 @@ export default class CampaignCharacters extends React.Component {
 								<p>{character.name}</p>
 								<p>level {character.level}</p>
 								<p>{character.clas}</p>
+								<p>HP: {character.stats.hp}</p>
+								<p>XP: {character.stats.xp}</p>
 							</div>
 						)) : null}
 				</div>
