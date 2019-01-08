@@ -58,9 +58,23 @@ export default class CharacterSheet extends React.Component {
 				ep: 0,
 				gp: 0,
 				pp: 0
-			}
+			},
+			weapons: [{
+				id: 1,
+				name: 'club',
+				damage: '1d4',
+				category: 'melee',
+				damageType: 'bludgeoning',
+				diceType: 4,
+				diceNum: 1,
+				worth: '1 sp',
+				num: 1,
+				proficiency: false
+			}]
 		}
 		this.saveCharacter = this.saveCharacter.bind(this);
+		this.handleUnquip = this.handleUnquip.bind(this);
+		this.handleAttack = this.handleAttack.bind(this);
 	}
 
 	async componentDidMount(){
@@ -274,6 +288,56 @@ export default class CharacterSheet extends React.Component {
 		const sumOfResult = result.reduce((sum, i) => sum+=i );
 		const total = sumOfResult + mod;
 		window.alert(`Mod: ${mod}, dice: ${result}, total: ${total}`)
+	};
+
+	handleUnquip(e){
+		let weapons = this.state.weapons;
+		let equipment = this.state.equipment;
+		let weaponToRemove = {};
+		this.state.weapons.forEach(weapon => {
+			if (weapon.id === parseInt(e.target.value)){
+				weaponToRemove = weapon;
+			};
+		});
+		weapons = weapons.filter(weapon => weapon.id !== weaponToRemove.id);
+		console.log(weapons);
+		equipment.push(weaponToRemove);
+		console.log(equipment);
+		this.setState({
+			weapons,
+			equipment
+		})
+	};
+
+	getAttackMod(type){
+		switch(type){
+			case 'melee':
+			return 'str'
+			case 'range' || 'finesse':
+			return 'dex'
+		}
+	}
+
+	handleAttack(e){
+		let weapons = this.state.weapons;
+		let weaponToAttack = {};
+		let hit = false;
+		let mod = 0;
+		weapons.forEach(weapon => {
+			if(weapon.id === parseInt(e.target.value)){
+				weaponToAttack = weapon;
+				const modType = this.getAttackMod(weapon.category);
+				mod = this.state.abilityMods[modType]
+				this.rollSave(mod, 20);
+				hit = window.confirm('Hit?');
+			}
+		});
+		if(hit){
+			let result = rollDice(weaponToAttack.diceType, weaponToAttack.diceNum);
+			let reducedResult = result.reduce((acc, sum) => acc + sum);
+			reducedResult += mod;
+			window.alert(`${weaponToAttack.name} used for ${reducedResult} damage! \n Dice: ${result}, Mod: ${mod}`)
+		}
 	}
 
 	render(){
@@ -428,6 +492,25 @@ export default class CharacterSheet extends React.Component {
 				</div>
 				<div className='sheet-weapons'>
 					<h4>Weapons</h4>
+						<table>
+							<tr>
+								<th>Name</th>
+								<th>Attack Bonus</th>
+								<th>Damage Type</th>
+								<th>Worth</th>
+							</tr>
+						</table>
+							{this.state.weapons.length > 0 ?
+								this.state.weapons.map(weapon => (
+									<div key={weapon.id} className='sheet-equipped-weapon'>
+										<p>{weapon.name}</p>
+										<p>{weapon.damage}</p>
+										<p>{weapon.damageType}</p>
+										<p>{weapon.worth}</p>
+										<button value={weapon.id} onClick={this.handleAttack}>Attack</button>
+										<button value={weapon.id} onClick={this.handleUnquip}>Unequip</button>
+									</div>
+								)) : null}
 				</div>
 				<div className='sheet-items'>
 					<div className='sheet-currency'>
@@ -479,10 +562,15 @@ export default class CharacterSheet extends React.Component {
 					</div>
 					<div className='sheet-equipment'>
 						<h4>Equipment</h4>
+						<button>Add Equipment</button>
 						{this.state.equipment.map(piece => (
 							<div className='sheet-equipment-piece'>
 								<h6>{piece.name}</h6>
 								<p>#{piece.num}</p>
+								<button>Discard</button>
+								<button>Equip</button>
+								<button>-</button>
+								<button>+</button>
 							</div>
 						))}
 					</div>
@@ -503,10 +591,10 @@ export default class CharacterSheet extends React.Component {
 					</div>
 				</div>
 				<div className='sheet-passive'>
-				<div className='sheet-passive-wisdom'>
-					<h4>Passive Wisdom:</h4>
-					<p>{this.state.abilityMods.wis+10}</p>
-				</div>
+					<div className='sheet-passive-wisdom'>
+						<h4>Passive Wisdom:</h4>
+						<p>{this.state.abilityMods.wis+10}</p>
+						</div>
 					<div className='sheet-languages'>
 						<h4>Languages</h4>
 						{this.state.languages.map(language => (
