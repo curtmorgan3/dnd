@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :weapons
   resources :campaigns do
 		collection do
 			get 'mine'
