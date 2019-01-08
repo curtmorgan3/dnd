@@ -43,7 +43,7 @@ class CampaignsController < ApplicationController
 	# POST /campaigns/1/characters/1
 	def add_character
 		@campaign = Campaign.find(params[:id])
-		@character = Character.find(params{:character_id})
+		@character = Character.find(params[:character_id])
 
 		@campaign.characters << @character
 	end

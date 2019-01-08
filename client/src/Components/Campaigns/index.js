@@ -10,9 +10,9 @@ export default function Campaigns(props){
 					userCampaigns.map(campaign => (
 					<div key={campaign.id}>
 						<p>{campaign.name}</p>
-						<Link to={`/campaigns/${campaign.id}/characters`}>View Characters</Link>
+						<Link to={`/campaigns/${campaign.id}/characters`}>View Details and Characters</Link>
 					</div>
-				)) : <p>Loading...</p>}
+				)) : null}
 
 			</div>
 			<Link to='/campaigns/new'>Start a New Campaign</Link>

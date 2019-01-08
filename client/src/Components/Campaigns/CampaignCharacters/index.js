@@ -1,5 +1,6 @@
 import React from 'react';
 import { getCampaignData, getCampaignCharacters } from '../../../api-helpers.js';
+import { Link } from 'react-router-dom';
 
 export default class CampaignCharacters extends React.Component {
 	constructor(props){
@@ -33,6 +34,7 @@ export default class CampaignCharacters extends React.Component {
 					<h3>{this.state.campaign.name}</h3>
 				</div>
 				<div>
+					<h5>Characters</h5>
 					{this.state.characters.length > 0 ?
 						this.state.characters.map(character => (
 							<div key={character.id}>
@@ -40,9 +42,9 @@ export default class CampaignCharacters extends React.Component {
 								<p>level {character.level}</p>
 								<p>{character.clas}</p>
 							</div>
-						)) : <p>Loading...</p>
-					}
+						)) : null}
 				</div>
+				<Link to={`/campaigns/${this.state.campaign.id}/add`}>Add Characters to Campaign</Link>
 			</div>
 		)
 	}

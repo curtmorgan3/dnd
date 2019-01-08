@@ -133,7 +133,36 @@ export default class CharacterSheet extends React.Component {
 		}
 		this.setState({
 			[prop]: newValue
-		})
+		});
+		let moneyValue = this.state.currency[stat];
+		moneyValue += (1 * num);
+		switch(stat){
+			case 'cp':
+				this.setState({
+					currency: {'cp': moneyValue, 'sp': this.state.currency.sp, 'ep': this.state.currency.ep, 'gp': this.state.currency.gp, 'pp': this.state.currency.pp}
+				})
+			break;
+			case 'sp':
+			this.setState({
+				currency: {'cp': this.state.currency.cp, 'sp': moneyValue, 'ep': this.state.currency.ep, 'gp': this.state.currency.gp, 'pp': this.state.currency.pp}
+			})
+			break;
+			case 'ep':
+			this.setState({
+				currency: {'cp': this.state.currency.cp, 'sp': this.state.currency.sp, 'ep': moneyValue, 'gp': this.state.currency.gp, 'pp': this.state.currency.pp}
+			})
+			break;
+			case 'gp':
+			this.setState({
+				currency: {'cp': this.state.currency.cp, 'sp': this.state.currency.sp, 'ep': this.state.currency.ep, 'gp': moneyValue, 'pp': this.state.currency.pp}
+			})
+			break;
+			case 'pp':
+			this.setState({
+				currency: {'cp': this.state.currency.cp, 'sp': this.state.currency.sp, 'ep': this.state.currency.ep, 'gp': this.state.currency.gp, 'pp': moneyValue}
+			})
+			break;
+		}
 	};
 
 	decrement(stat, num){
@@ -148,7 +177,37 @@ export default class CharacterSheet extends React.Component {
 		}
 		this.setState({
 			[prop]: newValue
-		})
+		});
+
+		let moneyValue = this.state.currency[stat];
+		moneyValue -= (1 * num);
+		switch(stat){
+			case 'cp':
+				this.setState({
+					currency: {'cp': moneyValue, 'sp': this.state.currency.sp, 'ep': this.state.currency.ep, 'gp': this.state.currency.gp, 'pp': this.state.currency.pp}
+				})
+			break;
+			case 'sp':
+			this.setState({
+				currency: {'cp': this.state.currency.cp, 'sp': moneyValue, 'ep': this.state.currency.ep, 'gp': this.state.currency.gp, 'pp': this.state.currency.pp}
+			})
+			break;
+			case 'ep':
+			this.setState({
+				currency: {'cp': this.state.currency.cp, 'sp': this.state.currency.sp, 'ep': moneyValue, 'gp': this.state.currency.gp, 'pp': this.state.currency.pp}
+			})
+			break;
+			case 'gp':
+			this.setState({
+				currency: {'cp': this.state.currency.cp, 'sp': this.state.currency.sp, 'ep': this.state.currency.ep, 'gp': moneyValue, 'pp': this.state.currency.pp}
+			})
+			break;
+			case 'pp':
+			this.setState({
+				currency: {'cp': this.state.currency.cp, 'sp': this.state.currency.sp, 'ep': this.state.currency.ep, 'gp': this.state.currency.gp, 'pp': moneyValue}
+			})
+			break;
+		}
 	};
 
 	async saveCharacter(){
@@ -234,9 +293,10 @@ export default class CharacterSheet extends React.Component {
 						<p>Race: {this.state.race}</p>
 						<p>Alignment: {this.state.alignment}</p>
 						<div id='sheet-xp'>
-							<button onClick={()=> this.decrement('xp', 50)}>-</button>
 							<p>Experience Points: {this.state.xp}</p>
-							<button onClick={()=> this.increment('xp', 50)}>+</button>
+							<button onClick={()=> this.increment('xp', 1)}>+</button>
+							<button onClick={()=> this.increment('xp', 25)}>+25</button>
+							<button onClick={()=> this.increment('xp', 50)}>+50</button>
 						</div>
 					</div>
 				</div>
@@ -248,7 +308,7 @@ export default class CharacterSheet extends React.Component {
 					</div>
 					<div id='sheet-abil-dex'>
 						<p>Dexterity: {this.state.abilities.dex}</p>
-						<p onClick={()=>this.rollSave(this.state.abilitymods.dex, 20)}>Modifier: {this.state.abilityMods.dex}</p>
+						<p onClick={()=>this.rollSave(this.state.abilityMods.dex, 20)}>Modifier: {this.state.abilityMods.dex}</p>
 					</div>
 					<div id='sheet-abil-con'>
 						<p>Constitution: {this.state.abilities.con}</p>
@@ -372,19 +432,49 @@ export default class CharacterSheet extends React.Component {
 				<div className='sheet-items'>
 					<div className='sheet-currency'>
 						<div>
+							<button onClick={()=> this.decrement('cp', 1)}>-</button>
+							<button onClick={()=> this.decrement('cp', 25)}>--</button>
+							<button onClick={()=> this.decrement('cp', 50)}>---</button>
 							<p>Copper: {this.state.currency.cp}</p>
+							<button onClick={()=> this.increment('cp', 1)}>+</button>
+							<button onClick={()=> this.increment('cp', 25)}>++</button>
+							<button onClick={()=> this.increment('cp', 50)}>+++</button>
 						</div>
 						<div>
+							<button onClick={()=> this.decrement('sp', 1)}>-</button>
+							<button onClick={()=> this.decrement('sp', 25)}>--</button>
+							<button onClick={()=> this.decrement('sp', 50)}>---</button>
 							<p>Silver: {this.state.currency.sp}</p>
+							<button onClick={()=> this.increment('sp', 1)}>+</button>
+							<button onClick={()=> this.increment('sp', 25)}>++</button>
+							<button onClick={()=> this.increment('sp', 50)}>+++</button>
 						</div>
 						<div>
-							<p>Electrum: {this.state.currency.e}</p>
+							<button onClick={()=> this.decrement('ep', 1)}>-</button>
+							<button onClick={()=> this.decrement('ep', 25)}>--</button>
+							<button onClick={()=> this.decrement('ep', 50)}>---</button>
+							<p>Electrum: {this.state.currency.ep}</p>
+							<button onClick={()=> this.increment('ep', 1)}>+</button>
+							<button onClick={()=> this.increment('ep', 25)}>++</button>
+							<button onClick={()=> this.increment('ep', 50)}>+++</button>
 						</div>
 						<div>
+							<button onClick={()=> this.decrement('gp', 1)}>-</button>
+							<button onClick={()=> this.decrement('gp', 25)}>--</button>
+							<button onClick={()=> this.decrement('gp', 50)}>---</button>
 							<p>Gold: {this.state.currency.gp}</p>
+							<button onClick={()=> this.increment('gp', 1)}>+</button>
+							<button onClick={()=> this.increment('gp', 25)}>++</button>
+							<button onClick={()=> this.increment('gp', 50)}>+++</button>
 						</div>
 						<div>
+							<button onClick={()=> this.decrement('pp', 1)}>-</button>
+							<button onClick={()=> this.decrement('pp', 25)}>--</button>
+							<button onClick={()=> this.decrement('pp', 50)}>---</button>
 							<p>Platinum: {this.state.currency.pp}</p>
+							<button onClick={()=> this.increment('pp', 1)}>+</button>
+							<button onClick={()=> this.increment('pp', 25)}>++</button>
+							<button onClick={()=> this.increment('pp', 50)}>+++</button>
 						</div>
 					</div>
 					<div className='sheet-equipment'>

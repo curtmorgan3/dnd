@@ -13,7 +13,9 @@ Rails.application.routes.draw do
 
   post 'user_token' => 'user_token#create'
 	get 'campaigns/:id/characters' => 'campaigns#characters'
-	post 'campaigns/:id/characters/character_id' => 'campaings#add_character'
+	post 'campaigns/:id/characters/:character_id' => 'campaigns#add_character'
+	get 'users/find/:username' => 'users#find'
+	get 'users/:id/characters' => 'users#get_characters'
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

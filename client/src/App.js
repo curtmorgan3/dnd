@@ -11,6 +11,8 @@ import CharacterSheet from './Components/Characters/CharacterSheet';
 import Campaigns from './Components/Campaigns';
 import NewCampaign from './Components/Campaigns/NewCampaign';
 import CampaignCharacters from './Components/Campaigns/CampaignCharacters';
+import AddCampaignCharacters from './Components/Campaigns/AddCampaignCharacters';
+
 
 import './App.css';
 
@@ -85,6 +87,8 @@ class App extends Component {
 						)} />
 						<Route path='/campaigns/new' component={NewCampaign} />
 						<Route path='/campaigns/:id/characters' component={CampaignCharacters} />
+						<Route path='/campaigns/:id/add' component={AddCampaignCharacters} />
+
 						)} />
 					</Switch>
 					<Switch>

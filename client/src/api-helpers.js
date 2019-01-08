@@ -1,5 +1,6 @@
 const axios = require('axios');
 
+// Get all characters owned by current user
 export async function getUserCharacters(token){
 	const characterData = await axios({
 		method: 'get',
@@ -10,6 +11,20 @@ export async function getUserCharacters(token){
 	});
 	return characterData.data;
 };
+
+// Find user by username
+export async function findUser(username){
+	const token = localStorage.getItem('dnd_token');
+	const characterData = await axios({
+		method: 'get',
+		url: `/users/find/${username}`,
+		headers: {
+			'Authorization': `Bearer ${token}`
+		}
+	});
+	return characterData.data;
+}
+// Get campaigns owned by user
 export async function getUserCampaigns(token){
 	const campaignData = await axios({
 		method: 'get',
@@ -20,6 +35,8 @@ export async function getUserCampaigns(token){
 	});
 	return campaignData.data;
 }
+
+// Get character data
 export async function getCharacterData(id){
 	const token = localStorage.getItem('dnd_token');
 	const characterData = await axios({
@@ -32,6 +49,20 @@ export async function getCharacterData(id){
 	return characterData.data;
 };
 
+// Create a new campaign
+export async function postNewCampaign(data){
+	const token = localStorage.getItem('dnd_token');
+	await axios({
+		method: 'post',
+		url: '/campaigns',
+		data: data,
+		headers: {
+			'Authorization': `Bearer ${token}`
+		}
+	})
+};
+
+// Get campaign data
 export async function getCampaignData(id){
 	const token = localStorage.getItem('dnd_token');
 	const campaignData = await axios({
@@ -44,6 +75,7 @@ export async function getCampaignData(id){
 	return campaignData.data;
 };
 
+// Get characters associated with a campaign
 export async function getCampaignCharacters(id){
 	const token = localStorage.getItem('dnd_token');
 	const campaignCharacterData = await axios({
@@ -56,6 +88,20 @@ export async function getCampaignCharacters(id){
 	return campaignCharacterData.data;
 }
 
+// Get characters associated with a user
+export async function getAnyUserCharacters(id){
+	const token = localStorage.getItem('dnd_token');
+	const userCharacterData = await axios({
+		method: 'get',
+		url: `/users/${id}/characters`,
+		headers: {
+			'Authorization': `Bearer ${token}`
+		}
+	});
+	return userCharacterData.data;
+}
+
+// Create a New Character
 export async function postNewCharacter(data){
 	const token = localStorage.getItem('dnd_token');
 	await axios({
@@ -68,6 +114,19 @@ export async function postNewCharacter(data){
 	});
 };
 
+// Associate a Character with a Campaign
+export async function addCharacterToCampaign(campaign_id, character_id){
+	const token = localStorage.getItem('dnd_token');
+	await axios({
+		method: 'post',
+		url: `/campaigns/${campaign_id}/characters/${character_id}`,
+		headers: {
+			'Authorization': `Bearer ${token}`
+		}
+	});
+}
+
+// Update character
 export async function updateCharacter(id, data){
 	const token = localStorage.getItem('dnd_token');
 	await axios({
@@ -78,16 +137,4 @@ export async function updateCharacter(id, data){
 			'Authorization': `Bearer ${token}`
 		}
 	});
-};
-
-export async function postNewCampaign(data){
-	const token = localStorage.getItem('dnd_token');
-	await axios({
-		method: 'post',
-		url: '/campaigns',
-		data: data,
-		headers: {
-			'Authorization': `Bearer ${token}`
-		}
-	})
 };

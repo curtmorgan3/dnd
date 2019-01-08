@@ -13,6 +13,18 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+	#GET /users/find/:username
+	def find
+		@user = User.where(username: params[:username])
+		render json: @user
+	end
+
+	#GET /users/:id/characters
+	def get_characters
+		@characters = Character.where(user_id: params[:id])
+		render json: @characters
+	end
+
   # POST /users
   def create
     @user = User.new(user_params)
