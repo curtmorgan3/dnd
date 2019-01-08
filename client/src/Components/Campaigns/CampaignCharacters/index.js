@@ -33,7 +33,7 @@ export default class CampaignCharacters extends React.Component {
 					<h3>{this.state.campaign.name}</h3>
 				</div>
 				<div>
-					{this.state.characters.length > 1 ?
+					{this.state.characters.length > 0 ?
 						this.state.characters.map(character => (
 							<div key={character.id}>
 								<p>{character.name}</p>

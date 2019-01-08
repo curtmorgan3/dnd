@@ -21,6 +21,14 @@ class CampaignsController < ApplicationController
 		render json: @campaigns
 	end
 
+	#GET /campaigns/1/characters
+	def characters
+		@campaign = Campaign.find(params[:id])
+		@characters = @campaign.characters
+
+		render json: @characters
+	end
+
   # POST /campaigns
   def create
     @campaign = current_user.campaigns.create(campaign_params)

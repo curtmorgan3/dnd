@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 		collection do
 			get 'mine'
 		end
-		resources :characters
 	end
 
   resources :characters do
@@ -13,7 +12,7 @@ Rails.application.routes.draw do
 	end
 
   post 'user_token' => 'user_token#create'
-
+	get 'campaigns/:id/characters' => 'campaigns#characters'
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
