@@ -40,6 +40,14 @@ class CampaignsController < ApplicationController
     end
   end
 
+	# POST /campaigns/1/characters/1
+	def add_character
+		@campaign = Campaign.find(params[:id])
+		@character = Character.find(params{:character_id})
+
+		@campaign.characters << @character
+	end
+
   # PATCH/PUT /campaigns/1
   def update
     if @campaign.update(campaign_params)
