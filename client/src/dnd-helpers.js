@@ -67,12 +67,12 @@ function getClassStats(clas){
 				weaponProfs: ['simple', 'martial'],
 				possibleSkills: {num: 2, skills:['animal_handling', 'athletics', 'intimidation', 'nature', 'perception', 'survival']},
 				startingEquipment: [
-					{name: 'greataxe', num: 1, option: 'a'},
-					{name: 'other_martial_melee', num: 1, option: 'a'},
-					{name: 'handaxe', num: 2, option: 'b'},
-					{name: 'other_simple_weapon', num: 1, option: 'b'},
-					{name: 'explorer_pack', num: 1},
-					{name: 'javelin', num: 4}
+					{name: 'greataxe', num: 1, option: 'a', suboption: '1', unique: 0},
+					{name: 'other_martial_melee', num: 1, option: 'a', suboption: '2', unique: 1},
+					{name: 'handaxe', num: 2, option: 'b', suboption: '1', unique: 2},
+					{name: 'other_simple_weapon', num: 1, option: 'b', suboption: '2', unique: 3},
+					{name: 'explorer_pack', num: 1, option: 'c', suboption: '1', unique: 4},
+					{name: 'javelin', num: 4, option: 'd', suboption: '1', unique: 5}
 				]
 			};
 			return stats;
@@ -86,15 +86,15 @@ function getClassStats(clas){
 				weaponProfs: ['simple', 'hand_crossbow', 'longsword', 'rapier', 'shortsword'],
 				possibleSkills: {num: 3, skills: ['acrobatics','animal_handling','arcana','athletics','deception','history','insight','intimidation','investigation','medicine','nature','perception','performance','persuassion','religion','sleight_of_hand','stealth','survival']},
 				startingEquipment: [
-					{name: 'rapier', num: 1, option: 'a'},
-					{name: 'longsword', num: 1, option: 'a'},
-					{name: 'other_simple_weapon', num: 1, option: 'a'},
-					{name: 'diplomat_pack', num: 2, option: 'b'},
-					{name: 'entertainer_pack', num: 2, option: 'b'},
-					{name: 'lute', num: 1, option: 'c'},
-					{name: 'other_instrument', num: 2, option: 'c'},
-					{name: 'dagger', num: 1},
-					{name: 'leather_armor', num: 1},
+					{name: 'rapier', num: 1, option: 'a', suboption: '1', unique: 0},
+					{name: 'longsword', num: 1, option: 'a', suboption: '2', unique: 1},
+					{name: 'other_simple_weapon', num: 1, option: 'a', suboption: '3', unique: 2},
+					{name: 'diplomat_pack', num: 2, option: 'b', suboption: '1', unique: 3},
+					{name: 'entertainer_pack', num: 2, option: 'b', suboption: '2', unique: 4},
+					{name: 'lute', num: 1, option: 'c', suboption: '1', unique: 5},
+					{name: 'other_instrument', num: 2, option: 'c', suboption: '2', unique: 6},
+					{name: 'dagger', num: 1, option: 'd', suboption: '1', unique: 7},
+					{name: 'leather_armor', num: 1, option: 'e', suboption: '1', unique: 8},
 				]
 			};
 		return stats;
@@ -108,18 +108,18 @@ function getClassStats(clas){
 				weaponProfs: ['simple'],
 				possibleSkills: {num: 2, skills: ['history', 'insight', 'medicine', 'persuasion', 'religion']},
 				startingEquipment: [
-					{name: 'mace', num: 1, option: 'a'},
-					{name: 'warhammer', num: 1, option: 'a', proficiency: true},
-					{name: 'scale_mail', num: 1, option: 'b'},
-					{name: 'leather_armor', num: 2, option: 'b'},
-					{name: 'chain_mail', num: 2, option: 'b', proficiency: true},
-					{name: 'light_crossbow', num: 1, option: 'c'},
-					{name: 'crossbow_bolts', num: 20},
-					{name: 'other_simple_weapon', num: 1, option: 'c'},
-					{name: 'priest_pack', num: 1, option: 'd'},
-					{name: 'explorer_pack', num: 1, option: 'd'},
-					{name: 'shield', num: 1},
-					{name: 'holy_symbol', num: 1}
+					{name: 'mace', num: 1, option: 'a', suboption: '1', unique: 0},
+					{name: 'warhammer', num: 1, option: 'a', suboption: '1', unique: 1, proficiency: true},
+					{name: 'scale_mail', num: 1, option: 'b', suboption: '1', unique: 2},
+					{name: 'leather_armor', num: 2, option: 'b', suboption: '2', unique: 3},
+					{name: 'chain_mail', num: 2, option: 'b', suboption: '3', unique: 4, proficiency: true},
+					{name: 'light_crossbow', num: 1, option: 'c', suboption: '1', unique: 5},
+					{name: 'crossbow_bolts', num: 20, option: 'c', suboption: '1', unique: 6},
+					{name: 'other_simple_weapon', num: 1, option: 'c', suboption: '2', unique: 7},
+					{name: 'priest_pack', num: 1, option: 'd', suboption: '1', unique: 8},
+					{name: 'explorer_pack', num: 1, option: 'd', suboption: '2', unique: 9},
+					{name: 'shield', num: 1, option: 'e', suboption: '1', unique: 10},
+					{name: 'holy_symbol', num: 1, option: 'f', suboption: '1', unique: 11}
 				]
 			};
 			return stats;
@@ -133,10 +133,13 @@ function getClassStats(clas){
 				weaponProfs: ['club', 'dagger', 'dart', 'javelins', 'mace', 'quarterstaff', 'scimitar', 'sickle', 'sling', 'spear'],
 				possibleSkills: {num: 2, skills: ['arcana', 'animal_handling', 'insight', 'medicine', 'nature', 'perception', 'religion', 'survival']},
 				startingEquipment: [
-					{name: 'wooden_shild', num: 1, option: 'a'},
-					{name: 'other_simple_weapon', num: 1, option: 'a'},
-					{name: 'explorer_pack', num: 2, option: 'b'},
-					{name: 'leather_armor', num: 1},
+					{name: 'wooden_shild', num: 1, option: 'a', suboption: '1', unique: 0},
+					{name: 'other_simple_weapon', num: 1, option: 'a', suboption: '2', unique: 1},
+					{name: 'explorer_pack', num: 2, option: 'b', suboption: '1', unique: 2},
+					{name: 'leather_armor', num: 1, option: 'c', suboption: '1', unique: 3},
+					{name: 'druidic_focus', num: 1, option: 'd', suboption: '1', unique: 4},
+					{name: 'scimitar', num: 1, option: 'e', suboption: '1', unique: 5},
+					{name: 'other_simple_melee_weapon', num: 1, option: 'e', suboption: '2', unique: 6}
 				]
 			};
 			return stats;
@@ -150,15 +153,15 @@ function getClassStats(clas){
 				weaponProfs: ['simple', 'martial'],
 				possibleSkills: {num: 2, skills: ['acrobatics', 'animal_handling','athletics','history','insight','intimidation','perception','survial']},
 				startingEquipment: [
-					{name: 'chain_mail', num: 1, option: 'a', suboption: '1'},
-					{name: 'leather_armor', num: 1, option: 'a', suboption: '2'},
-					{name: 'longbow', num: 1, option: 'a', suboption: '2'},
-					{name: 'arrow', num: 20, option: 'a', suboption: '2'},
-					{name: 'other_martial_weapon', num: 1, option: 'b', suboption: '1'},
-					{name: 'sheild', num: 1, option: 'b', suboption: '1'},
-					{name: 'other_martial_weapon', num: 2, option: 'b', suboption: '2'},
-					{name: 'dungeoneer_pack', num: 1, option: 'c', suboption: '1'},
-					{name: 'explorer_pack', num: 1, option: 'c', suboption: '2'}
+					{name: 'chain_mail', num: 1, option: 'a', suboption: '1', unique: 0 },
+					{name: 'leather_armor', num: 1, option: 'a', suboption: '2', unique: 1 },
+					{name: 'longbow', num: 1, option: 'a', suboption: '2', unique: 2},
+					{name: 'arrow', num: 20, option: 'a', suboption: '2', unique: 3 },
+					{name: 'other_martial_weapon', num: 1, option: 'b', suboption: '1', unique: 4 },
+					{name: 'sheild', num: 1, option: 'b', suboption: '1', unique: 5 },
+					{name: 'other_martial_weapon', num: 2, option: 'b', suboption: '2', unique: 6},
+					{name: 'dungeoneer_pack', num: 1, option: 'c', suboption: '1', unique: 7 },
+					{name: 'explorer_pack', num: 1, option: 'c', suboption: '2', unique: 8 }
 				]
 			};
 			return stats;
@@ -172,11 +175,11 @@ function getClassStats(clas){
 				weaponProfs: ['simple', 'shortsword'],
 				possibleSkills: {num: 2, skills: ['acrobatics','athletics','history','insight','religion','stealth']},
 				startingEquipment: [
-					{name: 'shortsword', num: 1, option: 'a'},
-					{name: 'other_simple_weapon', num: 1, option: 'a'},
-					{name: 'dungeoneer_pack', num: 1, option: 'b'},
-					{name: 'explorer_pack', num: 1, option: 'b'},
-					{name: 'dart', num: 10}
+					{name: 'shortsword', num: 1, option: 'a', suboption: '1', unique: 0},
+					{name: 'other_simple_weapon', num: 1, option: 'a', suboption: '2', unique: 1},
+					{name: 'dungeoneer_pack', num: 1, option: 'b', suboption: '1', unique: 2},
+					{name: 'explorer_pack', num: 1, option: 'b', suboption: '2', unique: 3},
+					{name: 'dart', num: 10, option: 'c', suboption: '1', unique: 4}
 				]
 			};
 			return stats;
@@ -190,15 +193,15 @@ function getClassStats(clas){
 				weaponProfs: ['simple', 'martial'],
 				possibleSkills: {num: 2, skills: ['athletics','insight','intimidation','medicine','persuasion','religion']},
 				startingEquipment: [
-					{name: 'other_martial_weapon', num: 1, option: 'a'},
-					{name: 'shield', num: 1},
-					{name: 'other_martial_weapon', num: 2, option: 'a'},
-					{name: 'javelin', num: 5, option: 'b'},
-					{name: 'other_simple_weapon', num: 2, option: 'b'},
-					{name: 'priest_pack', num: 1, option: 'c'},
-					{name: 'explorer_pack', num: 1, option: 'c'},
-					{name: 'chain_mail', num: 1},
-					{name: 'holy_symbol', num: 1}
+					{name: 'other_martial_weapon', num: 1, option: 'a', suboption: '1', unique: 0},
+					{name: 'shield', num: 1, option: 'a', suboption: '1', unique: 1},
+					{name: 'other_martial_weapon', num: 2, option: 'a', suboption: '2', unique: 2},
+					{name: 'javelin', num: 5, option: 'b', suboption: '1', unique: 3},
+					{name: 'other_simple_weapon', num: 2, option: 'b', suboption: '2', unique: 4},
+					{name: 'priest_pack', num: 1, option: 'c', suboption: '1', unique: 5},
+					{name: 'explorer_pack', num: 1, option: 'c', suboption: '2', unique: 6},
+					{name: 'chain_mail', num: 1, option: 'd', suboption: '1', unique: 7},
+					{name: 'holy_symbol', num: 1, option: 'e', suboption: '1', unique: 8}
 				]
 			};
 			return stats;
@@ -212,14 +215,14 @@ function getClassStats(clas){
 				weaponProfs: ['simple', 'martial'],
 				possibleSkills: {num: 3, skills: ['animal_handling','athletics','insight','investigation','nature','perception','stealth','survival']},
 				startingEquipment: [
-					{name: 'scale_mail', num: 1, option: 'a'},
-					{name: 'leather_armor', num: 1, option: 'a'},
-					{name: 'shortsword', num: 2, option: 'b'},
-					{name: 'other_simple_weapon', num: 2, option: 'b'},
-					{name: 'dungeoneer_pack', num: 1, option: 'c'},
-					{name: 'explorer_pack', num: 1, option: 'c'},
-					{name: 'longbow', num: 1},
-					{name: 'arrow', num: 20}
+					{name: 'scale_mail', num: 1, option: 'a', suboption: '1', unique: 0},
+					{name: 'leather_armor', num: 1, option: 'a', suboption: '2', unique: 1},
+					{name: 'shortsword', num: 2, option: 'b', suboption: '1', unique: 2},
+					{name: 'other_simple_weapon', num: 2, option: 'b', suboption: '2', unique: 3},
+					{name: 'dungeoneer_pack', num: 1, option: 'c', suboption: '1', unique: 4},
+					{name: 'explorer_pack', num: 1, option: 'c', suboption: '2', unique: 5},
+					{name: 'longbow', num: 1, option: 'd', suboption: '1', unique: 6},
+					{name: 'arrow', num: 20, option: 'e', suboption: '1', unique: 7}
 				]
 			};
 			return stats;
@@ -233,17 +236,17 @@ function getClassStats(clas){
 				weaponProfs: ['simple', 'hand_crossbow', 'longsword', 'rapier', 'shortsword'],
 				possibleSkills: {num: 4, skills: ['acrobatics','athletics','deception','insight','intimidation','investigation','perception','performance','persuasion','sleight_of_hand','stealth']},
 				startingEquipment: [
-					{name: 'rapier', num: 1, option: 'a'},
-					{name: 'shortsword', num: 1, option: 'a'},
-					{name: 'shortsword', num: 1, option: 'b'},
-					{name: 'shortbow', num: 1, option: 'b'},
-					{name: 'arrow', num: 20},
-					{name: 'burglar_pack', num: 1, option: 'c'},
-					{name: 'dungeoneer_pack', num: 1, option: 'c'},
-					{name: 'explorer_pack', num: 1, option: 'c'},
-					{name: 'leather_armor', num: 1},
-					{name: 'dagger', num: 2},
-					{name: 'thieves_tools', num: 1}
+					{name: 'rapier', num: 1, option: 'a', suboption: '1', unique: 0},
+					{name: 'shortsword', num: 1, option: 'a', suboption: '2', unique: 1},
+					{name: 'shortsword', num: 1, option: 'b', suboption: '1', unique: 2},
+					{name: 'shortbow', num: 1, option: 'b', suboption: '2', unique: 3},
+					{name: 'arrow', num: 20, option: 'b', suboption: '2', unique: 4},
+					{name: 'burglar_pack', num: 1, option: 'c', suboption: '1', unique: 5},
+					{name: 'dungeoneer_pack', num: 1, option: 'c', suboption: '2', unique: 6},
+					{name: 'explorer_pack', num: 1, option: 'c', suboption: '3', unique: 7},
+					{name: 'leather_armor', num: 1, option: 'd', suboption: '1', unique: 8},
+					{name: 'dagger', num: 2, option: 'e', suboption: '1', unique: 9},
+					{name: 'thieves_tools', num: 1, option: 'f', suboption: '1', unique: 10}
 				]
 			};
 			return stats;
@@ -257,14 +260,14 @@ function getClassStats(clas){
 				weaponProfs: ['dagger', 'dart', 'sling', 'quarterstaff', 'light_crossbow'],
 				possibleSkills: {num: 2, skills: ['arcana', 'deception', 'insight','intimidation','persuasion','religion']},
 				startingEquipment: [
-					{name: 'light_crossbow', num: 1, option: 'a'},
-					{name: 'arrow', num: 20},
-					{name: 'other_simple_weapon', num: 1, option: 'a'},
-					{name: 'component_pouch', num: 1, option: 'b'},
-					{name: 'arcane_focus', num: 1, option: 'b'},
-					{name: 'dungeoneer_pack', num: 1, option: 'c'},
-					{name: 'explorer_pack', num: 1, option: 'c'},
-					{name: 'dagger', num: 2},
+					{name: 'light_crossbow', num: 1, option: 'a', suboption: '1', unique: 0},
+					{name: 'arrow', num: 20, option: 'a', suboption: '1', unique: 1},
+					{name: 'other_simple_weapon', num: 1, option: 'a', suboption: '2', unique: 2},
+					{name: 'component_pouch', num: 1, option: 'b', suboption: '1', unique: 3},
+					{name: 'arcane_focus', num: 1, option: 'b', suboption: '2', unique: 4},
+					{name: 'dungeoneer_pack', num: 1, option: 'c', suboption: '1', unique: 5},
+					{name: 'explorer_pack', num: 1, option: 'c', suboption: '2', unique: 6},
+					{name: 'dagger', num: 2, option: 'e', suboption: '1', unique: 7},
 				]
 			};
 			return stats;
@@ -278,16 +281,16 @@ function getClassStats(clas){
 				weaponProfs: ['simple'],
 				possibleSkills: {num: 2, skills: ['arcana','deception','history','intimidation','investigation','nature','religion']},
 				startingEquipment: [
-					{name: 'light_crossbow', num: 1, option: 'a'},
-					{name: 'arrow', num: 20},
-					{name: 'other_simple_weapon', num: 1, option: 'a'},
-					{name: 'component_pouch', num: 1, option: 'b'},
-					{name: 'arcane_focus', num: 1, option: 'b'},
-					{name: 'dungeoneer_pack', num: 1, option: 'c'},
-					{name: 'scholar_pack', num: 1, option: 'c'},
-					{name: 'leather_armor', num: 1},
-					{name: 'other_simple_weapon', num: 1},
-					{name: 'dagger', num: 2},
+					{name: 'light_crossbow', num: 1, option: 'a', suboption: '1', unique: 0},
+					{name: 'arrow', num: 20, option: 'a', suboption: '1', unique: 1},
+					{name: 'other_simple_weapon', num: 1, option: 'a', suboption: '2', unique: 2},
+					{name: 'component_pouch', num: 1, option: 'b', suboption: '1', unique: 3},
+					{name: 'arcane_focus', num: 1, option: 'b', suboption: '2', unique: 4},
+					{name: 'dungeoneer_pack', num: 1, option: 'c', suboption: '1', unique: 5},
+					{name: 'scholar_pack', num: 1, option: 'c', suboption: '2', unique: 6},
+					{name: 'leather_armor', num: 1, option: 'd', suboption: '1', unique: 7},
+					{name: 'other_simple_weapon', num: 1, option: 'e', suboption: '1', unique: 8},
+					{name: 'dagger', num: 2, option: 'f', suboption: '1', unique: 9},
 				]
 			};
 			return stats;
@@ -301,13 +304,13 @@ function getClassStats(clas){
 				weaponProfs: ['dagger', 'dart', 'sling', 'quarterstaff', 'light_crossbow'],
 				possibleSkills: {num: 2, skills: ['arcana','history','insight','investigation','medicine','religion']},
 				startingEquipment: [
-					{name: 'dagger', num: 1, option: 'a'},
-					{name: 'quarterstaff', num: 1, option: 'a'},
-					{name: 'component_pouch', num: 1, option: 'b'},
-					{name: 'arcane_focus', num: 1, option: 'b'},
-					{name: 'explorer_pack', num: 1, option: 'c'},
-					{name: 'scholar_pack', num: 1, option: 'c'},
-					{name: 'spellbook', num: 1}
+					{name: 'dagger', num: 1, option: 'a', suboption: '1', unique: 0},
+					{name: 'quarterstaff', num: 1, option: 'a', suboption: '2', unique: 1},
+					{name: 'component_pouch', num: 1, option: 'b', suboption: '1', unique: 2},
+					{name: 'arcane_focus', num: 1, option: 'b', suboption: '2', unique: 3},
+					{name: 'explorer_pack', num: 1, option: 'c', suboption: '1', unique: 4},
+					{name: 'scholar_pack', num: 1, option: 'c', suboption: '2', unique: 5},
+					{name: 'spellbook', num: 1, option: 'd', suboption: '1', unique: 6}
 				]
 			};
 			return stats;

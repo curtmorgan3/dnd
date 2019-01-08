@@ -48,6 +48,7 @@ export default class FinishedCharacter extends React.Component{
 			skills: {},
 			maxHP: 0,
 			hp: 0,
+			equipment: this.props.data.step5.equipment,
 		}
 		//Bindings
 		this.saveCharacter = this.saveCharacter.bind(this);
@@ -113,7 +114,8 @@ export default class FinishedCharacter extends React.Component{
 				armorProfs: this.state.armorProfs,
 				weaponProfs: this.state.weaponProfs,
 				skillProfs: this.state.skillProfs,
-				skills: this.state.skills
+				skills: this.state.skills,
+				equipement: this.state.equipment
 			})
 		};
 		try {

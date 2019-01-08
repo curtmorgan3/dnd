@@ -20,36 +20,24 @@ export default class Step5 extends React.Component {
 
 
 	selectEquipment(equipment){
-		console.log('equipment');
 		let { chosenEquipment } = this.state;
 		let { equipmentPackage } = this.state;
 
-		if (equipment.option){
-			chosenEquipment.push(equipment);
-			equipmentPackage = equipmentPackage.filter(equip => equip.name !== equipment.name)
+		chosenEquipment.push(equipment);
+		equipmentPackage = equipmentPackage.filter(equip => equip.unique !== equipment.unique)
 
-
-			equipmentPackage.filter((piece, i) => {
-				if(piece.suboption === equipment.suboption && piece.option === equipment.option){
-					chosenEquipment.push(piece);
-					equipmentPackage.splice(i, 1);
-				}else if(piece.suboption !== equipment.suboption && piece.option === equipment.option){
-					equipmentPackage.splice(i, 1);
+		equipmentPackage.forEach((equip,i) => {
+			if(equip.suboption === equipment.suboption){
+				if(equip.option === equipment.option){
+					chosenEquipment.push(equip);
+					equipmentPackage = equipmentPackage.filter(piece => piece.unique !== equip.unique)
+				};
+			}else if(equip.suboption !== equipment.suboption){
+				if(equip.option === equipment.option){
+					equipmentPackage = equipmentPackage.filter(piece => piece.unique !== equip.unique)
 				}
-			})
-
-			// equipmentPackage.forEach((equip,i) => {
-			// 	if(equip.suboption === equipment.suboption && equip.option === equipment.option){
-			// 		chosenEquipment.push(equip);
-			// 		equipmentPackage.splice(i, 1);
-			// 	}else if(equip.suboption !== equipment.suboption && equip.option === equipment.option){
-			// 		equipmentPackage.splice(i, 1);
-			// 	}
-			// });
-		} else {
-			chosenEquipment.push(equipment);
-			equipmentPackage = equipmentPackage.filter(equip => equip.name !== equipment.name);
-		}
+			}
+		});
 		this.setState({
 			chosenEquipment,
 			equipmentPackage
@@ -58,7 +46,7 @@ export default class Step5 extends React.Component {
 
 	nextStep(){
 		const data = {
-			equipmentPackage: {}
+			equipment: this.state.chosenEquipment
 		};
 		this.props.handleStepChange('step5', data);
 		this.props.finishCharacter();
@@ -68,17 +56,32 @@ export default class Step5 extends React.Component {
 		return(
 			<div>
 				<h1>Step 5</h1>
+				<div className='step5-chosen-equipment'>
+				{this.state.chosenEquipment.map(equipment => {
+						return(
+							<div>
+								<p>{equipment.name}</p>
+								<p>Quantity: {equipment.num}</p>
+							</div>
+						)
+					})
+				}
+				</div>
 				<button onClick={()=> this.populateEquipment()}>View Equipment Package</button>
+				<div className='step5-equipment-package-wrapper'>
 				{this.state.equipmentPackage.length > 0 ? (
 					this.state.equipmentPackage.map(equipment => {
 						return(
-							<div>
+							<div className={`step5-option-${equipment.option}-${equipment.suboption}`}
+							>
 								<p onClick={()=> this.selectEquipment(equipment)}>{equipment.name}</p>
-								<p>{equipment.num}</p>
+								<p>Quanitity: {equipment.num}</p>
 							</div>
 						)
 					})
 				) : null}
+				</div>
+				<p>Choose One Group (Border Type) Per Color</p>
 				<button onClick={()=> this.props.previousStep()}>Back</button>
 				<button onClick={()=> this.nextStep()}>Save and Next Step</button>
 			</div>
