@@ -263,6 +263,7 @@ export default class CharacterSheet extends React.Component {
 				maxHP: this.state.maxHP,
 				hp: this.state.hp,
 				equipment: this.state.equipment,
+				weapons: this.state.weapons,
 				languages: this.state.languages,
 				currency:{
 					cp: this.state.currency.cp,
