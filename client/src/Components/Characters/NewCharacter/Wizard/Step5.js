@@ -1,6 +1,7 @@
 import React from 'react';
 import {FormGroup, DropdownButton, MenuItem} from 'react-bootstrap';
 import { getClassStats } from '../../../../dnd-helpers.js';
+import { getEquipmentById } from '../../../../api-helpers.js';
 
 export default class Step5 extends React.Component {
 	constructor(props){
@@ -44,12 +45,48 @@ export default class Step5 extends React.Component {
 		})
 	}
 
-	nextStep(){
-		const data = {
-			equipment: this.state.chosenEquipment
-		};
-		this.props.handleStepChange('step5', data);
-		this.props.finishCharacter();
+	async nextStep(){
+		let equipment = this.state.chosenEquipment;
+		let newEquipment = [];
+		try{
+			equipment.forEach( async piece  => {
+				const newPiece = await getEquipmentById(piece.id);
+				const weaponData = JSON.parse(newPiece.data);
+				const deserialized = {
+					name: newPiece.name,
+					id: newPiece.id,
+					category: newPiece.category,
+					equipment_category: weaponData.equipment_category,
+					weapon_category: weaponData.weapon_category,
+					armor_category: weaponData.armor_category,
+					gear_category: weaponData.gear_category,
+					damageDiceType: weaponData.damageDiceType,
+					damageDiceNum: weaponData.damageDiceNum,
+					damageType: weaponData.damage_type,
+					armorType: weaponData.armorType,
+					armorDexBonus: weaponData.armorDexBonus,
+					armorStrMin: weaponData.armorStrMin,
+					armorStealthDisadvantage: weaponData.armorStealthDisadvantage,
+					worthNum: weaponData.worthNum,
+					worthType: weaponData.worthType,
+					weight: weaponData.weight,
+					num: 1,
+					proficiencyRequired: false,
+					range: weaponData.range,
+					rangeLong: weaponData.rangeLong,
+					properties: weaponData.properties
+				}
+				newEquipment.push(deserialized);
+			})
+		}catch (e){
+			console.error(e);
+		}finally{
+			const data = {
+				equipment: newEquipment
+			};
+			this.props.handleStepChange('step5', data);
+			this.props.finishCharacter();
+		}
 	};
 
 	render(){

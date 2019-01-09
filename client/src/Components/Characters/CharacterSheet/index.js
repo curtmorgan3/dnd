@@ -59,28 +59,19 @@ export default class CharacterSheet extends React.Component {
 				gp: 0,
 				pp: 0
 			},
-			weapons: [{
-				id: 1,
-				name: 'club',
-				damage: '1d4',
-				category: 'melee',
-				damageType: 'bludgeoning',
-				diceType: 4,
-				diceNum: 1,
-				worth: '1 sp',
-				num: 1,
-				proficiency: false
-			}]
+			weapons: []
 		}
 		this.saveCharacter = this.saveCharacter.bind(this);
 		this.handleUnequip = this.handleUnequip.bind(this);
 		this.handleEquip = this.handleEquip.bind(this);
 		this.handleAttack = this.handleAttack.bind(this);
+		this.handleDiscard = this.handleDiscard.bind(this);
 	}
 
 	async componentDidMount(){
 		const characterData = await getCharacterData(this.props.match.params.id);
 		const characterStats = JSON.parse(characterData.data);
+		console.log(characterStats);
 		this.setState({
 			name: characterData.name,
 			level: characterData.level,
@@ -125,6 +116,7 @@ export default class CharacterSheet extends React.Component {
 			maxHP: characterStats.maxHP,
 			hp: characterStats.hp,
 			equipment: characterStats.equipment,
+			weapons: characterStats.weapons,
 			languages: characterStats.languages,
 			currency:{
 				cp: characterStats.currency.cp,
@@ -325,11 +317,21 @@ export default class CharacterSheet extends React.Component {
 		})
 	}
 
+	handleDiscard(e){
+		console.log(e.target.value);
+		let equipment = this.state.equipment;
+		equipment = equipment.filter(piece => piece.id !== parseInt(e.target.value));
+		console.log(equipment);
+		this.setState({
+			equipment
+		})
+	}
+
 	getAttackMod(type){
-		switch(type){
-			case 'melee':
+		let simple = type.toLowerCase();
+		if (simple.includes('melee')){
 			return 'str'
-			case 'range' || 'finesse':
+		}else if (simple.includes('range') || simple.includes('finesse')){
 			return 'dex'
 		}
 	}
@@ -342,14 +344,14 @@ export default class CharacterSheet extends React.Component {
 		weapons.forEach(weapon => {
 			if(weapon.id === parseInt(e.target.value)){
 				weaponToAttack = weapon;
-				const modType = this.getAttackMod(weapon.category);
+				const modType = this.getAttackMod(weapon.weapon_category);
 				mod = this.state.abilityMods[modType]
 				this.rollSave(mod, 20);
 				hit = window.confirm('Hit?');
 			}
 		});
 		if(hit){
-			let result = rollDice(weaponToAttack.diceType, weaponToAttack.diceNum);
+			let result = rollDice(weaponToAttack.damageDiceType, weaponToAttack.damageDiceNum);
 			let reducedResult = result.reduce((acc, sum) => acc + sum);
 			reducedResult += mod;
 			window.alert(`${weaponToAttack.name} used for ${reducedResult} damage! \n Dice: ${result}, Mod: ${mod}`)
@@ -583,7 +585,7 @@ export default class CharacterSheet extends React.Component {
 							<div className='sheet-equipment-piece'>
 								<h6>{piece.name}</h6>
 								<p>#{piece.num}</p>
-								<button>Discard</button>
+								<button value={piece.id} onClick={this.handleDiscard}>Discard</button>
 								<button value={piece.id} onClick={this.handleEquip}>Equip</button>
 								<button>-</button>
 								<button>+</button>

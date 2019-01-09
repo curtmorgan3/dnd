@@ -153,3 +153,16 @@ export async function updateCharacter(id, data){
 		}
 	});
 };
+
+// Get Equipment
+export async function getEquipmentById(id){
+	const token = localStorage.getItem('dnd_token');
+	const piece = await axios({
+		method: 'get',
+		url: `/weapons/${id}`,
+		headers: {
+			'Authorization': `Bearer ${token}`
+		}
+	});
+	return piece.data;
+}

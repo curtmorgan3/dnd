@@ -50,6 +50,7 @@ export default class FinishedCharacter extends React.Component{
 			maxHP: 0,
 			hp: 0,
 			equipment: this.props.data.step5.equipment,
+			weapons: [],
 			languages: this.props.data.step3.languages,
 			gold: 0,
 		}
@@ -127,6 +128,7 @@ export default class FinishedCharacter extends React.Component{
 					skillProfs: this.state.skillProfs,
 					skills: this.state.skills,
 					equipment: this.state.equipment,
+					weapons: this.state.weapons,
 					languages: this.state.languages,
 					currency: {
 						cp: 0,
