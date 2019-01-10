@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormControl, Button } from 'react-bootstrap';
 import { findUser, getAnyUserCharacters, addCharacterToCampaign } from '../../../api-helpers.js';
+import './stylesheet.css';
 
 export default class AddCampaignCharacters extends React.Component{
 	constructor(props){
@@ -46,7 +47,7 @@ export default class AddCampaignCharacters extends React.Component{
 
 	render(){
 		return(
-			<div>
+			<div className='add-characters-to-campaign'>
 				<form>
 					<FormControl
 						type="text"
@@ -56,15 +57,16 @@ export default class AddCampaignCharacters extends React.Component{
 						onChange={this.handleChange}
 						/>
 					<Button onClick={this.handleSubmit} bsStyle="primary">Search</Button>
+					{Object.keys(this.state.userToFind).includes('username') ? <h4>{this.state.userToFind.username}'s characters</h4> : null}
+
 				</form>
-				{Object.keys(this.state.userToFind).includes('username') ? <h4>{this.state.userToFind.username}'s characters</h4> : null}
 				{this.state.userCharacters.length > 0 ? (
-					<div>
+					<div className='add-characters-character-wrapper'>
 						{this.state.userCharacters.map(character => (
-							<div key={character.id}>
+							<div key={character.id} className='add-characters-character'>
 								<p>{character.name}</p>
 								<p>Level {character.level}</p>
-								<p>{character.clas}</p>
+								<p>{character.clas.toUpperCase()}</p>
 								<button value={character.id} onClick={this.handleCharacterAdd}>Add {character.name} to campaign</button>
 							</div>
 						))}
