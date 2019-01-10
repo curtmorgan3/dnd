@@ -1,6 +1,7 @@
 import React from 'react';
 import './stylesheet.css';
 import { FormControl } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 export default class Register extends React.Component{
@@ -10,7 +11,8 @@ export default class Register extends React.Component{
 			username: '',
 			password: '',
 			password_con: '',
-			email: ''
+			email: '',
+			loggedIn: false,
 		}
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,7 +37,10 @@ export default class Register extends React.Component{
 				password: this.state.password
 			}}
 			const token = await axios.post('user_token', userData);
-			localStorage.setItem('dnd_token', token.data.jwt)
+			localStorage.setItem('dnd_token', token.data.jwt);
+			this.setState({
+				loggedIn: true
+			})
 		}catch (e){
 			console.error(e);
 		}
@@ -43,6 +48,9 @@ export default class Register extends React.Component{
 	render(){
 		return(
 			<div className='register-form-wrapper'>
+				{this.state.loggedIn ? (
+					<Redirect to='/' />
+				) : null}
 				<form className='register-form' onSubmit={this.handleSubmit}>
 					<FormControl
 						type='text'
