@@ -1,0 +1,119 @@
+
+.new-character-confirm{
+	display: grid;
+	grid-template-columns: 10vw 25vw 30vw 30vw;
+	grid-template-rows: 100px 200px 200px 200px 200px;
+	background-color: rgba(201, 196, 196, 0.7);
+	background-position: center;
+	height: 100vh;
+}
+.new-character-confirm-buttons{
+	grid-row: 1;
+	grid-column: 1;
+
+}
+.pedigree{
+	border: 1px solid black;
+	box-sizing: border-box;
+	grid-row: 1;
+	grid-column: 1 / span 4;
+	display: grid;
+	grid-template-rows: 50% 50%;
+	grid-template-columns: 50% 50%;
+	justify-content: center;
+}
+
+#pedigree-name {
+	grid-column: 1;
+	grid-row: 1 / span 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#pedigree-other1 {
+	grid-column: 2;
+	grid-row: 1;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+#pedigree-other2 {
+	grid-column: 2;
+	grid-row: 2;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+#xp {
+	display: flex;
+}
+.character-traits{
+	grid-column: 4;
+	grid-row: 2 / span 2;
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.character-traits > *{
+	width: 70%;
+	height: 125px;
+	overflow: scroll;
+	margin-bottom: 10px;
+}
+.abilities {
+	grid-column: 1;
+	grid-row: 2 / span 2;
+	flex-direction: column;
+}
+
+.defense-stats{
+	grid-column: 3;
+	grid-row: 2 / span 2;
+	display: block;
+}
+.ac-speed {
+	display: flex;
+	justify-content: space-around;
+}
+
+.hitDie-throws {
+	display: flex;
+	justify-content: space-around;
+}
+
+.saving-throws {
+	grid-column: 2;
+	grid-row: 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.saving-throws > *{
+	display: flex;
+	margin: 5px;
+	justify-content: space-around;
+}
+.saving-throws > div > *{
+	margin: 0 5px 0 5px;
+}
+
+.skills {
+	grid-column: 2;
+	grid-row: 3 / span 2;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow: scroll;
+}
+
+.skill-box {
+	display: flex;
+}
+.skill-box > *{
+	margin: 5px;
+}

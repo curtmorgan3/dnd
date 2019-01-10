@@ -1,0 +1,12 @@
+{
+  "name": "list-of-ingredients",
+    "license": "MIT",
+    "engines": {
+      "node": "8.9.4"
+    },
+    "scripts": {
+      "build": "npm --prefix client install && npm run build --prefix client",
+      "deploy": "cp -a client/build/. public/",
+      "heroku-postbuild": "npm run build && npm run deploy"
+    }
+}

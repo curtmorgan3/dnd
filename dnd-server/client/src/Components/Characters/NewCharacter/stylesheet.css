@@ -1,0 +1,155 @@
+.new-character-wrapper{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-image: url('../../../images/characters-bg.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.new-character-form{
+	width: 40%;
+}
+
+.step1-control-label{
+	color: #FFFFFF;
+	text-shadow: 2px 2px 4px #000000;
+}
+
+.step2-ability-header {
+	height: 150px;
+}
+.step2-ability-header > * {
+	color: #FFFFFF;
+	text-shadow: 2px 2px 4px #000000;
+}
+.step2-ability-header > button {
+	color: black;
+	text-shadow: none;
+}
+
+.step2-ability-scores {
+	height: 100px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	color: #FFFFFF;
+	text-shadow: 2px 2px 4px #000000;
+	background-color: rgba(0,0,0,0.4);
+	border: 1px solid black;
+}
+
+.step2-ability-scores > * {
+	font-size: 24px;
+}
+.step3 {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	color: lightgrey;
+	text-shadow: 2px 2px 4px #000000;
+}
+.step3 > button{
+	color: black;
+}
+.step4-skill-select{
+	color: #FFFFFF;
+	font-size: 1.5em;
+}
+.step4-skill-name{
+	color: #FFFFFF;
+	font-size: 1.5em;
+}
+.step5-equipment-labels{
+	color: #FFFFFF;
+	text-shadow: 2px 2px 4px #000000;
+	font-size: 1.5em;
+}
+
+.step5-equipment-package-wrapper{
+	display: flex;
+	flex-wrap: wrap;
+	margin: 5px;
+	justify-content: center;
+	align-items: center;
+}
+.step5-equipment-package-wrapper > *{
+	margin: 5px;
+	width: 200px;
+}
+.step5-chosen-equipment {
+	display: flex;
+	background-color: rgba(0,0,0,0.4);
+	margin: 10px 10px 10px 10px;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	min-height: 235px;
+	border: 1px solid black;
+	width: 50vw;
+}
+.step5-chosen-equipment > *{
+	margin: 0 10px 0 10px;
+	color: #FFFFFF;
+}
+
+.step5-option-a-1{
+	background-color: pink;
+	border: 2px solid black;
+}
+.step5-option-a-2{
+	background-color: pink;
+	border: 2px dashed black;
+}
+.step5-option-a-3{
+	background-color: pink;
+	border: 2px dotted black;
+}
+.step5-option-b-1{
+	background-color: lightblue;
+	border: 2px solid black;
+}
+.step5-option-b-2{
+	background-color: lightblue;
+	border: 2px dashed black;
+}
+.step5-option-b-3{
+	background-color: lightblue;
+	border: 2px dotted black;
+}
+.step5-option-c-1{
+	background-color: lightgrey;
+	border: 2px solid black;
+}
+.step5-option-c-2{
+	background-color: lightgrey;
+	border: 2px dashed black;
+}
+.step5-option-c-3{
+	background-color: lightgrey;
+	border: 2px dotted black;
+}
+.step5-option-d-1{
+	background-color: lightyellow;
+	border: 2px solid black;
+}
+.step5-option-d-2{
+	background-color: lightyellow;
+	border: 2px dashed black
+}
+.step5-option-e-1{
+	background-color: orange;
+	border: 2px solid black
+}
+.step5-option-e-2{
+	background-color: orange;
+	border: 2px dashed black
+}
+.step5-option-f-1{
+	background-color: lightgreen;
+	border: 2px solid black
+}
