@@ -40,8 +40,9 @@ export default class Login extends React.Component {
 	}
 	render(){
 		return(
-			<div className='register-form-wrapper'>
-				<form className='register-form' onSubmit={this.handleSubmit}>
+			<div className='login-form-wrapper'>
+				<h4>Log In and Return To Your Quest</h4>
+				<form className='login-form' onSubmit={this.handleSubmit}>
 				<FormControl
 					type='email'
 					name='email'

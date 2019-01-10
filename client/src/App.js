@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
-import { getUserCharacters, getUserCampaigns } from './api-helpers.js';
+import { getUserCharacters, getUserCampaigns, getCurrentUser } from './api-helpers.js';
 import NavBar from './Components/NavBar';
 import Landing from './Components/Landing';
 import Register from './Components/Register';
@@ -23,6 +23,7 @@ class App extends Component {
 			token: '',
 			redirect: false,
 			characters: [],
+			currentUser: {},
 		}
 		this.signOut = this.signOut.bind(this);
 		this.logIn = this.logIn.bind(this);
@@ -32,17 +33,20 @@ class App extends Component {
 		const token = await localStorage.getItem('dnd_token');
 		let characters = [];
 		let campaigns = [];
+		let currentUser = {};
 		if (token){
 			try{
 				characters = await getUserCharacters(token);
 				campaigns = await getUserCampaigns(token);
+				currentUser = await getCurrentUser();
 			} catch(e){
 				console.error(e)
 			} finally {
 				this.setState({
 					token,
 					characters,
-					campaigns
+					campaigns,
+					currentUser
 				});
 			}
 		}
@@ -76,11 +80,12 @@ class App extends Component {
 						<Redirect to='/' />
 					) : null }
 					<NavBar signOut={this.signOut} />
-					<Route exact path='/' component={Landing} />
+					<Route exact path='/' render={props => (
+						<Landing currentUser={this.state.currentUser} />
+					)} />
 					<Route path='/login' render={props => (
 						<Login logIn={this.logIn}/>
 					)}/>
-					<Route path='/register' component={Register} />
 					<Switch>
 						<Route exact path='/campaigns' render={props => (
 							<Campaigns campaigns={this.state.campaigns} />

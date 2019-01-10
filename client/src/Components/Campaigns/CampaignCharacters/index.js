@@ -1,6 +1,7 @@
 import React from 'react';
 import { getCampaignData, getCampaignCharacters } from '../../../api-helpers.js';
 import { Link } from 'react-router-dom';
+import './stylesheet.css';
 
 export default class CampaignCharacters extends React.Component {
 	constructor(props){
@@ -29,24 +30,23 @@ export default class CampaignCharacters extends React.Component {
 
 	render(){
 		return(
-			<div>
-				<div>
-					<h3>{this.state.campaign.name}</h3>
+			<div className='campaign-characters-wrapper'>
+				<Link to={`/campaigns/${this.state.campaign.id}/add`}>Add Characters to Campaign</Link>
+				<div className='campaign-characters-name'>
+					<h2>{this.state.campaign.name}</h2>
 				</div>
 				<div>
-					<h5>Characters</h5>
 					{this.state.characters.length > 0 ?
 						this.state.characters.map(character => (
-							<div key={character.id}>
+							<div key={character.id} className='campaign-characters-unique'>
 								<p>{character.name}</p>
-								<p>level {character.level}</p>
-								<p>{character.clas}</p>
+								<p>Level {character.level}</p>
+								<p>{character.clas.toUpperCase()}</p>
 								<p>HP: {character.stats.hp}</p>
 								<p>XP: {character.stats.xp}</p>
 							</div>
 						)) : null}
 				</div>
-				<Link to={`/campaigns/${this.state.campaign.id}/add`}>Add Characters to Campaign</Link>
 			</div>
 		)
 	}

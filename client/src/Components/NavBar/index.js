@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import './stylesheet.css';
 
 export default function NavBar(props){
 	const loggedIn = localStorage.getItem('dnd_token') ? true : false;
@@ -8,7 +9,11 @@ export default function NavBar(props){
 	return(
 		<div>
 		{loggedIn ? (
-			<Navbar inverse={true}>
+			<Navbar inverse={true} className='navbar'>
+				<Navbar.Header>
+					<Navbar.Toggle />
+  			</Navbar.Header>
+				<Navbar.Collapse>
 				<Nav>
 					<NavItem>
 						<Link to='/'>Home</Link>
@@ -23,9 +28,14 @@ export default function NavBar(props){
 						Sign Out
 					</NavItem>
 				</Nav>
+				</Navbar.Collapse>
 			</Navbar>
 		) : (
-			<Navbar inverse={true}>
+			<Navbar inverse={true} className='navbar'>
+				<Navbar.Header>
+					<Navbar.Toggle />
+				</Navbar.Header>
+				<Navbar.Collapse>
 				<Nav>
 					<NavItem>
 						<Link to='/'>Home</Link>
@@ -33,10 +43,8 @@ export default function NavBar(props){
 					<NavItem>
 						<Link to='/login'>Login</Link>
 					</NavItem>
-					<NavItem>
-						<Link to='/register'>Register</Link>
-					</NavItem>
 				</Nav>
+				</Navbar.Collapse>
 			</Navbar>
 		)}
 

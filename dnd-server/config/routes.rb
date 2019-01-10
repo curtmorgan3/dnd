@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 	post 'campaigns/:id/characters/:character_id' => 'campaigns#add_character'
 	get 'users/find/:username' => 'users#find'
 	get 'users/:id/characters' => 'users#get_characters'
+	get 'users/current' => 'users#current'
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

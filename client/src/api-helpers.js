@@ -12,6 +12,19 @@ export async function getUserCharacters(token){
 	return characterData.data;
 };
 
+// Get current user
+export async function getCurrentUser(){
+	const token = localStorage.getItem('dnd_token');
+	const user = await axios({
+		method: 'get',
+		url: `/users/current`,
+		headers: {
+			'Authorization': `Bearer ${token}`
+		}
+	});
+	return user.data;
+}
+
 // Find user by username
 export async function findUser(username){
 	const token = localStorage.getItem('dnd_token');
