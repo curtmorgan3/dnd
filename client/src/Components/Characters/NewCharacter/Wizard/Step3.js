@@ -47,8 +47,8 @@ export default class Step3 extends React.Component{
 
 	render(){
 		return(
-			<div>
-				<form>
+			<div className='step3'>
+				<form className='step3-form'>
 					<FormGroup>
 						<ControlLabel>Personality Traits</ControlLabel>
 						<FormControl componentClass='textarea' name='personality' value={this.state.personality} onChange={this.handleChange}/>

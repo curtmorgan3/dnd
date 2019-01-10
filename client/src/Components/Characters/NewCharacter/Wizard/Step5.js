@@ -91,12 +91,12 @@ export default class Step5 extends React.Component {
 
 	render(){
 		return(
-			<div>
-				<h1>Equipment</h1>
+			<div className='step5'>
+				<h1 className='step5-equipment-labels'>Equipment</h1>
 				<div className='step5-chosen-equipment'>
 				{this.state.chosenEquipment.map(equipment => {
 						return(
-							<div>
+							<div className='step5-equipment-wrapper'>
 								<p>{equipment.name}</p>
 								<p>Quantity: {equipment.num}</p>
 							</div>
@@ -104,7 +104,7 @@ export default class Step5 extends React.Component {
 					})
 				}
 				</div>
-				<button onClick={()=> this.populateEquipment()}>View Equipment Package</button>
+				<button onClick={()=> this.populateEquipment()}>View Equipment Package</button>)
 				<div className='step5-equipment-package-wrapper'>
 				{this.state.equipmentPackage.length > 0 ? (
 					this.state.equipmentPackage.map(equipment => {
@@ -118,7 +118,7 @@ export default class Step5 extends React.Component {
 					})
 				) : null}
 				</div>
-				<p>Choose One Group (Border Type) Per Color</p>
+				<p className='step5-equipment-labels'>Choose One Group (Border Type) Per Color</p>
 				<button onClick={()=> this.props.previousStep()}>Back</button>
 				<button onClick={()=> this.nextStep()}>Save and Next Step</button>
 			</div>

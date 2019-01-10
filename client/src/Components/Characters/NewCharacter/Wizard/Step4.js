@@ -7,7 +7,7 @@ export default class Step4 extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			skills: [], 
+			skills: [],
 			possibleSkills: [],
 			num: 0
 		}
@@ -50,24 +50,26 @@ export default class Step4 extends React.Component {
 		this.props.nextStep();
 	};
 
+
 	render(){
 		return(
-			<div>
+			<div className='step4'>
 				<button onClick={this.populateSkills}>Select Skills</button>
 				<div>
 					{this.state.skills.map(skill => (
 						<div>
-							<p>{skill}</p>
+							<p className='step4-skill-name'>{skill}</p>
 							<button onClick={()=>this.removeSkill(skill)}>Remove Skill</button>
 						</div>
 					))}
 				</div>
 				{this.state.possibleSkills.length > 0 ? (
 					<form>
+						<h4 className='step4-skill-select'>Select {this.state.num} skills</h4>
 						<FormGroup>
 							<DropdownButton title='Select Skills' onSelect={this.addSkill}>
 							{this.state.possibleSkills.map(skill => (
-								<MenuItem key={skill} eventKey={skill}>{skill}</MenuItem>
+								<MenuItem className='step4-skill-name' key={skill} eventKey={skill}>{skill}</MenuItem>
 							))}
 							</DropdownButton>
 						</FormGroup>

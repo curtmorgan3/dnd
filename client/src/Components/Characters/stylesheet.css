@@ -21,6 +21,9 @@
 	color: #FFFFFF;
 	font-size: 1.5em;
 }
+.user-character-unique > *:hover{
+	color: #FFFFFF;
+}
 
 .all-characters {
 	background-image: url('../../images/characters-bg.jpg');
@@ -28,4 +31,8 @@
 	background-position: center;
 	background-size: cover;
 	height: 100vh;
+}
+.all-characters > a{
+	color: #FFFFFF;
+	font-size: 1.5em;
 }

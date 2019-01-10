@@ -59,10 +59,10 @@ export default class Step1 extends React.Component{
 		const races = ['Human', 'Dwarf', 'Elf', 'Halfling', 'Dragonborn', 'Gnome', 'Half-Elf', 'Half-Orc', 'Tiefling']
 		const classes = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard']
 		return(
-			<div>
+			<div className='step1'>
 				<form>
 					<FormGroup>
-						<ControlLabel>Name</ControlLabel>
+						<ControlLabel className='step1-control-label'>Name</ControlLabel>
 						<FormControl type='text' name='name' value={this.state.name} onChange={this.handleChange}/>
 					</FormGroup>
 					<FormGroup>
