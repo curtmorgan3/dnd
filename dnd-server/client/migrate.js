@@ -6,6 +6,7 @@ async function migrateWeapons(){
 		try{
 			weaponData = await axios.get(`http://www.dnd5eapi.co/api/equipment/${i}`);
 			weaponData = weaponData.data;
+			console.log(weaponData);
 			weaponData = {
 				name: weaponData.name,
 				equipment_category: weaponData.equipment_category ? weaponData.equipment_category : null,
@@ -32,16 +33,11 @@ async function migrateWeapons(){
 			console.error(e)
 		}finally {
 			const postData = {name: weaponData.name, category: weaponData.equipment_category, data: JSON.stringify(weaponData)}
-			try{
 				await axios({
 					method: 'post',
 					url: 'https://ancient-harbor-23567.herokuapp.com/weapons',
 					data: postData,
-
 				})
-			}catch (e) {
-				console.log(e);
-			}
 		}
 	}
 	console.log('Finished');
