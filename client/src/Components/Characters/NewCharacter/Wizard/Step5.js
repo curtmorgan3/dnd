@@ -62,7 +62,7 @@ export default class Step5 extends React.Component {
 					gear_category: weaponData.gear_category,
 					damageDiceType: weaponData.damageDiceType,
 					damageDiceNum: weaponData.damageDiceNum,
-					damageType: weaponData.damage_type,
+					damageType: weaponData.damageType,
 					armorType: weaponData.armorType,
 					armorDexBonus: weaponData.armorDexBonus,
 					armorStrMin: weaponData.armorStrMin,

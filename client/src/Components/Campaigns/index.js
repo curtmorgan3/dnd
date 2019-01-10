@@ -7,7 +7,7 @@ export default function Campaigns(props){
 	return(
 		<div className='campaign-wrapper'>
 			<Link to='/campaigns/new'>Start a New Campaign</Link>
-			<div>
+			<div className='campaign-each-wrapper'>
 				{userCampaigns ?
 					userCampaigns.map(campaign => (
 					<div key={campaign.id} className='campaign-unique'>

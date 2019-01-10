@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormControl, Button } from 'react-bootstrap';
 import { postNewCampaign } from '../../../api-helpers.js';
+import './stylesheet.css';
 
 export default class NewCampaign extends React.Component{
 	constructor(props){
@@ -31,7 +32,7 @@ export default class NewCampaign extends React.Component{
 
 	render(){
 		return(
-			<div>
+			<div className='new-campaign-wrapper'>
 				<form>
 					<FormControl
 						type='text'

@@ -1,8 +1,12 @@
 
 .character-sheet{
 	display: grid;
-	grid-template-columns: 10vw 25vw 30vw 30vw;
+	/* grid-template-columns: 10vw 25vw 30vw 30vw; */
 	grid-template-rows: 100px 200px 200px 200px 200px;
+	grid-template-columns: 10vw 25vw 30vw 30vw;
+	/* height: 100vh; */
+	background-color: lightgrey;
+	overflow: scroll;
 }
 .sheet-buttons{
 	grid-row: 1;
@@ -68,8 +72,10 @@
 .sheet-defense-stats{
 	grid-column: 3;
 	grid-row: 2;
-	display: block;
+	display: flex;
+	flex-direction: column;
 }
+
 .sheet-ac-speed {
 	display: flex;
 	justify-content: space-around;
@@ -80,9 +86,13 @@
 	grid-column: 3;
 	grid-row: 3;
 }
+.sheet-weapons-table{
+	display: flex;
+	justify-content: space-around;
+}
 .sheet-items {
 	grid-column: 3;
-	grid-row: 4 / span 5;
+	grid-row: 4 / span 2;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -91,7 +101,11 @@
 	grid-column: 3;
 	grid-row: 4;
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	margin: 15px;
+	width: 100%;
+	overflow: scroll;
 }
 .sheet-currency > *{
 	margin: 0 5px 0 5px;
@@ -101,6 +115,8 @@
 	grid-row: 4 /span 5;
 	display: flex;
 	flex-direction: column;
+	width: 100%;
+	overflow: scroll;
 }
 .sheet-equipped-weapon {
 	display: flex;
@@ -135,7 +151,7 @@
 }
 .sheet-skills {
 	grid-column: 2;
-	grid-row: 3;
+	grid-row: 3 / span 5;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -153,7 +169,7 @@
 }
 .sheet-passive{
 	grid-column: 1;
-	grid-row: 4 /span 5;
+	grid-row: 5;
 	display: flex;
 	flex-direction: column;
 }
@@ -174,7 +190,7 @@
 }
 .sheet-feats-traits{
 	grid-column: 4;
-	grid-row: 4 /span 5;
+	grid-row: 4 /span 2;
 	display: flex;
 	flex-direction: column;
 	border: 1px solid black;

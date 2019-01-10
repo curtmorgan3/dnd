@@ -71,7 +71,6 @@ export default class CharacterSheet extends React.Component {
 	async componentDidMount(){
 		const characterData = await getCharacterData(this.props.match.params.id);
 		const characterStats = JSON.parse(characterData.data);
-		console.log(characterStats);
 		this.setState({
 			name: characterData.name,
 			level: characterData.level,
@@ -511,21 +510,19 @@ export default class CharacterSheet extends React.Component {
 				</div>
 				<div className='sheet-weapons'>
 					<h4>Weapons</h4>
-						<table>
-							<tr>
-								<th>Name</th>
-								<th>Attack Bonus</th>
-								<th>Damage Type</th>
-								<th>Worth</th>
-							</tr>
-						</table>
+						<div className='sheet-weapons-table'>
+							<p>Name</p>
+							<p>Attack Bonus</p>
+							<p>Damage Type</p>
+							<p>Worth</p>
+						</div>
 							{this.state.weapons.length > 0 ?
 								this.state.weapons.map(weapon => (
 									<div key={weapon.id} className='sheet-equipped-weapon'>
 										<p>{weapon.name}</p>
-										<p>{weapon.damage}</p>
+										<p>{weapon.damageDiceNum}d{weapon.damageDiceType}</p>
 										<p>{weapon.damageType}</p>
-										<p>{weapon.worth}</p>
+										<p>{weapon.worthNum}{weapon.worthType}</p>
 										<button value={weapon.id} onClick={this.handleAttack}>Attack</button>
 										<button value={weapon.id} onClick={this.handleUnequip}>Unequip</button>
 									</div>

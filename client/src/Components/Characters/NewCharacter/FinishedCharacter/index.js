@@ -150,7 +150,10 @@ export default class FinishedCharacter extends React.Component{
 					<button onClick={this.saveCharacter}>Save Character</button>
 				</div>
 				<div className='pedigree'>
-					<p id='pedigree-name'>Character Name: {this.state.name}</p>
+					<div id='pedigree-name'>
+						<p>Character Name: {this.state.name}</p>
+						<h5>This is only a snapshot of {this.state.name}. Save to view full character sheet</h5>
+					</div>
 					<div id='pedigree-other1'>
 						<p>Class: {this.state.clas}</p>
 						<p>Level: {this.state.level}</p>
@@ -190,8 +193,6 @@ export default class FinishedCharacter extends React.Component{
 					</div>
 				</div>
 				<div className='saving-throws'>
-					<p>Inspiration: {this.state.inspiration}</p>
-					<p>Proficiency Bonus: {this.state.proficiencyBonus}</p>
 					<h4>Saving Throws</h4>
 					<div>
 						{this.state.savingThrows.includes('str') ? <p>Yes</p> : <p>No</p>}

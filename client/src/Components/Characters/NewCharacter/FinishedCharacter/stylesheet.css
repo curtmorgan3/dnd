@@ -1,14 +1,17 @@
 
-.new-character-confirm-buttons{
-	grid-row: 1;
-	grid-column: 1;
-}
 .new-character-confirm{
 	display: grid;
 	grid-template-columns: 10vw 25vw 30vw 30vw;
 	grid-template-rows: 100px 200px 200px 200px 200px;
+	background-color: rgba(201, 196, 196, 0.7);
+	background-position: center;
+	height: 100vh;
 }
+.new-character-confirm-buttons{
+	grid-row: 1;
+	grid-column: 1;
 
+}
 .pedigree{
 	border: 1px solid black;
 	box-sizing: border-box;
@@ -24,6 +27,7 @@
 	grid-column: 1;
 	grid-row: 1 / span 2;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
@@ -62,7 +66,7 @@
 }
 .abilities {
 	grid-column: 1;
-	grid-row: 2 / span 5;
+	grid-row: 2 / span 2;
 	flex-direction: column;
 }
 
@@ -100,10 +104,11 @@
 
 .skills {
 	grid-column: 2;
-	grid-row: 3;
+	grid-row: 3 / span 2;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	overflow: scroll;
 }
 
 .skill-box {
