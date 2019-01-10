@@ -26,6 +26,7 @@ export default class Login extends React.Component {
 			password: this.state.password
 		}};
 		try {
+			localStorage.removeItem('dnd_token');
 			const token = await axios.post('/user_token', data);
 			localStorage.setItem('dnd_token', token.data.jwt);
 			this.setState({
@@ -34,7 +35,7 @@ export default class Login extends React.Component {
 			})
 			this.props.logIn(token.data.jwt);
 		} catch (e) {
-			console.error(e);
+			window.alert('Incorrect Credentials');
 		}
 
 	}

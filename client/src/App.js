@@ -46,30 +46,41 @@ class App extends Component {
 					token,
 					characters,
 					campaigns,
-					currentUser
+					currentUser,
 				});
 			}
 		}
 	}
-	logIn(token){
-		this.setState({
-			token: token,
-			redirect: true
-		})
+	resetRedirect(){
 		this.setState({
 			redirect: false
 		})
 	}
 
-	signOut(){
+	async logIn(token){
+		let currentUser = {};
+		try{
+			currentUser = await getCurrentUser()
+		}catch(e){
+			console.error(e);
+		}finally{
+			await this.setState({
+				redirect: true,
+				token,
+				currentUser,
+			})
+		}
+		this.resetRedirect();
+	}
+
+	async signOut(){
 		localStorage.removeItem('dnd_token');
-		this.setState({
+		await this.setState({
 			token: '',
+			currentUser: {},
 			redirect: true
 		})
-		this.setState({
-			redirect: false
-		})
+		this.resetRedirect();
 	}
 
   render() {
