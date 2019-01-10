@@ -38,7 +38,8 @@ export async function findUser(username){
 	return characterData.data;
 }
 // Get campaigns owned by user
-export async function getUserCampaigns(token){
+export async function getUserCampaigns(){
+	const token = localStorage.getItem('dnd_token');
 	const campaignData = await axios({
 		method: 'get',
 		url: '/campaigns/mine',

@@ -9,7 +9,7 @@ export default class NewCampaign extends React.Component{
 		super(props);
 		this.state = {
 			name: '',
-			completed: false
+			completed: false,
 		}
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,7 +36,7 @@ export default class NewCampaign extends React.Component{
 			console.error(e)
 		}finally{
 			this.setState({
-				completed: true
+				completed: true,
 			})
 		}
 	};
@@ -45,7 +45,10 @@ export default class NewCampaign extends React.Component{
 		return(
 			<div className='new-campaign-wrapper'>
 				{this.state.completed ? (
-					<Redirect to='/campaigns' />
+					<Redirect to={{
+            pathname: '/campaigns',
+            state: { userCampaigns: this.state.userCampaigns }
+        }} />
 				) : (
 					<form>
 						<FormControl

@@ -87,20 +87,18 @@ class App extends Component {
     return (
 			<Router>
       	<div className="App">
-					{this.state.redirect ? (
+					{this.state.redirect ?(
 						<Redirect to='/' />
 					) : null }
 					<NavBar signOut={this.signOut} />
 					<Route exact path='/' render={props => (
 						<Landing currentUser={this.state.currentUser} />
 					)} />
-					<Route path='/login' render={props => (
+					<Route exact path='/login' render={props => (
 						<Login logIn={this.logIn}/>
 					)}/>
 					<Switch>
-						<Route exact path='/campaigns' render={props => (
-							<Campaigns campaigns={this.state.campaigns} />
-						)} />
+						<Route exact path='/campaigns' component={Campaigns} />
 						<Route path='/campaigns/new' component={NewCampaign} />
 						<Route path='/campaigns/:id/characters' component={CampaignCharacters} />
 						<Route path='/campaigns/:id/add' component={AddCampaignCharacters} />
