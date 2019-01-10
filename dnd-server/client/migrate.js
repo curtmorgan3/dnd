@@ -32,15 +32,16 @@ async function migrateWeapons(){
 			console.error(e)
 		}finally {
 			const postData = {name: weaponData.name, category: weaponData.equipment_category, data: JSON.stringify(weaponData)}
-			const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NDcwNTI2MDksInN1YiI6MSwidXNlcm5hbWUiOiJjdXJ0MTEyIn0.lzJpEsrCPBPsiTMUM1yFaLS_2BrlciKTtkl-joNM8Fo'
-			await axios({
-				method: 'post',
-				url: 'http://localhost:3001/weapons',
-				data: postData,
-				headers: {
-					'Authorization': `Bearer ${token}`
-				}
-			})
+			try{
+				await axios({
+					method: 'post',
+					url: 'https://ancient-harbor-23567.herokuapp.com/weapons',
+					data: postData,
+
+				})
+			}catch (e) {
+				console.log(e);
+			}
 		}
 	}
 	console.log('Finished');

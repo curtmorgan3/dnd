@@ -1,6 +1,5 @@
 class WeaponsController < ApplicationController
   before_action :set_weapon, only: [:show, :update, :destroy]
-	before_action :authenticate_user
 
   # GET /weapons
   def index
