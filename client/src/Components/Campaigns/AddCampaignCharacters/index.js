@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormControl, Button } from 'react-bootstrap';
 import { findUser, getAnyUserCharacters, addCharacterToCampaign } from '../../../api-helpers.js';
+import { Redirect } from 'react-router-dom';
 import './stylesheet.css';
 
 export default class AddCampaignCharacters extends React.Component{
@@ -9,7 +10,8 @@ export default class AddCampaignCharacters extends React.Component{
 		this.state = {
 			userToFind: {},
 			userCharacters: [],
-			username: ''
+			username: '',
+			finished: false
 		}
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -43,11 +45,15 @@ export default class AddCampaignCharacters extends React.Component{
 	}
 	async handleCharacterAdd(e){
 		await addCharacterToCampaign(this.props.match.params.id, e.target.value);
+		this.setState({
+			finished: true
+		})
 	}
 
 	render(){
 		return(
 			<div className='add-characters-to-campaign'>
+				{this.state.finished ? <Redirect to='/campaigns' /> : null}
 				<form>
 					<FormControl
 						type="text"

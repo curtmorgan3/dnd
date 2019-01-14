@@ -12,6 +12,10 @@
 	grid-row: 1;
 	grid-column: 1;
 }
+.sheet-attack-roll{
+	grid-row: 1;
+	grid-column: 1;
+}
 .sheet-pedigree{
 	border: 1px solid black;
 	box-sizing: border-box;
@@ -68,7 +72,10 @@
 	grid-row: 2 / span 5;
 	flex-direction: column;
 }
-
+.sheet-abilities > div:hover{
+	cursor: pointer;
+	color: #FFFFFF;
+}
 .sheet-defense-stats{
 	grid-column: 3;
 	grid-row: 2;
@@ -118,6 +125,10 @@
 	width: 100%;
 	overflow: scroll;
 }
+.sheet-add-equipment{
+	height: 100%;
+	width: 100%;
+}
 .sheet-equipped-weapon {
 	display: flex;
 	align-items: center;
@@ -159,6 +170,10 @@
 
 .sheet-skill-box {
 	display: flex;
+}
+.sheet-skill-box:hover{
+	cursor: pointer;
+	color: #FFFFFF;
 }
 .sheet-skill-box > *{
 	margin: 5px;

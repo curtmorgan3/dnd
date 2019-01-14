@@ -2,11 +2,13 @@ import React from 'react';
 import './stylesheet.css';
 import { getAbilityModifiers, getAC, getSpeed, getClassStats, getSkillModifiers, getStartingGold, getCharacterFeatures } from '../../../../dnd-helpers.js';
 import { postNewCharacter } from '../../../../api-helpers.js';
+import { Redirect } from 'react-router-dom';
 
 export default class FinishedCharacter extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
+			finished: false,
 			name: this.props.data.step1.name,
 			level: 1,
 			xp: 0,
@@ -140,12 +142,17 @@ export default class FinishedCharacter extends React.Component{
 				})
 			}
 			await postNewCharacter(stats);
+			this.setState({
+				finished: true
+			})
+			console.log(this.state.finished);
 		}
 	}
 
 	render(){
 		return(
 			<div className='new-character-confirm'>
+				{this.state.finished ? <Redirect to='/characters' /> : null}
 				<div className='new-character-confirm-buttons'>
 					<button onClick={this.saveCharacter}>Save Character</button>
 				</div>
