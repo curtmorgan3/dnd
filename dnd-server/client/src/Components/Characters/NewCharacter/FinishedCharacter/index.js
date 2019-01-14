@@ -98,6 +98,7 @@ export default class FinishedCharacter extends React.Component{
 		let features = [];
 		try{
 			features = await getCharacterFeatures(this.state.clas, this.state.level);
+			console.log(features);
 		}finally{
 			const stats = {
 				name: this.state.name,

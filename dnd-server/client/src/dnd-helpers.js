@@ -81,14 +81,14 @@ async function getCharacterFeatures(clas, level){
 			for (let i = 1; i<25; i++){
 				try{
 					const feat = await getFeat(i);
-					return feats.push(feat);
+					feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					return currentFeats.push(feat);
+					currentFeats.push(feat);
 				}else {
 					return null
 				}
@@ -98,13 +98,13 @@ async function getCharacterFeatures(clas, level){
 			for (let i = 25; i<71; i++){
 				try{
 					const feat = await getFeat(i);
-					return feats.push(feat);
+					feats.push(feat);
 				}catch (e){
 					console.error(e);
 				};
 				feats.map(feat => {
 					if(feat.level <= level){
-						return currentFeats.push(feat);
+						currentFeats.push(feat);
 					}else {
 						return null
 					}
@@ -115,14 +115,14 @@ async function getCharacterFeatures(clas, level){
 			for (let i = 71; i<100; i++){
 				try{
 					const feat = await getFeat(i);
-					return feats.push(feat);
+					feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					return currentFeats.push(feat);
+					currentFeats.push(feat);
 				}else {
 					return null
 				}
@@ -132,14 +132,14 @@ async function getCharacterFeatures(clas, level){
 			for (let i = 100; i<131; i++){
 				try{
 					const feat = await getFeat(i);
-					return feats.push(feat);
+					feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					return currentFeats.push(feat);
+					currentFeats.push(feat);
 				}else {
 					return null
 				}
@@ -149,14 +149,14 @@ async function getCharacterFeatures(clas, level){
 			for (let i = 131; i<160; i++){
 				try{
 					const feat = await getFeat(i);
-					return feats.push(feat);
+					feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					return currentFeats.push(feat);
+					currentFeats.push(feat);
 				}else {
 					return null
 				}
@@ -166,14 +166,14 @@ async function getCharacterFeatures(clas, level){
 			for (let i = 160; i<191; i++){
 				try{
 					const feat = await getFeat(i);
-					return feats.push(feat);
+					feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					return currentFeats.push(feat);
+					currentFeats.push(feat);
 				}else {
 					return null
 				}
@@ -183,14 +183,14 @@ async function getCharacterFeatures(clas, level){
 			for (let i = 191; i<220; i++){
 				try{
 					const feat = await getFeat(i);
-					return feats.push(feat);
+					feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					return currentFeats.push(feat);
+					currentFeats.push(feat);
 				}else {
 					return null
 				}
@@ -200,14 +200,14 @@ async function getCharacterFeatures(clas, level){
 			for (let i = 220; i<260; i++){
 				try{
 					const feat = await getFeat(i);
-					return feats.push(feat);
+					feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					return currentFeats.push(feat);
+					currentFeats.push(feat);
 				}else {
 					return null
 				}
@@ -217,14 +217,14 @@ async function getCharacterFeatures(clas, level){
 			for (let i = 260; i<303; i++){
 				try{
 					const feat = await getFeat(i);
-					return feats.push(feat);
+					feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					return currentFeats.push(feat);
+					currentFeats.push(feat);
 				}else {
 					return null
 				}
@@ -234,14 +234,14 @@ async function getCharacterFeatures(clas, level){
 			for (let i = 303; i<340; i++){
 				try{
 					const feat = await getFeat(i);
-					return feats.push(feat);
+					feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					return currentFeats.push(feat);
+					currentFeats.push(feat);
 				}else {
 					return null
 				}
@@ -251,14 +251,14 @@ async function getCharacterFeatures(clas, level){
 			for (let i = 340; i<400; i++){
 				try{
 					const feat = await getFeat(i);
-					return feats.push(feat);
+					feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					return currentFeats.push(feat);
+					currentFeats.push(feat);
 				}else {
 					return null
 				}
@@ -268,14 +268,14 @@ async function getCharacterFeatures(clas, level){
 			for (let i = 400; i<415; i++){
 				try{
 					const feat = await getFeat(i);
-					return feats.push(feat);
+					feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					return currentFeats.push(feat);
+					currentFeats.push(feat);
 				}else {
 					return null
 				}
