@@ -76,6 +76,19 @@ export async function postNewCampaign(data){
 	})
 };
 
+// Delete Camapaign
+export async function deleteCampaign(id){
+	const token = localStorage.getItem('dnd_token');
+	await axios({
+		method: 'delete',
+		url: `/campaigns/${id}`,
+		headers: {
+			'Authorization': `Bearer ${token}`
+		}
+	})
+	window.location.reload()
+};
+
 // Get campaign data
 export async function getCampaignData(id){
 	const token = localStorage.getItem('dnd_token');
@@ -163,6 +176,19 @@ export async function removeCharacterFromCampaign(campaign_id, character_id){
 			'Authorization': `Bearer ${token}`
 		}
 	});
+}
+
+// Delete Character
+export async function deleteCharacter(id){
+	const token = localStorage.getItem('dnd_token');
+	await axios({
+		method: 'delete',
+		url: `/characters/${id}`,
+		headers:{
+			'Authorization': `Bearer ${token}`
+		}
+	});
+	window.location.reload()
 }
 
 // Update character

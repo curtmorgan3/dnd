@@ -15,8 +15,6 @@ export default class Step2 extends React.Component{
 			wis: 0,
 			cha: 0,
 			finished: false,
-			started: false
-
 		}
 		this.selectStr = this.selectStr.bind(this);
 		this.selectDex = this.selectDex.bind(this);
@@ -26,23 +24,42 @@ export default class Step2 extends React.Component{
 		this.selectCha = this.selectCha.bind(this);
 	}
 
-	componentDidMount(){
-		if (this.state.abilityScores.length <= 1 && this.state.started){
-			this.setState({
-				finished: true
-			})
-			// console.log('finished');
-		}else{
-			// console.log('not finished');
-		}
-	}
+
 	rollForAbilities(){
 		const abilityScores = rollAbilities();
 		this.setState({
 			abilityScores
 		})
 	}
+	resetAbilities(){
+		let { abilityScores } = this.state;
+		let selectedScores = [this.state.str,this.state.dex,this.state.con,this.state.int,this.state.wis,this.state.cha];
+		selectedScores = selectedScores.filter(score => score !== 0);
+		selectedScores.map(score => abilityScores.push(score));
+		this.setState({
+			abilityScores,
+			str: 0,
+			dex: 0,
+			con: 0,
+			int: 0,
+			wis: 0,
+			cha: 0
+		})
+	}
 	selectStr(e){
+		if(this.state.str !== 0){
+			let { abilityScores } = this.state;
+			abilityScores.push(this.state.str);
+			this.setState({
+				abilityScores,
+				str: 0,
+				dex: this.state.dex,
+				con: this.state.con,
+				int: this.state.int,
+				wis: this.state.wis,
+				cha: this.state.cha
+			})
+		}
 		const length = this.state.abilityScores.length;
 		const newScores = this.state.abilityScores.filter(score => score !== e)
 		if (newScores.length !== length - 1){
@@ -53,10 +70,27 @@ export default class Step2 extends React.Component{
 		this.setState({
 			str: e,
 			abilityScores: newScores,
-			started: true
 		})
+		if (this.state.abilityScores.length){
+			this.setState({
+				finished: true
+			})
+		}
 	}
 	selectDex(e){
+		if(this.state.dex !== 0){
+			let { abilityScores } = this.state;
+			abilityScores.push(this.state.dex);
+			this.setState({
+				abilityScores,
+				str: this.state.str,
+				dex: 0,
+				con: this.state.con,
+				int: this.state.int,
+				wis: this.state.wis,
+				cha: this.state.cha
+			})
+		}
 		const length = this.state.abilityScores.length;
 		const newScores = this.state.abilityScores.filter(score => score !== e)
 		if (newScores.length !== length - 1){
@@ -67,10 +101,27 @@ export default class Step2 extends React.Component{
 		this.setState({
 			dex: e,
 			abilityScores: newScores,
-			started: true
 		})
+		if (this.state.abilityScores.length){
+			this.setState({
+				finished: true
+			})
+		}
 	}
 	selectCon(e){
+		if(this.state.con !== 0){
+			let { abilityScores } = this.state;
+			abilityScores.push(this.state.con);
+			this.setState({
+				abilityScores,
+				str: this.state.str,
+				dex: this.state.dex,
+				con: 0,
+				int: this.state.int,
+				wis: this.state.wis,
+				cha: this.state.cha
+			})
+		}
 		const length = this.state.abilityScores.length;
 		const newScores = this.state.abilityScores.filter(score => score !== e)
 		if (newScores.length !== length - 1){
@@ -81,10 +132,27 @@ export default class Step2 extends React.Component{
 		this.setState({
 			con: e,
 			abilityScores: newScores,
-			started: true
 		})
+		if (this.state.abilityScores.length){
+			this.setState({
+				finished: true
+			})
+		}
 	}
 	selectInt(e){
+		if(this.state.int !== 0){
+			let { abilityScores } = this.state;
+			abilityScores.push(this.state.int);
+			this.setState({
+				abilityScores,
+				str: this.state.str,
+				dex: this.state.dex,
+				con: this.state.con,
+				int: 0,
+				wis: this.state.wis,
+				cha: this.state.cha
+			})
+		}
 		const length = this.state.abilityScores.length;
 		const newScores = this.state.abilityScores.filter(score => score !== e)
 		if (newScores.length !== length - 1){
@@ -95,10 +163,27 @@ export default class Step2 extends React.Component{
 		this.setState({
 			int: e,
 			abilityScores: newScores,
-			started: true
 		})
+		if (this.state.abilityScores.length){
+			this.setState({
+				finished: true
+			})
+		}
 	}
 	selectWis(e){
+		if(this.state.wis !== 0){
+			let { abilityScores } = this.state;
+			abilityScores.push(this.state.wis);
+			this.setState({
+				abilityScores,
+				str: this.state.str,
+				dex: this.state.dex,
+				con: this.state.con,
+				int: this.state.int,
+				wis: 0,
+				cha: this.state.cha
+			})
+		}
 		const length = this.state.abilityScores.length;
 		const newScores = this.state.abilityScores.filter(score => score !== e)
 		if (newScores.length !== length - 1){
@@ -109,10 +194,27 @@ export default class Step2 extends React.Component{
 		this.setState({
 			wis: e,
 			abilityScores: newScores,
-			started: true
 		})
+		if (this.state.abilityScores.length){
+			this.setState({
+				finished: true
+			})
+		}
 	}
 	selectCha(e){
+		if(this.state.cha !== 0){
+			let { abilityScores } = this.state;
+			abilityScores.push(this.state.cha);
+			this.setState({
+				abilityScores,
+				str: this.state.str,
+				dex: this.state.dex,
+				con: this.state.con,
+				int: this.state.int,
+				wis: this.state.wis,
+				cha: 0
+			})
+		}
 		const length = this.state.abilityScores.length;
 		const newScores = this.state.abilityScores.filter(score => score !== e)
 		if (newScores.length !== length - 1){
@@ -123,8 +225,12 @@ export default class Step2 extends React.Component{
 		this.setState({
 			cha: e,
 			abilityScores: newScores,
-			started: true
 		})
+		if (this.state.abilityScores.length){
+			this.setState({
+				finished: true
+			})
+		}
 	}
 	nextStep(){
 		if (this.state.abilityScores.length > 0 ){
@@ -142,6 +248,7 @@ export default class Step2 extends React.Component{
 			this.props.nextStep();
 		}
 	};
+
 	render(){
 		return(
 			<div>
@@ -151,7 +258,9 @@ export default class Step2 extends React.Component{
 					<h4>{this.props.state.step1.clas}</h4>
 					{this.state.abilityScores.length < 1 && !this.state.finished ?
 						<button onClick={()=> this.rollForAbilities()}>Roll Abilities</button>
-						: null }
+						:
+						<button onClick={()=> this.resetAbilities()}>Reset</button>
+					 }
 				</div>
 				<div className='step2-ability-scores'>
 					{this.state.abilityScores.map((score, i) => (

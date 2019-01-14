@@ -24,7 +24,9 @@
 .user-character-unique > *:hover{
 	color: #FFFFFF;
 }
-
+.btn-success > a{
+	color: #FFFFFF;
+}
 .all-characters {
 	background-image: url('../../images/characters-bg.jpg');
 	background-repeat: no-repeat;

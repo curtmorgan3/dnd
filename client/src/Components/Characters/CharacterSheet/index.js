@@ -393,18 +393,20 @@ export default class CharacterSheet extends React.Component {
 					<button onClick={this.saveCharacter}>Save Character</button>
 					<p>You rolled a {this.state.roll.result} + {this.state.roll.mod} = {this.state.roll.total}</p>
 				</div>
-				{this.state.attack.result > 0 ?
-					<Alert className='sheet-attack-roll' onDismiss={()=>this.handleAlertDismiss()}
-						>You rolled a {this.state.attack.result} + {this.state.attack.mod} = {this.state.attack.total}
-						<button onClick={()=>this.rollDamage()}>Hit</button>
-						<button onClick={()=>this.handleAlertDismiss()}>Miss</button></Alert>
-				: null}
-				{this.state.attack.damage > 0 ?
-					<Alert className='sheet-attack-roll' onDismiss={()=>this.handleAlertDismiss()}
-						>{this.state.attack.weaponToAttack.name} used for {this.state.attack.damage} damage!
-						<button onClick={()=>this.handleAlertDismiss()}>Dismiss</button></Alert>
-				: null}
 				<div className='sheet-pedigree'>
+				<div className='sheet-banner'>
+					{this.state.attack.result > 0 ?
+						<Alert className='sheet-attack-roll' onDismiss={()=>this.handleAlertDismiss()}
+							>You rolled a {this.state.attack.result} + {this.state.attack.mod} = {this.state.attack.total}
+							<button className='sheet-alert-button' onClick={()=>this.rollDamage()}>Hit</button>
+							<button className='sheet-alert-button' onClick={()=>this.handleAlertDismiss()}>Miss</button></Alert>
+							: null}
+					{this.state.attack.damage > 0 ?
+						<Alert className='sheet-attack-roll' onDismiss={()=>this.handleAlertDismiss()}
+							>{this.state.attack.weaponToAttack.name} used for {this.state.attack.damage} damage!
+							<button className='sheet-alert-button' onClick={()=>this.handleAlertDismiss()}>Dismiss</button></Alert>
+					: null}
+				</div>
 					<p id='sheet-pedigree-name'>Character Name: {this.state.name}</p>
 					<div id='sheet-pedigree-other1'>
 						<p>Class: {this.state.clas}</p>
@@ -450,7 +452,11 @@ export default class CharacterSheet extends React.Component {
 					</div>
 				</div>
 				<div className='sheet-saving-throws'>
-					<p>Inspiration: {this.state.inspiration}</p>
+					<div className='sheet-inspiration'>
+						<span>Inspiration: {this.state.inspiration}</span>
+						<button onClick={()=> this.decrement('inspiration', 1)}>-</button>
+						<button onClick={()=> this.increment('inspiration', 1)}>+</button>
+					</div>
 					<p>Proficiency Bonus: {this.state.proficiencyBonus}</p>
 					<h4>Saving Throws</h4>
 					<div>
@@ -551,10 +557,10 @@ export default class CharacterSheet extends React.Component {
 				<div className='sheet-weapons'>
 					<h4>Weapons</h4>
 						<div className='sheet-weapons-table'>
-							<p>Name</p>
-							<p>Attack Bonus</p>
-							<p>Damage Type</p>
-							<p>Worth</p>
+							<p>Name |</p>
+							<p> Attack Bonus |</p>
+							<p> Damage Type |</p>
+							<p> Worth</p>
 						</div>
 							{this.state.weapons.length > 0 ?
 								this.state.weapons.map(weapon => (
