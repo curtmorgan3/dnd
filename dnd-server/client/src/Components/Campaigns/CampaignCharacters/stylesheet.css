@@ -28,6 +28,7 @@
 	min-height: 235px;
 	border: 1px solid white;
 	width: 25%;
+	min-width: 200px;
 }
 
 .campaign-characters-unique > *{
