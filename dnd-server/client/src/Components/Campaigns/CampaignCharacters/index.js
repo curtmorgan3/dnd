@@ -1,6 +1,7 @@
 import React from 'react';
 import { getCampaignData, getCampaignCharacters, removeCharacterFromCampaign } from '../../../api-helpers.js';
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 import './stylesheet.css';
 
 export default class CampaignCharacters extends React.Component {
@@ -41,7 +42,7 @@ export default class CampaignCharacters extends React.Component {
 	render(){
 		return(
 			<div className='campaign-characters-wrapper'>
-				<Link to={`/campaigns/${this.state.campaign.id}/add`}>Add Characters to Campaign</Link>
+				<Button bsStyle='success'><Link to={`/campaigns/${this.state.campaign.id}/add`}>Add Characters to Campaign</Link></Button>
 				<div className='campaign-characters-name'>
 					<h2>{this.state.campaign.name}</h2>
 				</div>
