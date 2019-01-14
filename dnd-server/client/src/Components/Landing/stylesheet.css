@@ -1,0 +1,18 @@
+.landing{
+	background-image: url('../../images/landing-background.jpg');
+	background-size: cover;
+	background-position: center;
+	height: 100vh;
+}
+.jumbotron{
+	background-color: rgba(255, 255, 255, 0);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	color: #FFFFFF;
+	text-shadow: 2px 2px 4px #000000;
+}
+
+.jumbotron > h4{
+	font-size: 2em;
+}

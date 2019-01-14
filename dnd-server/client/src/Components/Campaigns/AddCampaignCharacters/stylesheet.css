@@ -1,0 +1,35 @@
+.add-characters-to-campaign{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-image: url('../../../images/characters-bg.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 100vh;
+}
+.add-characters-to-campaign > form{
+	width: 25%;
+	margin-top: 15vh;
+}
+.add-characters-to-campaign > form > h4{
+	color: #FFFFFF;
+}
+.add-characters-character-wrapper {
+	display: flex;
+	flex-direction: column;
+	background-color: rgba(0,0,0,0.4);
+	margin: 10px 10px 10px 10px;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	border: 1px solid black;
+}
+.add-characters-character > *{
+	color: #FFFFFF;
+	font-size: 1.5em;
+}
+.add-characters-character > button {
+	color: black;
+}

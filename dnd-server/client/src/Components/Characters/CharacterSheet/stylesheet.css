@@ -1,0 +1,243 @@
+
+.character-sheet{
+	display: grid;
+	grid-template-rows: 100px 200px 200px 200px 200px;
+	grid-template-columns: 10vw 25vw 30vw 30vw;
+	background-color: lightgrey;
+	overflow: scroll;
+	font-size: 14px;
+}
+
+.sheet-buttons{
+	grid-row: 1;
+	grid-column: 1 /span 2;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.sheet-attack-roll{
+	grid-row: 1;
+	grid-column: 1;
+}
+.sheet-pedigree{
+	border: 1px solid black;
+	box-sizing: border-box;
+	grid-row: 1;
+	grid-column: 1 / span 4;
+	display: grid;
+	grid-template-rows: 50% 50%;
+	grid-template-columns: 50% 50%;
+	justify-content: center;
+}
+.sheet-banner {
+	grid-row: 1 / span 2;
+	grid-column: 1 / span 2;
+	z-index: 1;
+}
+.sheet-banner > *{
+	margin: 0;
+}
+.sheet-alert-button{
+	margin: 0 5px 0 5px;
+}
+#sheet-pedigree-name {
+	grid-column: 1;
+	grid-row: 1 / span 2;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+#sheet-pedigree-other1 {
+	grid-column: 2;
+	grid-row: 1;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+#sheet-pedigree-other2 {
+	grid-column: 2;
+	grid-row: 2;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+#sheet-xp {
+	display: flex;
+}
+.sheet-character-traits{
+	grid-column: 4;
+	grid-row: 2 / span 2;
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.sheet-character-traits > *{
+	width: 70%;
+	height: 125px;
+	overflow: scroll;
+	margin-bottom: 10px;
+}
+.sheet-abilities {
+	grid-column: 1;
+	grid-row: 2 / span 5;
+	flex-direction: column;
+}
+.sheet-abilities > div:hover{
+	cursor: pointer;
+	color: #FFFFFF;
+}
+.sheet-defense-stats{
+	grid-column: 3;
+	grid-row: 2;
+	display: flex;
+	flex-direction: column;
+}
+
+.sheet-ac-speed {
+	display: flex;
+	justify-content: space-around;
+}
+
+.sheet-weapons{
+	border: 1px solid black;
+	grid-column: 3;
+	grid-row: 3;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.sheet-weapons-table{
+	display: flex;
+	justify-content: space-around;
+}
+.sheet-equipped-weapon {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	width: 100%;
+}
+.sheet-equipped-weapon > *{
+	margin: 0 5px 0 5px;
+}
+.sheet-items {
+	grid-column: 3;
+	grid-row: 4 / span 2;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.sheet-currency{
+	grid-column: 3;
+	grid-row: 4;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 15px;
+	width: 100%;
+	overflow: scroll;
+}
+.sheet-currency > *{
+	margin: 0 5px 0 5px;
+}
+.sheet-equipment{
+	grid-column: 3;
+	grid-row: 4 /span 5;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	overflow: scroll;
+}
+.sheet-add-equipment{
+	height: 100%;
+	width: 100%;
+}
+
+.sheet-hitDie-throws {
+	display: flex;
+	justify-content: space-around;
+}
+
+.sheet-saving-throws {
+	grid-column: 2;
+	grid-row: 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.sheet-saving-throws > *{
+	display: flex;
+	margin: 5px;
+	justify-content: space-around;
+}
+.sheet-saving-throws > div >p:hover{
+	cursor: pointer;
+	color: #FFFFFF;
+}
+.sheet-inspiration{
+	height: 75px;
+}
+.sheet-saving-throws > div > *{
+	margin: 0 5px 0 5px;
+}
+.sheet-death-throws {
+	display: flex;
+}
+.sheet-skills {
+	grid-column: 2;
+	grid-row: 3 / span 5;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.sheet-skill-box {
+	display: flex;
+}
+.sheet-skill-box:hover{
+	cursor: pointer;
+	color: #FFFFFF;
+}
+.sheet-skill-box > *{
+	margin: 5px;
+}
+.sheet-hit-points{
+	display: flex;
+	justify-content: space-between;
+}
+.sheet-passive{
+	grid-column: 1;
+	grid-row: 5;
+	display: flex;
+	flex-direction: column;
+}
+.sheet-languages{
+	grid-column: 1;
+	grid-row: 5;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.sheet-passive-wisdom{
+	grid-column: 1;
+	grid-row: 5;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.sheet-feats-traits{
+	grid-column: 4;
+	grid-row: 4 /span 2;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid black;
+	box-sizing: border-box;
+}
