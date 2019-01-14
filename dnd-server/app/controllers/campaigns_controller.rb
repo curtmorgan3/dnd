@@ -48,6 +48,13 @@ class CampaignsController < ApplicationController
 		@campaign.characters << @character
 	end
 
+	def remove_character
+		@campaign = Campaign.find(params[:id])
+		@character = @campaign.characters.find(params[:character_id])
+
+		@campaign.characters.delete@character
+	end
+
   # PATCH/PUT /campaigns/1
   def update
     if @campaign.update(campaign_params)

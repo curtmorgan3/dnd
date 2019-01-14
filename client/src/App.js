@@ -3,7 +3,6 @@ import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import { getUserCharacters, getUserCampaigns, getCurrentUser } from './api-helpers.js';
 import NavBar from './Components/NavBar';
 import Landing from './Components/Landing';
-import Register from './Components/Register';
 import Login from './Components/Login';
 import Characters from './Components/Characters';
 import NewCharacter from './Components/Characters/NewCharacter';

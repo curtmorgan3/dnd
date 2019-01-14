@@ -81,195 +81,208 @@ async function getCharacterFeatures(clas, level){
 			for (let i = 1; i<25; i++){
 				try{
 					const feat = await getFeat(i);
-					feats.push(feat);
+					return feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					currentFeats.push(feat);
+					return currentFeats.push(feat);
+				}else {
+					return null
 				}
 			})
-			return currentFeats;
-		break;
+		return currentFeats;
 		case 'bard':
 			for (let i = 25; i<71; i++){
 				try{
 					const feat = await getFeat(i);
-					feats.push(feat);
+					return feats.push(feat);
 				}catch (e){
 					console.error(e);
 				};
 				feats.map(feat => {
 					if(feat.level <= level){
-						currentFeats.push(feat);
+						return currentFeats.push(feat);
+					}else {
+						return null
 					}
 				})
 			};
-			return currentFeats;
-		break;
+		return currentFeats;
 		case 'cleric':
 			for (let i = 71; i<100; i++){
 				try{
 					const feat = await getFeat(i);
-					feats.push(feat);
+					return feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					currentFeats.push(feat);
+					return currentFeats.push(feat);
+				}else {
+					return null
 				}
 			})
-			return currentFeats;
-		break;
+		return currentFeats;
 		case 'druid':
 			for (let i = 100; i<131; i++){
 				try{
 					const feat = await getFeat(i);
-					feats.push(feat);
+					return feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					currentFeats.push(feat);
+					return currentFeats.push(feat);
+				}else {
+					return null
 				}
 			})
-			return currentFeats;
-		break;
+		return currentFeats;
 		case 'fighter':
 			for (let i = 131; i<160; i++){
 				try{
 					const feat = await getFeat(i);
-					feats.push(feat);
+					return feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					currentFeats.push(feat);
+					return currentFeats.push(feat);
+				}else {
+					return null
 				}
 			})
-			return currentFeats;
-			break;
+		return currentFeats;
 		case 'monk':
 			for (let i = 160; i<191; i++){
 				try{
 					const feat = await getFeat(i);
-					feats.push(feat);
+					return feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					currentFeats.push(feat);
+					return currentFeats.push(feat);
+				}else {
+					return null
 				}
 			})
-			return currentFeats;
-		break;
+		return currentFeats;
 		case 'paladin':
 			for (let i = 191; i<220; i++){
 				try{
 					const feat = await getFeat(i);
-					feats.push(feat);
+					return feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					currentFeats.push(feat);
+					return currentFeats.push(feat);
+				}else {
+					return null
 				}
 			})
-			return currentFeats;
-		break;
+		return currentFeats;
 		case 'ranger':
 			for (let i = 220; i<260; i++){
 				try{
 					const feat = await getFeat(i);
-					feats.push(feat);
+					return feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					currentFeats.push(feat);
+					return currentFeats.push(feat);
+				}else {
+					return null
 				}
 			})
-			return currentFeats;
-		break;
+		return currentFeats;
 		case 'rogue':
 			for (let i = 260; i<303; i++){
 				try{
 					const feat = await getFeat(i);
-					feats.push(feat);
+					return feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					currentFeats.push(feat);
+					return currentFeats.push(feat);
+				}else {
+					return null
 				}
 			})
-			return currentFeats;
-		break;
+		return currentFeats;
 		case 'sorcerer':
 			for (let i = 303; i<340; i++){
 				try{
 					const feat = await getFeat(i);
-					feats.push(feat);
+					return feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					currentFeats.push(feat);
+					return currentFeats.push(feat);
+				}else {
+					return null
 				}
 			})
-			return currentFeats;
-		break;
+		return currentFeats;
 		case 'warlock':
 			for (let i = 340; i<400; i++){
 				try{
 					const feat = await getFeat(i);
-					feats.push(feat);
+					return feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					currentFeats.push(feat);
+					return currentFeats.push(feat);
+				}else {
+					return null
 				}
 			})
-			return currentFeats;
-		break;
+		return currentFeats;
 		case 'wizard':
 			for (let i = 400; i<415; i++){
 				try{
 					const feat = await getFeat(i);
-					feats.push(feat);
+					return feats.push(feat);
 				}catch (e){
 					console.error(e);
 				}
 			};
 			feats.map(feat => {
 				if(feat.level <= level){
-					currentFeats.push(feat);
+					return currentFeats.push(feat);
+				}else {
+					return null
 				}
 			})
-			return currentFeats;
-		break;
-
+		return currentFeats;
+		default :
+		return null
 	}
 }
 

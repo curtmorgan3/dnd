@@ -28,8 +28,7 @@ export default class AddCampaignCharacters extends React.Component{
 		let user = {};
 		let characters = [];
 		try{
-			user = await findUser(this.state.username);
-			console.log(user);
+			user = await findUser(this.state.username.toLowerCase());
 			this.setState({
 				userToFind: user[0]
 			})
@@ -64,7 +63,6 @@ export default class AddCampaignCharacters extends React.Component{
 						/>
 					<Button onClick={this.handleSubmit} bsStyle="primary">Search</Button>
 					{Object.keys(this.state.userToFind).includes('username') ? <h4>{this.state.userToFind.username}'s characters</h4> : null}
-
 				</form>
 				{this.state.userCharacters.length > 0 ? (
 					<div className='add-characters-character-wrapper'>

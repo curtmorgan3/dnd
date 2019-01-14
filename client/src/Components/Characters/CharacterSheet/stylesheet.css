@@ -154,6 +154,10 @@
 	margin: 5px;
 	justify-content: space-around;
 }
+.sheet-saving-throws > div >p:hover{
+	cursor: pointer;
+	color: #FFFFFF;
+}
 .sheet-saving-throws > div > *{
 	margin: 0 5px 0 5px;
 }

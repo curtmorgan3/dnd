@@ -1,5 +1,4 @@
 import React from 'react';
-import {FormGroup, DropdownButton, MenuItem} from 'react-bootstrap';
 import { getClassStats } from '../../../../dnd-helpers.js';
 import { getEquipmentById } from '../../../../api-helpers.js';
 

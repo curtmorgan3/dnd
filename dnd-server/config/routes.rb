@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post 'user_token' => 'user_token#create'
 	get 'campaigns/:id/characters' => 'campaigns#characters'
 	post 'campaigns/:id/characters/:character_id' => 'campaigns#add_character'
+	put 'campaigns/:id/characters/:character_id' => 'campaigns#remove_character'
 	get 'users/find/:username' => 'users#find'
 	get 'users/:id/characters' => 'users#get_characters'
 	get 'users/current' => 'users#current'

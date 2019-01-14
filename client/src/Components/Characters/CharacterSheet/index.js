@@ -170,6 +170,8 @@ export default class CharacterSheet extends React.Component {
 				currency: {'cp': this.state.currency.cp, 'sp': this.state.currency.sp, 'ep': this.state.currency.ep, 'gp': this.state.currency.gp, 'pp': moneyValue}
 			})
 			break;
+			default :
+			return null
 		}
 	};
 
@@ -215,6 +217,8 @@ export default class CharacterSheet extends React.Component {
 				currency: {'cp': this.state.currency.cp, 'sp': this.state.currency.sp, 'ep': this.state.currency.ep, 'gp': this.state.currency.gp, 'pp': moneyValue}
 			})
 			break;
+			default:
+			return null
 		}
 	};
 
@@ -616,7 +620,7 @@ export default class CharacterSheet extends React.Component {
 						<div className='sheet-add-equipment'>
 							<h4>Equipment</h4>
 							<button>Add Equipment</button>
-						</div>	
+						</div>
 						{this.state.equipment.map(piece => (
 							<div className='sheet-equipment-piece'>
 								<h6>{piece.name}</h6>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { getCampaignData, getCampaignCharacters } from '../../../api-helpers.js';
+import { getCampaignData, getCampaignCharacters, removeCharacterFromCampaign } from '../../../api-helpers.js';
 import { Link } from 'react-router-dom';
 import './stylesheet.css';
 
@@ -28,6 +28,16 @@ export default class CampaignCharacters extends React.Component {
 		}
 	}
 
+	async removeCharacter(id){
+		console.log(id);
+		let { characters } = this.state;
+		characters = characters.filter(character => character.id !== id);
+		await removeCharacterFromCampaign(this.state.campaign.id, id)
+		this.setState({
+			characters
+		})
+	}
+
 	render(){
 		return(
 			<div className='campaign-characters-wrapper'>
@@ -44,6 +54,7 @@ export default class CampaignCharacters extends React.Component {
 								<p>{character.clas.toUpperCase()}</p>
 								<p>HP: {character.stats.hp}</p>
 								<p>XP: {character.stats.xp}</p>
+								<button onClick={()=>this.removeCharacter(character.id)}>Remove Character from Campaign</button>
 							</div>
 						)) : null}
 				</div>

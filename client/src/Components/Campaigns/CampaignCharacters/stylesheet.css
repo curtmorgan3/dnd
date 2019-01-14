@@ -12,9 +12,13 @@
 	color: #FFFFFF;
 	font-size: 1.5em;
 }
+.campaign-characters-characters {
+	display: flex;
+
+}
 .campaign-characters-unique{
 	display: flex;
-	/* flex-direction: column; */
+	flex-direction: column;
 	background-color: rgba(0,0,0,0.8);
 	margin: 10px 10px 10px 10px;
 	align-items: center;
@@ -28,6 +32,9 @@
 	margin: 10px 10px 10px 10px;
 	color: #FFFFFF;
 	font-size: 1.5em;
+}
+.campaign-characters-unique > button{
+	color: black;
 }
 .campaign-characters-name {
 	margin: 10px 10px 10px 10px;

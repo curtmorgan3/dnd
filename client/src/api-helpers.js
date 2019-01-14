@@ -102,18 +102,16 @@ export async function getCampaignCharacters(id){
 	const data = campaignCharacterData.data;
 	let characters = [];
 	data.map(character => {
-		console.log(character);
 		const stats = JSON.parse(character.data)
-		console.log('stats', stats);
 		const char = {
 			name: character.name,
 			level: character.level,
 			clas: character.clas,
+			id: character.id,
 			stats: stats
 		};
-		characters.push(char);
+		return characters.push(char);
 	})
-	console.log(characters);
 	return characters
 }
 
@@ -148,6 +146,18 @@ export async function addCharacterToCampaign(campaign_id, character_id){
 	const token = localStorage.getItem('dnd_token');
 	await axios({
 		method: 'post',
+		url: `/campaigns/${campaign_id}/characters/${character_id}`,
+		headers: {
+			'Authorization': `Bearer ${token}`
+		}
+	});
+}
+
+// Remove a Character from a Campaign
+export async function removeCharacterFromCampaign(campaign_id, character_id){
+	const token = localStorage.getItem('dnd_token');
+	await axios({
+		method: 'put',
 		url: `/campaigns/${campaign_id}/characters/${character_id}`,
 		headers: {
 			'Authorization': `Bearer ${token}`
