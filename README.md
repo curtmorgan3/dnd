@@ -1,6 +1,6 @@
 # Table Top Companion
 
-![Cones of Dunshire](https://media.giphy.com/media/11fiAsa3QmtCQo/giphy.gif)
+![Table Top Companion](./images/register-screen.png)
 
 For too long, the pen and paper aspect of pen and paper games has been a hinderance and a burden.
 It's 2019, let's finally use computers for something useful.
@@ -13,11 +13,23 @@ instead of relying on heavy books, tons of paper and Google searches.
 Sign up for an account with a username and email address. From there, let the TTC guide you through making a
 D&D character. No need to look up the rules or have dice handy, it will take care of the business so you can focus on the creative aspect of character creation.
 
-Want to start a game? Create a new campaign and invite your friends to play through invite links sent directly from the TTC. Once they've joined, you'll be able to view their characters.
+![Table Top Companion](./images/wizard-1.png)
 
-When it's time to host a session, bring your tablets and laptops along. Check into a campaign through the TTC and everyone will have access to each other. The DM can randomly generate NPCs, attack players, add buffs or debuffs, handle transactions, or quickly refer to the game's rules.
+![Table Top Companion](./images/wizard-2.png)
 
-Players can attack other players or NPCs, removing the need to roll dice and do math, buy items from shops and check references or character details.
+![Table Top Companion](./images/character-screen.png)
+
+
+Want to start a game? Create a new campaign and invite your friend's characters into the game. Once they've joined, you'll be able to view their important details from one screen.
+
+![Table Top Companion](./images/campaign-screen.png)
+
+When it's time to host a session, bring your tablets and laptops along. Update the character sheet live without all of the rolling and erasing. Roll checks that automatically add the right modifiers, and roll attacks that calculate damage.
+
+![Table Top Companion](./images/attack-screen.png)
+
+![Table Top Companion](./images/character-sheet.png)
+
 
 # Wireframes
 Landing / Register : https://wireframe.cc/N87blU
@@ -40,7 +52,7 @@ A user can use the app as a character tracker, with automated services for in ga
 		2. Attribute modifiers
 		3. Armor class, initiative, speed
 		4. MaxHP
-		5. Saving throws 
+		5. Saving throws
 		6. Starting equipment
 
 He can **edit** a character, which will update the database.
